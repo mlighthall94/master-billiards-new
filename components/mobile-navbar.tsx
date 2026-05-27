@@ -93,7 +93,7 @@ export function MobileNavbar() {
 
       {/* Phone banner */}
       <div className="bg-primary text-primary-foreground">
-        <div className="max-w-lg mx-auto px-4 sm:px-6 py-2">
+        <div className="max-w-lg mx-auto px-4 sm:px-6 py-1.5">
           <a 
             href="tel:+16032315345" 
             className="flex items-center justify-center gap-2 text-base font-semibold tracking-wide"
