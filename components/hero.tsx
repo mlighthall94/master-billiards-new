@@ -1,147 +1,44 @@
-"use client"
-
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import useEmblaCarousel from "embla-carousel-react"
-import Autoplay from "embla-carousel-autoplay"
-import { useCallback, useEffect, useState } from "react"
 import { Star } from "lucide-react"
-
-const slides = [
-  {
-    image: "/images/hero-team.png",
-    alt: "Master Billiards team member in workshop",
-    label: "Google Reviews",
-    headline: "5.0 Stars on Google",
-    isReview: true,
-  },
-  {
-    image: "/images/hero-2.jpg",
-    alt: "Game room with pool tables",
-    label: "Game Rooms",
-    headline: "Premium Pool Table Services",
-    isReview: false,
-  },
-  {
-    image: "/images/hero.png",
-    alt: "Craftsman upholstering furniture",
-    label: "Custom Upholstery",
-    headline: "Expert Craftsmanship for Your Furniture",
-    isReview: false,
-  },
-]
+import { Button } from "@/components/ui/button"
 
 export function Hero() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
-  ])
-  const [selectedIndex, setSelectedIndex] = useState(0)
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-  }, [emblaApi])
-
-  useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    emblaApi.on("select", onSelect)
-    return () => {
-      emblaApi.off("select", onSelect)
-    }
-  }, [emblaApi, onSelect])
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index)
-    },
-    [emblaApi]
-  )
-
-  const currentSlide = slides[selectedIndex]
-
   return (
     <section className="w-full">
-      {/* Slider container */}
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
-          {slides.map((slide, index) => (
-            <div key={index} className="relative flex-[0_0_100%] min-w-0">
-              <div className="relative h-64 sm:h-80 w-full overflow-hidden">
-                <Image
-                  src={slide.image}
-                  alt={slide.alt}
-                  fill
-                  className={`object-cover ${
-                    index === 0 ? "object-top scale-100" : "object-center scale-110"
-                  }`}
-                  priority={index === 0}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="relative h-56 sm:h-72 w-full overflow-hidden">
+        <Image
+          src="/images/hero-2.jpg"
+          alt="Game room with pool tables"
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
-      {/* Clean CTA section below image */}
-      <div className="bg-primary text-primary-foreground">
-        <div className="px-5 py-6">
-          {currentSlide.isReview ? (
-            <>
-              <div className="flex items-center gap-1 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
-                <span className="text-xs text-primary-foreground/70 ml-2">50+ Reviews</span>
-              </div>
-              <h1 className="text-xl font-semibold leading-snug text-balance">
-                {currentSlide.headline}
-              </h1>
-              <p className="text-sm text-primary-foreground/80 mt-1">
-                Trusted by homeowners across Southern NH
-              </p>
-            </>
-          ) : (
-            <>
-              <p className="text-xs uppercase tracking-widest text-primary-foreground/70 mb-2">
-                {currentSlide.label}
-              </p>
-              <h1 className="text-xl font-semibold leading-snug text-balance">
-                {currentSlide.headline}
-              </h1>
-            </>
-          )}
-          
-          {/* Dots indicator */}
-          <div className="flex gap-2 mt-4">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollTo(index)}
-                className={`h-1.5 rounded-full transition-all ${
-                  index === selectedIndex
-                    ? "w-6 bg-primary-foreground"
-                    : "w-1.5 bg-primary-foreground/40"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          <Button
-            asChild
-            variant="outline"
-            className="mt-4 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-          >
-            {currentSlide.isReview ? (
-              <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK" target="_blank" rel="noopener noreferrer">
-                Leave a Review
-              </a>
-            ) : (
-              <a href="#contact">Get a Free Quote</a>
-            )}
-          </Button>
+      <div className="bg-primary text-primary-foreground px-4 py-5">
+        <div className="flex items-center gap-1 mb-3">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+          ))}
+          <span className="text-xs text-primary-foreground/70 ml-1">5.0 on Google</span>
         </div>
+        
+        <h1 className="text-xl font-semibold leading-tight">
+          Pool Table Services in Southern NH
+        </h1>
+        
+        <p className="text-sm text-primary-foreground/80 mt-2">
+          Moving, recovery, repairs. Done right.
+        </p>
+
+        <Button
+          asChild
+          variant="outline"
+          size="lg"
+          className="mt-4 w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+        >
+          <a href="tel:+16032315345">Call 603-231-5345</a>
+        </Button>
       </div>
     </section>
   )
