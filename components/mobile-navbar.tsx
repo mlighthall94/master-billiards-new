@@ -50,7 +50,7 @@ export function MobileNavbar() {
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
             >
-              {isOpen ? <X className="h-7 w-7 stroke-[2.5]" /> : <Menu className="h-7 w-7 stroke-[2.5]" />}
+              {isOpen ? <X className="h-7 w-7 stroke-[3]" /> : <Menu className="h-7 w-7 stroke-[3]" />}
             </button>
           </div>
 
