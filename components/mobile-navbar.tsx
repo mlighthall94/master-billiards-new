@@ -46,7 +46,7 @@ export function MobileNavbar() {
               {/* Mobile menu button - positioned absolutely on the right */}
               <button
                 type="button"
-                className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground z-50"
+                className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground z-[70]"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isOpen}
@@ -74,7 +74,7 @@ export function MobileNavbar() {
       {/* Slide-out mobile menu */}
       <div
         className={cn(
-          "sm:hidden fixed inset-0 z-40 transition-opacity duration-300",
+          "sm:hidden fixed inset-0 z-[60] transition-opacity duration-300",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
