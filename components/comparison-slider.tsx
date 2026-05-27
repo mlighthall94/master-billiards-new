@@ -9,13 +9,13 @@ const slides = [
   {
     image: "/images/their-work.jpg",
     alt: "Poor quality pool table work with torn felt",
-    label: "Their Work",
+    label: "Them",
     description: "Sloppy cuts, exposed staples, torn fabric",
   },
   {
     image: "/images/our-work.jpg",
     alt: "Professional pool table work with clean finish",
-    label: "Our Work",
+    label: "Us",
     description: "Clean lines, professional finish, built to last",
   },
 ]
