@@ -8,22 +8,16 @@ import { useCallback, useEffect, useState } from "react"
 
 const slides = [
   {
-    image: "/images/hero-team.png",
-    alt: "Master Billiards team member in workshop",
-    label: "Meet the Team",
-    headline: "Family-Owned Craftsmanship Since Day One",
+    image: "/images/hero-2.jpg",
+    alt: "Game room with pool tables",
+    label: "Game Rooms",
+    headline: "Premium Pool Table Services",
   },
   {
     image: "/images/hero.png",
     alt: "Craftsman upholstering furniture",
     label: "Custom Upholstery",
     headline: "Expert Craftsmanship for Your Furniture",
-  },
-  {
-    image: "/images/hero-2.jpg",
-    alt: "Game room with pool tables",
-    label: "Game Rooms",
-    headline: "Premium Pool Table Services",
   },
 ]
 
