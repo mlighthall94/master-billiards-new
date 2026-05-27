@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Phone } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 
@@ -79,12 +79,13 @@ export function MobileNavbar() {
 
       {/* Phone banner */}
       <div className="bg-primary text-primary-foreground">
-        <div className="max-w-lg mx-auto px-4 sm:px-6 py-2 text-center">
+        <div className="max-w-lg mx-auto px-4 sm:px-6 py-2">
           <a 
-            href="tel:+1234567890" 
-            className="text-sm font-medium tracking-wide"
+            href="tel:+16032315345" 
+            className="flex items-center justify-center gap-2 text-sm font-medium tracking-wide"
           >
-            Call us: (123) 456-7890
+            <Phone className="h-4 w-4" />
+            603-231-5345
           </a>
         </div>
       </div>
