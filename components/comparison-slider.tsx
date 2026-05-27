@@ -48,12 +48,12 @@ export function ComparisonSlider() {
 
   return (
     <section className="w-full py-8 bg-background">
-      <div className="px-3 mb-4">
-        <h2 className="text-lg font-semibold text-foreground">
-          See the Difference
+      <div className="px-3 mb-6">
+        <h2 className="text-xl font-semibold text-foreground">
+          Quality You Can See
         </h2>
-        <p className="text-sm text-muted-foreground mt-1">
-          Quality matters. Swipe to compare.
+        <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+          We don&apos;t cut corners. Every table we service receives meticulous attention to detail - from precision fabric cuts to hidden staple work. The difference between amateur and professional craftsmanship is clear.
         </p>
       </div>
 
@@ -102,6 +102,13 @@ export function ComparisonSlider() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Quality commitment */}
+      <div className="px-3 pt-4 border-t border-border mt-4">
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          Every job backed by our satisfaction guarantee. If you&apos;re not happy, we&apos;ll make it right.
+        </p>
       </div>
     </section>
   )
