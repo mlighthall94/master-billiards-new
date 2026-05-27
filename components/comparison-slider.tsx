@@ -70,11 +70,8 @@ export function ComparisonSlider() {
                   className="object-cover"
                 />
                 {/* Caption overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent pt-8 pb-3 px-3">
-                  <span className={cn(
-                    "text-sm font-semibold uppercase tracking-wide",
-                    index === 0 ? "text-red-400" : "text-green-400"
-                  )}>
+                <div className="absolute bottom-3 left-3">
+                  <span className="bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-wider px-3 py-1.5">
                     {slide.label}
                   </span>
                 </div>
