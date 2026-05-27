@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="w-full bg-primary text-primary-foreground">
       <div className="px-3 py-8">
-        <Logo className="h-10 w-auto text-primary-foreground" />
+        <Logo className="h-14 w-auto text-primary-foreground" />
         <p className="text-sm text-primary-foreground/60 mt-1">Master Billiards, LLC.</p>
         
         <Button
