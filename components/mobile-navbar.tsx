@@ -45,7 +45,7 @@ export function MobileNavbar() {
             {/* Mobile menu button - positioned absolutely on the right */}
             <button
               type="button"
-              className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground"
+              className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground z-50"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
@@ -53,29 +53,43 @@ export function MobileNavbar() {
               {isOpen ? <X className="h-8 w-8 stroke-[3.5]" /> : <Menu className="h-8 w-8 stroke-[3.5]" />}
             </button>
           </div>
-
-          {/* Mobile menu */}
-          <div
-            className={cn(
-              "sm:hidden overflow-hidden transition-all duration-200 ease-in-out",
-              isOpen ? "max-h-64 pb-4" : "max-h-0"
-            )}
-          >
-            <div className="flex flex-col gap-1 pt-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="px-3 py-2.5 text-sm text-foreground rounded-md hover:bg-muted transition-colors active:bg-muted/80"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
         </nav>
       </header>
+
+      {/* Slide-out mobile menu */}
+      <div
+        className={cn(
+          "sm:hidden fixed inset-0 z-40 transition-opacity duration-300",
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+      >
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-foreground/20"
+          onClick={() => setIsOpen(false)}
+        />
+        
+        {/* Menu panel */}
+        <div
+          className={cn(
+            "absolute top-0 right-0 h-full w-64 bg-card border-l border-border shadow-lg transition-transform duration-300 ease-out",
+            isOpen ? "translate-x-0" : "translate-x-full"
+          )}
+        >
+          <div className="flex flex-col pt-20 px-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="py-4 text-lg font-medium text-foreground border-b border-border"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Phone banner */}
       <div className="bg-primary text-primary-foreground">
