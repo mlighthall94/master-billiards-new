@@ -4,6 +4,7 @@ import * as React from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { Logo } from "@/components/logo"
 
 const navLinks = [
   { href: "#", label: "Home" },
@@ -21,9 +22,10 @@ export function MobileNavbar() {
         <div className="flex h-14 items-center justify-between">
           <a
             href="#"
-            className="text-lg font-semibold text-foreground tracking-tight"
+            className="text-foreground"
+            aria-label="Home"
           >
-            Swift Forms
+            <Logo className="h-5 w-auto" />
           </a>
 
           {/* Desktop nav */}
