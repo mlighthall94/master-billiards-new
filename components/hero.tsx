@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section className="relative w-full">
       {/* Hero image */}
-      <div className="relative aspect-[4/3] sm:aspect-[5/2] w-full">
+      <div className="relative aspect-[1/1] sm:aspect-[5/2] w-full">
         <Image
           src="/images/hero.png"
           alt="Craftsman upholstering furniture"
@@ -13,7 +13,7 @@ export function Hero() {
           priority
         />
         {/* Tinted overlay */}
-        <div className="absolute inset-0 bg-foreground/40" />
+        <div className="absolute inset-0 bg-foreground/55" />
         {/* Gradient overlay for text contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
         
