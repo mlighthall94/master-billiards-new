@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section className="relative w-full">
       {/* Hero image */}
-      <div className="relative aspect-[3/4] sm:aspect-[2/1] w-full">
+      <div className="relative aspect-[4/3] sm:aspect-[5/2] w-full">
         <Image
           src="/images/hero.png"
           alt="Craftsman upholstering furniture"
