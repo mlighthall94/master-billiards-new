@@ -17,44 +17,59 @@ export function MobileNavbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-        <nav className="max-w-lg mx-auto px-4 sm:px-6">
-          <div className="flex py-3 items-center justify-center relative">
-            {/* Centered logo */}
-            <a
-              href="#"
-              className="text-foreground"
-              aria-label="Home"
-            >
-              <Logo className="h-14 w-auto" />
-            </a>
+      <div className="sticky top-0 z-50">
+        <header className="border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+          <nav className="max-w-lg mx-auto px-4 sm:px-6">
+            <div className="flex py-3 items-center justify-center relative">
+              {/* Centered logo */}
+              <a
+                href="#"
+                className="text-foreground"
+                aria-label="Home"
+              >
+                <Logo className="h-14 w-auto" />
+              </a>
 
-            {/* Desktop nav - positioned absolutely on the right */}
-            <div className="hidden sm:flex items-center gap-6 absolute right-0">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {/* Desktop nav - positioned absolutely on the right */}
+              <div className="hidden sm:flex items-center gap-6 absolute right-0">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              {/* Mobile menu button - positioned absolutely on the right */}
+              <button
+                type="button"
+                className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground z-50"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isOpen}
+              >
+                {isOpen ? <X className="h-8 w-8 stroke-[2.5]" /> : <Menu className="h-8 w-8 stroke-[2.5]" />}
+              </button>
             </div>
+          </nav>
+        </header>
 
-            {/* Mobile menu button - positioned absolutely on the right */}
-            <button
-              type="button"
-              className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground z-50"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isOpen}
+        {/* Phone banner */}
+        <div className="bg-primary text-primary-foreground">
+          <div className="max-w-lg mx-auto px-4 sm:px-6 py-1.5">
+            <a 
+              href="tel:+16032315345" 
+              className="flex items-center justify-center gap-2 text-base font-semibold tracking-wide"
             >
-              {isOpen ? <X className="h-8 w-8 stroke-[2.5]" /> : <Menu className="h-8 w-8 stroke-[2.5]" />}
-            </button>
+              <Phone className="h-4 w-4 fill-current" />
+              603-231-5345
+            </a>
           </div>
-        </nav>
-      </header>
+        </div>
+      </div>
 
       {/* Slide-out mobile menu */}
       <div
@@ -88,19 +103,6 @@ export function MobileNavbar() {
               </a>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Phone banner */}
-      <div className="bg-primary text-primary-foreground">
-        <div className="max-w-lg mx-auto px-4 sm:px-6 py-1.5">
-          <a 
-            href="tel:+16032315345" 
-            className="flex items-center justify-center gap-2 text-base font-semibold tracking-wide"
-          >
-            <Phone className="h-4 w-4 fill-current" />
-            603-231-5345
-          </a>
         </div>
       </div>
     </>
