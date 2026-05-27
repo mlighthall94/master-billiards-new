@@ -19,17 +19,18 @@ export function MobileNavbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <nav className="max-w-lg mx-auto px-4 sm:px-6">
-        <div className="flex h-14 items-center justify-between">
+        <div className="flex h-16 items-center justify-center relative">
+          {/* Centered logo */}
           <a
             href="#"
             className="text-foreground"
             aria-label="Home"
           >
-            <Logo className="h-8 w-auto" />
+            <Logo className="h-10 w-auto" />
           </a>
 
-          {/* Desktop nav */}
-          <div className="hidden sm:flex items-center gap-6">
+          {/* Desktop nav - positioned absolutely on the right */}
+          <div className="hidden sm:flex items-center gap-6 absolute right-0">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -41,11 +42,11 @@ export function MobileNavbar() {
             ))}
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - positioned absolutely on the right */}
           <Button
             variant="ghost"
             size="icon"
-            className="sm:hidden"
+            className="sm:hidden absolute right-0"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
