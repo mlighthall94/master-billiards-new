@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 
@@ -43,16 +42,15 @@ export function MobileNavbar() {
           </div>
 
           {/* Mobile menu button - positioned absolutely on the right */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="sm:hidden absolute right-0"
+          <button
+            type="button"
+            className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+            {isOpen ? <X className="h-7 w-7 stroke-[2.5]" /> : <Menu className="h-7 w-7 stroke-[2.5]" />}
+          </button>
         </div>
 
         {/* Mobile menu */}
