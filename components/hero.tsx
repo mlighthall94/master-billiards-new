@@ -5,19 +5,29 @@ import { Button } from "@/components/ui/button"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 import { useCallback, useEffect, useState } from "react"
+import { Star } from "lucide-react"
 
 const slides = [
+  {
+    image: "/images/hero-team.png",
+    alt: "Master Billiards team member in workshop",
+    label: "Google Reviews",
+    headline: "5.0 Stars on Google",
+    isReview: true,
+  },
   {
     image: "/images/hero-2.jpg",
     alt: "Game room with pool tables",
     label: "Game Rooms",
     headline: "Premium Pool Table Services",
+    isReview: false,
   },
   {
     image: "/images/hero.png",
     alt: "Craftsman upholstering furniture",
     label: "Custom Upholstery",
     headline: "Expert Craftsmanship for Your Furniture",
+    isReview: false,
   },
 ]
 
@@ -62,8 +72,8 @@ export function Hero() {
                   src={slide.image}
                   alt={slide.alt}
                   fill
-                  className={`object-cover scale-110 ${
-                    index === 0 ? "object-top" : "object-center"
+                  className={`object-cover ${
+                    index === 0 ? "object-top scale-100" : "object-center scale-110"
                   }`}
                   priority={index === 0}
                 />
@@ -76,12 +86,31 @@ export function Hero() {
       {/* Clean CTA section below image */}
       <div className="bg-primary text-primary-foreground">
         <div className="px-5 py-6">
-          <p className="text-xs uppercase tracking-widest text-primary-foreground/70 mb-2">
-            {currentSlide.label}
-          </p>
-          <h1 className="text-xl font-semibold leading-snug text-balance">
-            {currentSlide.headline}
-          </h1>
+          {currentSlide.isReview ? (
+            <>
+              <div className="flex items-center gap-1 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                ))}
+                <span className="text-xs text-primary-foreground/70 ml-2">50+ Reviews</span>
+              </div>
+              <h1 className="text-xl font-semibold leading-snug text-balance">
+                {currentSlide.headline}
+              </h1>
+              <p className="text-sm text-primary-foreground/80 mt-1">
+                Trusted by homeowners across Southern NH
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-xs uppercase tracking-widest text-primary-foreground/70 mb-2">
+                {currentSlide.label}
+              </p>
+              <h1 className="text-xl font-semibold leading-snug text-balance">
+                {currentSlide.headline}
+              </h1>
+            </>
+          )}
           
           {/* Dots indicator */}
           <div className="flex gap-2 mt-4">
