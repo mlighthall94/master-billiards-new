@@ -5,7 +5,6 @@ import { ComparisonSlider } from "@/components/comparison-slider"
 import { Testimonials } from "@/components/testimonials"
 import { ServiceArea } from "@/components/service-area"
 import { FAQ } from "@/components/faq"
-import { QuoteForm } from "@/components/quote-form"
 import { Footer } from "@/components/footer"
 
 export default function Page() {
@@ -19,7 +18,6 @@ export default function Page() {
         <Testimonials />
         <ServiceArea />
         <FAQ />
-        <QuoteForm />
       </main>
       <Footer />
     </div>
