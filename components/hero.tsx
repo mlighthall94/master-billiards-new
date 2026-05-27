@@ -68,8 +68,8 @@ export function Hero() {
                   src={slide.image}
                   alt={slide.alt}
                   fill
-                  className={`object-cover scale-110 ${
-                    index === 0 ? "object-top" : "object-center"
+                  className={`object-cover ${
+                    index === 0 ? "object-top scale-100" : "object-center scale-110"
                   }`}
                   priority={index === 0}
                 />
