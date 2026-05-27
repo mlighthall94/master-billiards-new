@@ -19,7 +19,7 @@ export function MobileNavbar() {
     <>
       <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <nav className="max-w-lg mx-auto px-4 sm:px-6">
-          <div className="flex h-16 items-center justify-center relative">
+          <div className="flex py-3 items-center justify-center relative">
             {/* Centered logo */}
             <a
               href="#"
