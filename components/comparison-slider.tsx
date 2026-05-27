@@ -92,13 +92,6 @@ export function ComparisonSlider() {
           ))}
         </div>
       </div>
-
-      {/* Quality commitment */}
-      <div className="px-3 pt-4 border-t border-border mt-4">
-        <p className="text-xs text-muted-foreground leading-relaxed">
-          Every job backed by our satisfaction guarantee. If you&apos;re not happy, we&apos;ll make it right.
-        </p>
-      </div>
     </section>
   )
 }
