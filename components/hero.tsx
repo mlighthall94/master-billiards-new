@@ -37,7 +37,7 @@ export function Hero() {
           size="lg"
           className="mt-4 w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
         >
-          <a href="tel:+16032315345">Call 603-231-5345</a>
+          <a href="#contact">Get a Quote</a>
         </Button>
       </div>
     </section>
