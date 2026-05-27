@@ -133,7 +133,13 @@ export function Hero() {
             variant="outline"
             className="mt-4 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
           >
-            <a href="#contact">Get a Free Quote</a>
+            {currentSlide.isReview ? (
+              <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK" target="_blank" rel="noopener noreferrer">
+                Leave a Review
+              </a>
+            ) : (
+              <a href="#contact">Get a Free Quote</a>
+            )}
           </Button>
         </div>
       </div>
