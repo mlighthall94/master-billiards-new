@@ -1,20 +1,18 @@
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
     <section className="w-full">
       {/* Image container with controlled height */}
-      <div className="relative h-56 sm:h-72 w-full overflow-hidden">
+      <div className="relative h-64 sm:h-80 w-full overflow-hidden">
         <Image
           src="/images/hero.png"
           alt="Craftsman upholstering furniture"
           fill
-          className="object-cover object-top"
+          className="object-cover object-center scale-110"
           priority
         />
-        {/* Subtle tint to let image breathe */}
-        <div className="absolute inset-0 bg-foreground/30" />
       </div>
       
       {/* Clean CTA section below image */}
@@ -26,13 +24,13 @@ export function Hero() {
           <h1 className="text-xl font-semibold leading-snug text-balance">
             Expert Craftsmanship for Your Furniture
           </h1>
-          <a
-            href="#contact"
-            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary-foreground border-b border-primary-foreground/50 pb-0.5 hover:border-primary-foreground transition-colors"
+          <Button
+            asChild
+            variant="outline"
+            className="mt-4 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
           >
-            Get a Free Quote
-            <ArrowRight className="h-4 w-4" />
-          </a>
+            <a href="#contact">Get a Free Quote</a>
+          </Button>
         </div>
       </div>
     </section>
