@@ -26,7 +26,7 @@ export function MobileNavbar() {
               className="text-foreground"
               aria-label="Home"
             >
-              <Logo className="h-12 w-auto" />
+              <Logo className="h-14 w-auto" />
             </a>
 
             {/* Desktop nav - positioned absolutely on the right */}
