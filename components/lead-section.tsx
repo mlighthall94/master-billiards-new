@@ -62,32 +62,30 @@ export function LeadSection() {
       </div>
 
       {/* CTA block */}
-      <div className="px-3 pb-8">
-        <div className="bg-primary text-primary-foreground rounded-lg p-5">
-          <p className="text-sm text-primary-foreground/80 mb-1">
-            Ready to get started?
-          </p>
-          <p className="font-semibold text-lg mb-4">
-            Get a free quote in 24 hours
-          </p>
-          <div className="flex flex-col gap-3">
-            <Button
-              asChild
-              variant="outline"
-              className="w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-            >
-              <a href="tel:+16032315345">
-                <Phone className="h-4 w-4 mr-2" />
-                Call Now
-              </a>
-            </Button>
-            <Button
-              asChild
-              className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-            >
-              <a href="#contact">Request a Quote</a>
-            </Button>
-          </div>
+      <div className="bg-primary text-primary-foreground p-5">
+        <p className="text-sm text-primary-foreground/80 mb-1">
+          Ready to get started?
+        </p>
+        <p className="font-semibold text-lg mb-4">
+          Get a free quote in 24 hours
+        </p>
+        <div className="flex flex-col gap-3">
+          <Button
+            asChild
+            variant="outline"
+            className="w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+          >
+            <a href="tel:+16032315345">
+              <Phone className="h-4 w-4 mr-2" />
+              Call Now
+            </a>
+          </Button>
+          <Button
+            asChild
+            className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+          >
+            <a href="#contact">Request a Quote</a>
+          </Button>
         </div>
       </div>
     </section>
