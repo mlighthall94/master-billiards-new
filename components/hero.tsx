@@ -8,6 +8,12 @@ import { useCallback, useEffect, useState } from "react"
 
 const slides = [
   {
+    image: "/images/hero-team.png",
+    alt: "Master Billiards team member in workshop",
+    label: "Meet the Team",
+    headline: "Family-Owned Craftsmanship Since Day One",
+  },
+  {
     image: "/images/hero.png",
     alt: "Craftsman upholstering furniture",
     label: "Custom Upholstery",
