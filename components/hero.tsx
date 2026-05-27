@@ -13,7 +13,7 @@ export function Hero() {
           priority
         />
         {/* Tinted overlay */}
-        <div className="absolute inset-0 bg-foreground/55" />
+        <div className="absolute inset-0 bg-foreground/70" />
         {/* Gradient overlay for text contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
         
