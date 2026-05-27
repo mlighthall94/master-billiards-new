@@ -6,8 +6,8 @@ export function Footer() {
   return (
     <footer className="w-full bg-primary text-primary-foreground">
       <div className="px-3 py-8">
-        <Logo className="h-8 w-auto text-primary-foreground" />
-        <p className="text-xs text-primary-foreground/60 mt-1">Master Billiards, LLC.</p>
+        <Logo className="h-10 w-auto text-primary-foreground" />
+        <p className="text-sm text-primary-foreground/60 mt-1">Master Billiards, LLC.</p>
         
         <Button
           asChild
@@ -21,12 +21,12 @@ export function Footer() {
           </a>
         </Button>
 
-        <p className="text-xs text-primary-foreground/60 text-center mt-3">
+        <p className="text-sm text-primary-foreground/60 text-center mt-3">
           Mon-Fri 8am-5pm | Southern NH
         </p>
 
         <div className="mt-8 pt-4 border-t border-primary-foreground/20">
-          <p className="text-xs text-primary-foreground/40 text-center">
+          <p className="text-sm text-primary-foreground/40 text-center">
             &copy; {new Date().getFullYear()} Master Billiards
           </p>
         </div>

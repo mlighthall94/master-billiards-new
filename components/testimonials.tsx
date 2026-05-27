@@ -43,7 +43,7 @@ export function Testimonials() {
   return (
     <section className="w-full py-8 bg-secondary">
       <div className="px-3 mb-4">
-        <h2 className="text-lg font-semibold text-foreground">Reviews</h2>
+        <h2 className="text-xl font-bold text-foreground">Reviews</h2>
       </div>
 
       <div className="overflow-hidden" ref={emblaRef}>
@@ -52,13 +52,13 @@ export function Testimonials() {
             <div key={index} className="flex-[0_0_100%] min-w-0 px-3">
               <div className="flex gap-0.5 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
+                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-sm text-foreground leading-relaxed">
+              <p className="text-base text-foreground leading-relaxed">
                 &quot;{review.text}&quot;
               </p>
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-sm text-muted-foreground mt-2">
                 {review.name} - {review.location}
               </p>
             </div>

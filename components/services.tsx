@@ -20,7 +20,7 @@ export function Services() {
   return (
     <section className="w-full py-8">
       <div className="px-3">
-        <h2 className="text-lg font-semibold text-foreground mb-4">
+        <h2 className="text-xl font-bold text-foreground mb-4">
           What We Do
         </h2>
         
@@ -31,8 +31,8 @@ export function Services() {
               className="flex items-center justify-between py-3 border-b border-border"
             >
               <div>
-                <h3 className="font-medium text-foreground text-sm">{service.title}</h3>
-                <p className="text-xs text-muted-foreground mt-0.5">
+                <h3 className="font-semibold text-foreground text-base">{service.title}</h3>
+                <p className="text-sm text-muted-foreground mt-0.5">
                   {service.description}
                 </p>
               </div>
@@ -47,7 +47,7 @@ export function Services() {
               Call for Free Quote
             </a>
           </Button>
-          <p className="text-xs text-muted-foreground text-center">
+          <p className="text-sm text-muted-foreground text-center">
             Mon-Fri 8am-5pm | Serving Southern NH
           </p>
         </div>

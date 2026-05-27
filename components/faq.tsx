@@ -25,7 +25,7 @@ export function FAQ() {
   return (
     <section className="w-full py-8">
       <div className="px-3">
-        <h2 className="text-lg font-semibold text-foreground mb-4">
+        <h2 className="text-xl font-bold text-foreground mb-4">
           Common Questions
         </h2>
 
@@ -36,12 +36,12 @@ export function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full py-3 flex items-center justify-between text-left"
               >
-                <span className="text-sm font-medium text-foreground pr-4">
+                <span className="text-base font-semibold text-foreground pr-4">
                   {faq.question}
                 </span>
                 <ChevronDown
                   className={cn(
-                    "h-4 w-4 text-muted-foreground flex-shrink-0 transition-transform",
+                    "h-5 w-5 text-muted-foreground flex-shrink-0 transition-transform",
                     openIndex === index && "rotate-180"
                   )}
                 />
@@ -52,7 +52,7 @@ export function FAQ() {
                   openIndex === index ? "max-h-32 pb-3" : "max-h-0"
                 )}
               >
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
