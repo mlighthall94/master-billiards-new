@@ -88,17 +88,6 @@ export function ComparisonSlider() {
                   className="object-cover"
                 />
               </div>
-              <div className="px-3 py-4 bg-card">
-                <p className={cn(
-                  "text-sm font-semibold",
-                  index === 0 ? "text-destructive" : "text-success"
-                )}>
-                  {slide.label}
-                </p>
-                <p className="text-sm text-muted-foreground mt-0.5">
-                  {slide.description}
-                </p>
-              </div>
             </div>
           ))}
         </div>
