@@ -26,7 +26,7 @@ export function LeadSection() {
         <div className="flex items-center justify-between text-sm">
           <div className="flex items-center gap-2 text-muted-foreground">
             <Clock className="h-4 w-4" />
-            <span>Mon-Sat 8am-6pm</span>
+            <span>Mon-Fri 8am-5pm</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="h-4 w-4" />
