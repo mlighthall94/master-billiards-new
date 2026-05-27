@@ -5,7 +5,6 @@ import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
-import { useCallback, useEffect, useState } from "react"
 
 const slides = [
   {
@@ -16,27 +15,28 @@ const slides = [
     image: "/images/hero.png",
     alt: "Craftsman upholstering furniture",
   },
+  {
+    image: "/images/hero-measure.jpg",
+    alt: "Technician measuring pool table",
+  },
+  {
+    image: "/images/hero-modern.jpg",
+    alt: "Modern game room with pool table",
+  },
+  {
+    image: "/images/hero-red.jpg",
+    alt: "Elegant pool table with red felt",
+  },
+  {
+    image: "/images/hero-bar.jpg",
+    alt: "Bar with pool tables",
+  },
 ]
 
 export function Hero() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
   ])
-  const [selectedIndex, setSelectedIndex] = useState(0)
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-  }, [emblaApi])
-
-  useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    emblaApi.on("select", onSelect)
-    return () => {
-      emblaApi.off("select", onSelect)
-    }
-  }, [emblaApi, onSelect])
 
   return (
     <section className="w-full">
@@ -73,20 +73,6 @@ export function Hero() {
         <p className="text-sm text-primary-foreground/80 mt-2">
           Moving, recovery, repairs. Done right.
         </p>
-
-        {/* Dot indicators */}
-        <div className="flex gap-2 mt-4">
-          {slides.map((_, index) => (
-            <span
-              key={index}
-              className={`h-1.5 rounded-full transition-all ${
-                index === selectedIndex
-                  ? "w-6 bg-primary-foreground"
-                  : "w-1.5 bg-primary-foreground/40"
-              }`}
-            />
-          ))}
-        </div>
 
         <Button
           asChild
