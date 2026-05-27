@@ -57,24 +57,6 @@ export function ComparisonSlider() {
         </p>
       </div>
 
-      {/* Tab buttons */}
-      <div className="flex px-3 mb-4 gap-2">
-        {slides.map((slide, index) => (
-          <button
-            key={index}
-            onClick={() => scrollTo(index)}
-            className={cn(
-              "flex-1 py-2.5 text-sm font-medium rounded-md transition-colors",
-              selectedIndex === index
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground"
-            )}
-          >
-            {slide.label}
-          </button>
-        ))}
-      </div>
-
       {/* Slider */}
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
@@ -87,10 +69,34 @@ export function ComparisonSlider() {
                   fill
                   className="object-cover"
                 />
+                {/* Caption overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent pt-8 pb-3 px-3">
+                  <span className={cn(
+                    "text-sm font-semibold uppercase tracking-wide",
+                    index === 0 ? "text-red-400" : "text-green-400"
+                  )}>
+                    {slide.label}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Dot indicators */}
+      <div className="flex justify-center gap-2 mt-4">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => scrollTo(index)}
+            className={cn(
+              "w-2 h-2 rounded-full transition-colors",
+              selectedIndex === index ? "bg-primary" : "bg-muted"
+            )}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   )
