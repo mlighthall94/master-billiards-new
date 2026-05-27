@@ -8,6 +8,7 @@ export function Footer() {
         {/* Logo */}
         <div className="mb-8">
           <Logo className="h-10 w-auto text-primary-foreground" />
+          <p className="text-sm text-primary-foreground/70 mt-2">Master Billiards, LLC.</p>
         </div>
 
         {/* Contact info */}
