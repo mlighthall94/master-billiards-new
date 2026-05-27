@@ -58,19 +58,19 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="bg-primary text-primary-foreground px-4 py-6">
-        <div className="flex items-center gap-1 mb-3">
+      <div className="bg-primary text-primary-foreground px-4 py-8">
+        <div className="flex items-center gap-1.5 mb-4">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
           ))}
-          <span className="text-sm text-primary-foreground/70 ml-1">5.0 on Google</span>
+          <span className="text-base text-primary-foreground/70 ml-2">5.0 on Google</span>
         </div>
         
-        <h1 className="text-2xl font-semibold leading-tight">
+        <h1 className="text-3xl font-bold leading-tight">
           Pool Table Services in Southern NH
         </h1>
         
-        <p className="text-base text-primary-foreground/80 mt-2">
+        <p className="text-lg text-primary-foreground/80 mt-3">
           Moving, recovery, repairs. Done right.
         </p>
 
@@ -78,7 +78,7 @@ export function Hero() {
           asChild
           variant="outline"
           size="lg"
-          className="mt-4 w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+          className="mt-5 w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg py-6"
         >
           <a href="#contact">Get a Quote</a>
         </Button>
