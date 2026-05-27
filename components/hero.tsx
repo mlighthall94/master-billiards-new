@@ -5,6 +5,7 @@ import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
+import Fade from "embla-carousel-fade"
 
 const slides = [
   {
@@ -35,6 +36,7 @@ const slides = [
 
 export function Hero() {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    Fade(),
     Autoplay({ delay: 4000, stopOnInteraction: false }),
   ])
 
