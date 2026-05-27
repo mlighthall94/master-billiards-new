@@ -1,35 +1,37 @@
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative w-full">
-      {/* Hero image */}
-      <div className="relative aspect-[1/1] sm:aspect-[5/2] w-full">
+    <section className="w-full">
+      {/* Image container with controlled height */}
+      <div className="relative h-56 sm:h-72 w-full overflow-hidden">
         <Image
           src="/images/hero.png"
           alt="Craftsman upholstering furniture"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
-        {/* Tinted overlay */}
-        <div className="absolute inset-0 bg-foreground/70" />
-        {/* Gradient overlay for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-        
-        {/* Hero content */}
-        <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
-          <h1 className="text-2xl sm:text-4xl font-bold text-background leading-tight text-balance">
-            Expert Upholstery Services
-          </h1>
-          <p className="mt-2 text-sm sm:text-base text-background/90 leading-relaxed max-w-md">
-            Quality craftsmanship for furniture restoration and custom work.
+        {/* Subtle tint to let image breathe */}
+        <div className="absolute inset-0 bg-foreground/30" />
+      </div>
+      
+      {/* Clean CTA section below image */}
+      <div className="bg-primary text-primary-foreground">
+        <div className="px-5 py-6">
+          <p className="text-xs uppercase tracking-widest text-primary-foreground/70 mb-2">
+            Custom Upholstery
           </p>
+          <h1 className="text-xl font-semibold leading-snug text-balance">
+            Expert Craftsmanship for Your Furniture
+          </h1>
           <a
             href="#contact"
-            className="mt-4 inline-flex items-center justify-center bg-background text-foreground font-semibold px-6 py-3 rounded-md text-sm w-fit"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary-foreground border-b border-primary-foreground/50 pb-0.5 hover:border-primary-foreground transition-colors"
           >
-            Get a Quote
+            Get a Free Quote
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>
