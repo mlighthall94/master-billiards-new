@@ -17,7 +17,7 @@ export function MobileNavbar() {
 
   return (
     <>
-      <div className="sticky top-0 z-50">
+      <div className="sticky top-0 z-[60]">
         <header className="border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
           <nav className="max-w-lg mx-auto px-4 sm:px-6">
             <div className="flex py-3 items-center justify-center relative">
@@ -74,7 +74,7 @@ export function MobileNavbar() {
       {/* Slide-out mobile menu */}
       <div
         className={cn(
-          "sm:hidden fixed inset-0 z-[60] transition-opacity duration-300",
+          "sm:hidden fixed inset-0 z-[55] transition-opacity duration-300",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
