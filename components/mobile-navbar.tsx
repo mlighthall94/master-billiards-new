@@ -91,7 +91,7 @@ export function MobileNavbar() {
             isOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
-          <div className="flex flex-col pt-20 px-4">
+          <div className="flex flex-col pt-32 px-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
