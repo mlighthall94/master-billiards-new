@@ -22,7 +22,7 @@ export function LeadSection() {
   return (
     <section className="w-full">
       {/* Quick contact bar */}
-      <div className="bg-secondary px-5 py-4">
+      <div className="bg-secondary px-3 py-4">
         <div className="flex items-center justify-between text-sm">
           <div className="flex items-center gap-2 text-muted-foreground">
             <Clock className="h-4 w-4" />
@@ -36,7 +36,7 @@ export function LeadSection() {
       </div>
 
       {/* Services grid */}
-      <div className="px-5 py-8">
+      <div className="px-3 py-8">
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
           Our Services
         </p>
@@ -62,7 +62,7 @@ export function LeadSection() {
       </div>
 
       {/* CTA block */}
-      <div className="px-5 pb-8">
+      <div className="px-3 pb-8">
         <div className="bg-primary text-primary-foreground rounded-lg p-5">
           <p className="text-sm text-primary-foreground/80 mb-1">
             Ready to get started?

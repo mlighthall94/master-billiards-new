@@ -48,7 +48,7 @@ export function ComparisonSlider() {
 
   return (
     <section className="w-full py-8 bg-background">
-      <div className="px-5 mb-4">
+      <div className="px-3 mb-4">
         <h2 className="text-lg font-semibold text-foreground">
           See the Difference
         </h2>
@@ -58,7 +58,7 @@ export function ComparisonSlider() {
       </div>
 
       {/* Tab buttons */}
-      <div className="flex px-5 mb-4 gap-2">
+      <div className="flex px-3 mb-4 gap-2">
         {slides.map((slide, index) => (
           <button
             key={index}
@@ -88,7 +88,7 @@ export function ComparisonSlider() {
                   className="object-cover"
                 />
               </div>
-              <div className="px-5 py-4 bg-card">
+              <div className="px-3 py-4 bg-card">
                 <p className={cn(
                   "text-sm font-semibold",
                   index === 0 ? "text-destructive" : "text-success"
