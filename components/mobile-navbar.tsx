@@ -82,9 +82,9 @@ export function MobileNavbar() {
         <div className="max-w-lg mx-auto px-4 sm:px-6 py-2">
           <a 
             href="tel:+16032315345" 
-            className="flex items-center justify-center gap-2 text-sm font-medium tracking-wide"
+            className="flex items-center justify-center gap-2 text-base font-semibold tracking-wide"
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4 fill-current" />
             603-231-5345
           </a>
         </div>
