@@ -23,7 +23,7 @@ export function MobileNavbar() {
             <div className="flex py-3 items-center justify-center relative">
               {/* Centered logo */}
               <a
-                href="#"
+                href="/"
                 className="text-foreground"
                 aria-label="Home"
               >
