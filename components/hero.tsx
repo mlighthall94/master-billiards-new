@@ -46,12 +46,12 @@ export function Hero() {
   )
 
   return (
-    <section className="w-full">
-      <div className="overflow-hidden touch-pan-y" ref={emblaRef}>
-        <div className="flex will-change-transform">
+    <section className="w-full min-h-[calc(100dvh-48px)] flex flex-col">
+      <div className="overflow-hidden touch-pan-y flex-1" ref={emblaRef}>
+        <div className="flex will-change-transform h-full">
           {slides.map((slide, index) => (
             <div key={index} className="relative flex-[0_0_100%] min-w-0 transform-gpu">
-              <div className="relative h-72 sm:h-80 w-full overflow-hidden">
+              <div className="relative h-full w-full overflow-hidden">
                 <Image
                   src={slide.image}
                   alt={slide.alt}
