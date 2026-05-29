@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MobileNavbar } from "@/components/mobile-navbar"
+import { Footer } from "@/components/footer"
 import { Check, Phone, Mail } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -315,126 +316,12 @@ export default function QuotePage() {
                         <p className="text-xs text-muted-foreground">{type.description}</p>
                       </button>
                     ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Step 4: Contact Info */}
-        {step === 4 && (
-          <div className="space-y-4">
-            <div>
-              <h1 className="text-2xl font-bold">Contact Info</h1>
-              <p className="text-muted-foreground mt-1">How can we reach you?</p>
-            </div>
-            <div className="space-y-3">
-              <div>
-                <label className="text-sm font-medium mb-1 block">Name *</label>
-                <Input
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Phone *</label>
-                <Input
-                  type="tel"
-                  placeholder="(555) 123-4567"
-                  value={formData.phone}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Email</label>
-                <Input
-                  type="email"
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Address</label>
-                <Input
-                  placeholder="Service location"
-                  value={formData.address}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Additional Notes</label>
-                <Textarea
-                  placeholder="Anything else we should know?"
-                  value={formData.notes}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, notes: e.target.value }))}
-                  rows={3}
-                />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Success State */}
-        {step === 5 && (
-          <div className="flex flex-col items-center justify-center text-center py-12">
-            <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
-              <Check className="h-8 w-8 text-green-600" />
-            </div>
-            <h1 className="text-2xl font-bold">Request Submitted!</h1>
-            <p className="text-muted-foreground mt-2 max-w-xs">
-              We&apos;ll review your request and get back to you within 24 hours.
-            </p>
-            <Button asChild className="mt-6">
-              <Link href="/">Back to Home</Link>
-            </Button>
-          </div>
-        )}
-      </main>
-
-      {/* Navigation buttons */}
-      {step <= 4 && (
-        <div className="sticky bottom-0 bg-card border-t border-border p-4 space-y-3">
-          <div className="flex gap-3">
-            {step > 1 && (
-              <Button variant="outline" onClick={handleBack} className="flex-1">
-                Back
-              </Button>
-            )}
-            {step < 4 ? (
-              <Button 
-                onClick={handleNext} 
-                disabled={!canProceed()}
-                className="flex-1"
-              >
-                Continue
-              </Button>
-            ) : (
-              <Button 
-                onClick={handleSubmit} 
-                disabled={!canProceed()}
-                className="flex-1"
-              >
-                Submit Request
-              </Button>
-            )}
-          </div>
-          
-          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-            <span>Prefer to talk?</span>
-            <a href="tel:+16032315345" className="flex items-center gap-1 text-primary font-medium">
-              <Phone className="h-3.5 w-3.5" />
-              Call
-            </a>
-            <a href="mailto:info@masterbilliards.com" className="flex items-center gap-1 text-primary font-medium">
-              <Mail className="h-3.5 w-3.5" />
-              Email
-            </a>
+</div>
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   )
 }
