@@ -41,7 +41,7 @@ export function Services() {
         </div>
 
         <div className="mt-6 flex flex-col gap-3">
-          <Button asChild size="lg" className="w-full">
+          <Button asChild size="lg" className="w-full py-6 text-base font-semibold">
             <a href="tel:+16032315345">
               <Phone className="h-4 w-4 mr-2" />
               Call for Free Quote

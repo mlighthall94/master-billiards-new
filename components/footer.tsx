@@ -13,7 +13,7 @@ export function Footer() {
           asChild
           variant="outline"
           size="lg"
-          className="mt-6 w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+          className="mt-6 w-full py-6 text-base font-semibold bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
         >
           <a href="tel:+16032315345">
             <Phone className="h-4 w-4 mr-2" />
