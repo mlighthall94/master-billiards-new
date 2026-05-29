@@ -1,13 +1,14 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
-import { Check, Phone, Mail } from "lucide-react"
+import { Check, Phone, Mail, Camera, X } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const services = [
@@ -71,7 +72,8 @@ const accessTypes = [
 
 export default function QuotePage() {
   const [step, setStep] = useState(1)
-  const mainRef = useRef<HTMLElement>(null)
+  const [images, setImages] = useState<string[]>([])
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     services: [] as string[],
     tableSize: "",
@@ -95,6 +97,25 @@ export default function QuotePage() {
         ? prev.services.filter((s) => s !== serviceId)
         : [...prev.services, serviceId],
     }))
+  }
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (files) {
+      Array.from(files).forEach((file) => {
+        const reader = new FileReader()
+        reader.onload = (event) => {
+          if (event.target?.result) {
+            setImages((prev) => [...prev, event.target!.result as string])
+          }
+        }
+        reader.readAsDataURL(file)
+      })
+    }
+  }
+
+  const removeImage = (index: number) => {
+    setImages((prev) => prev.filter((_, i) => i !== index))
   }
 
   const canProceed = () => {
@@ -128,6 +149,7 @@ export default function QuotePage() {
     } else {
       setStep((prev) => Math.min(prev + 1, totalSteps))
     }
+    window.scrollTo({ top: 0, behavior: "instant" })
   }
 
   const handleBack = () => {
@@ -136,19 +158,14 @@ export default function QuotePage() {
     } else {
       setStep((prev) => Math.max(prev - 1, 1))
     }
+    window.scrollTo({ top: 0, behavior: "instant" })
   }
 
   const handleSubmit = () => {
-    console.log("Form submitted:", formData)
+    console.log("Form submitted:", formData, images)
     setStep(5)
+    window.scrollTo({ top: 0, behavior: "instant" })
   }
-
-  // Scroll to top of form content when step changes
-  useEffect(() => {
-    if (mainRef.current) {
-      mainRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
-  }, [step])
 
   return (
     <div className="min-h-dvh bg-background flex flex-col">
@@ -161,7 +178,7 @@ export default function QuotePage() {
             <span className="text-sm font-medium">Step {step} of {totalSteps}</span>
             <span className="text-sm text-muted-foreground">
               {step === 1 && "Select Services"}
-              {step === 2 && "Table Size"}
+              {step === 2 && "Table Info"}
               {step === 3 && "Service Details"}
               {step === 4 && "Contact Info"}
             </span>
@@ -176,7 +193,7 @@ export default function QuotePage() {
       )}
 
       {/* Form content */}
-      <main ref={mainRef} className="flex-1 px-4 py-6">
+      <main className="flex-1 px-4 py-6 pb-32">
         {/* Step 1: Service Selection */}
         {step === 1 && (
           <div className="space-y-4">
@@ -213,28 +230,81 @@ export default function QuotePage() {
           </div>
         )}
 
-        {/* Step 2: Table Size */}
+        {/* Step 2: Table Info + Photos */}
         {step === 2 && (
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div>
-              <h1 className="text-2xl font-bold">Table Size</h1>
-              <p className="text-muted-foreground mt-1">What size is your pool table?</p>
+              <h1 className="text-2xl font-bold">Table Information</h1>
+              <p className="text-muted-foreground mt-1">Tell us about your table</p>
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              {tableSizes.map((size) => (
-                <button
-                  key={size.id}
-                  onClick={() => setFormData((prev) => ({ ...prev, tableSize: size.id }))}
-                  className={cn(
-                    "p-4 text-center border-2 rounded-lg transition-all",
-                    formData.tableSize === size.id
-                      ? "border-primary bg-primary/5"
-                      : "border-border hover:border-muted-foreground"
-                  )}
-                >
-                  <p className="font-semibold text-base">{size.label}</p>
-                </button>
-              ))}
+            
+            <div>
+              <p className="font-medium mb-3">Table Size</p>
+              <div className="grid grid-cols-2 gap-3">
+                {tableSizes.map((size) => (
+                  <button
+                    key={size.id}
+                    onClick={() => setFormData((prev) => ({ ...prev, tableSize: size.id }))}
+                    className={cn(
+                      "p-4 text-center border-2 rounded-lg transition-all",
+                      formData.tableSize === size.id
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:border-muted-foreground"
+                    )}
+                  >
+                    <p className="font-semibold text-base">{size.label}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Photo Upload Section */}
+            <div>
+              <div className="flex items-baseline gap-2 mb-3">
+                <p className="font-medium">Photos of Your Table</p>
+                <p className="text-xs text-muted-foreground">(optional)</p>
+              </div>
+              
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={handleImageUpload}
+                className="hidden"
+              />
+              
+              <div className="grid grid-cols-3 gap-2">
+                {images.map((img, index) => (
+                  <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-border">
+                    <Image
+                      src={img}
+                      alt={`Upload ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                    <button
+                      onClick={() => removeImage(index)}
+                      className="absolute top-1 right-1 h-6 w-6 bg-black/60 rounded-full flex items-center justify-center"
+                    >
+                      <X className="h-4 w-4 text-white" />
+                    </button>
+                  </div>
+                ))}
+                
+                {images.length < 6 && (
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    className="aspect-square border-2 border-dashed border-border rounded-lg flex flex-col items-center justify-center gap-1 hover:border-muted-foreground transition-colors"
+                  >
+                    <Camera className="h-6 w-6 text-muted-foreground" />
+                    <span className="text-xs text-muted-foreground">Add Photo</span>
+                  </button>
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                Photos help us provide a more accurate quote
+              </p>
             </div>
           </div>
         )}
@@ -273,7 +343,7 @@ export default function QuotePage() {
                 <div>
                   <div className="flex items-baseline gap-2 mb-2">
                     <p className="font-medium">Cloth Color</p>
-                    <p className="text-xs text-muted-foreground">(swipe to see all colors)</p>
+                    <p className="text-xs text-muted-foreground">(swipe to see all)</p>
                   </div>
                   <div className="overflow-x-auto -mx-4 px-4 pb-2 touch-pan-x">
                     <div className="flex gap-3 will-change-transform" style={{ width: "max-content" }}>
@@ -368,6 +438,7 @@ export default function QuotePage() {
                   placeholder="Your name"
                   value={formData.name}
                   onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+                  className="h-12"
                 />
               </div>
               <div>
@@ -377,6 +448,7 @@ export default function QuotePage() {
                   placeholder="(555) 555-5555"
                   value={formData.phone}
                   onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                  className="h-12"
                 />
               </div>
               <div>
@@ -386,20 +458,22 @@ export default function QuotePage() {
                   placeholder="your@email.com"
                   value={formData.email}
                   onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                  className="h-12"
                 />
               </div>
               <div>
-                <label className="text-sm font-medium mb-1 block">Address</label>
+                <label className="text-sm font-medium mb-1 block">Service Address</label>
                 <Input
-                  placeholder="Service address"
+                  placeholder="Where is the table located?"
                   value={formData.address}
                   onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
+                  className="h-12"
                 />
               </div>
               <div>
                 <label className="text-sm font-medium mb-1 block">Additional Notes</label>
                 <Textarea
-                  placeholder="Anything else we should know?"
+                  placeholder="Anything else we should know? (brand, age, condition, etc.)"
                   value={formData.notes}
                   onChange={(e) => setFormData((prev) => ({ ...prev, notes: e.target.value }))}
                   rows={3}
@@ -419,16 +493,16 @@ export default function QuotePage() {
             <p className="text-muted-foreground mt-2 max-w-sm">
               Thank you! We&apos;ll review your request and get back to you within 24 hours.
             </p>
-            <Button asChild className="mt-6">
+            <Button asChild className="mt-6 py-6 px-8 text-base font-semibold">
               <Link href="/">Return Home</Link>
             </Button>
           </div>
         )}
       </main>
 
-      {/* Bottom navigation */}
+      {/* Bottom navigation - fixed */}
       {step <= 4 && (
-        <div className="sticky bottom-0 bg-card border-t border-border p-4 space-y-3">
+        <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4 space-y-3">
           <div className="flex gap-3">
             {step > 1 && (
               <Button variant="outline" onClick={handleBack} className="flex-1 py-6 text-base">
