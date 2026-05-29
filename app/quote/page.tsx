@@ -267,8 +267,8 @@ export default function QuotePage() {
                     <p className="font-medium">Cloth Color</p>
                     <p className="text-xs text-muted-foreground">(swipe to see all colors)</p>
                   </div>
-                  <div className="overflow-x-auto -mx-4 px-4 pb-2">
-                    <div className="flex gap-3" style={{ width: "max-content" }}>
+                  <div className="overflow-x-auto -mx-4 px-4 pb-2 touch-pan-x">
+                    <div className="flex gap-3 will-change-transform" style={{ width: "max-content" }}>
                       {clothColors.map((color) => (
                         <button
                           key={color.id}
