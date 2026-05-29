@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 
@@ -85,7 +86,7 @@ export function Hero() {
           size="lg"
           className="mt-4 w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
         >
-          <a href="#contact">Get a Quote</a>
+          <Link href="/quote">Get a Quote</Link>
         </Button>
       </div>
     </section>
