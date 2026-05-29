@@ -77,12 +77,9 @@ export function MobileNavbar() {
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        {/* Full screen dark overlay with gradient */}
+        {/* Full screen dark overlay */}
         <div 
-          className={cn(
-            "absolute inset-0 bg-primary transition-all duration-500",
-            isOpen ? "opacity-100" : "opacity-0"
-          )}
+          className="absolute inset-0 bg-primary"
           onClick={() => setIsOpen(false)}
         />
         
