@@ -93,13 +93,8 @@ export function MobileNavbar() {
             isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
           )}
         >
-          {/* Logo at top */}
-          <div className="pt-24 pb-8 flex justify-center">
-            <Logo className="h-20 w-auto text-primary-foreground" />
-          </div>
-
           {/* Navigation links */}
-          <nav className="flex-1 flex flex-col items-center justify-center gap-2 px-8 -mt-16">
+          <nav className="flex-1 flex flex-col items-center justify-center gap-2 px-8">
             {navLinks.map((link, index) => (
               <Link
                 key={link.label}
