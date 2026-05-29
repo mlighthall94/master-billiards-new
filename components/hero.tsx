@@ -46,26 +46,26 @@ export function Hero() {
   )
 
   return (
-    <section className="w-full min-h-[calc(100dvh-48px)] flex flex-col">
-      <div className="overflow-hidden touch-pan-y flex-1" ref={emblaRef}>
+    <section className="w-full h-[100dvh] flex flex-col">
+      {/* Image Carousel - takes remaining space */}
+      <div className="overflow-hidden touch-pan-y flex-1 min-h-0" ref={emblaRef}>
         <div className="flex will-change-transform h-full">
           {slides.map((slide, index) => (
-            <div key={index} className="relative flex-[0_0_100%] min-w-0 transform-gpu">
-              <div className="relative h-full w-full overflow-hidden">
-                <Image
-                  src={slide.image}
-                  alt={slide.alt}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                />
-              </div>
+            <div key={index} className="relative flex-[0_0_100%] min-w-0 transform-gpu h-full">
+              <Image
+                src={slide.image}
+                alt={slide.alt}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
             </div>
           ))}
         </div>
       </div>
 
-      <div className="bg-primary text-primary-foreground px-4 py-5">
+      {/* Content - fixed at bottom */}
+      <div className="bg-primary text-primary-foreground px-4 py-5 flex-shrink-0">
         <div className="flex items-center gap-1 mb-3">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
