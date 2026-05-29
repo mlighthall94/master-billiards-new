@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Star } from "lucide-react"
+import { Star, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import useEmblaCarousel from "embla-carousel-react"
@@ -51,7 +51,7 @@ export function Hero() {
         <div className="flex will-change-transform">
           {slides.map((slide, index) => (
             <div key={index} className="relative flex-[0_0_100%] min-w-0 transform-gpu">
-              <div className="relative h-56 sm:h-72 w-full overflow-hidden">
+              <div className="relative h-72 sm:h-80 w-full overflow-hidden">
                 <Image
                   src={slide.image}
                   alt={slide.alt}
@@ -83,11 +83,13 @@ export function Hero() {
 
         <Button
           asChild
-          variant="outline"
           size="lg"
-          className="mt-4 w-full bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+          className="mt-5 w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 py-6 text-base font-semibold"
         >
-          <Link href="/quote">Get a Quote</Link>
+          <Link href="/quote">
+            Get a Quote
+            <ArrowRight className="h-5 w-5 ml-2" />
+          </Link>
         </Button>
       </div>
     </section>
