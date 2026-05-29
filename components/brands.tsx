@@ -5,11 +5,11 @@ import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 
 const brands = [
-  { name: "Diamond", logo: "/images/brands/diamond.svg" },
-  { name: "Predator", logo: "/images/brands/predator.svg" },
-  { name: "Aramith", logo: "/images/brands/aramith.svg" },
-  { name: "Simonis", logo: "/images/brands/simonis.svg" },
-  { name: "Brunswick", logo: "/images/brands/brunswick.svg" },
+  { name: "Diamond", logo: "/images/brands/diamond.svg", url: "https://www.diamondbilliards.com" },
+  { name: "Predator", logo: "/images/brands/predator.svg", url: "https://www.predatorcues.com" },
+  { name: "Aramith", logo: "/images/brands/aramith.svg", url: "https://www.aramith.com" },
+  { name: "Simonis", logo: "/images/brands/simonis.svg", url: "https://www.simoniscloth.com" },
+  { name: "Brunswick", logo: "/images/brands/brunswick.svg", url: "https://www.brunswickbilliards.com" },
 ]
 
 export function Brands() {
@@ -37,13 +37,19 @@ export function Brands() {
               key={index}
               className="flex-[0_0_50%] min-w-0 px-4 flex items-center justify-center"
             >
-              <Image
-                src={brand.logo}
-                alt={brand.name}
-                width={140}
-                height={50}
-                className="opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <a 
+                href={brand.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="opacity-70 hover:opacity-100 transition-opacity"
+              >
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={160}
+                  height={60}
+                />
+              </a>
             </div>
           ))}
         </div>
