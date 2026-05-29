@@ -32,13 +32,29 @@ const clothGrades = [
 ]
 
 const clothColors = [
-  { id: "green", label: "Green", color: "bg-green-600" },
-  { id: "blue", label: "Blue", color: "bg-blue-600" },
-  { id: "red", label: "Red", color: "bg-red-600" },
-  { id: "burgundy", label: "Burgundy", color: "bg-red-900" },
-  { id: "tan", label: "Tan", color: "bg-amber-200" },
-  { id: "black", label: "Black", color: "bg-gray-900" },
-  { id: "other", label: "Other", color: "bg-gradient-to-r from-purple-500 to-pink-500" },
+  { id: "english-green", label: "English Green", color: "#1B5E20" },
+  { id: "royal-blue", label: "Royal Blue", color: "#1565C0" },
+  { id: "slate-grey", label: "Slate Grey", color: "#546E7A" },
+  { id: "mocha", label: "Mocha", color: "#6D4C41" },
+  { id: "burgundy", label: "Burgundy", color: "#6A1B3D" },
+  { id: "spruce", label: "Spruce", color: "#2E4A3E" },
+  { id: "electric-blue", label: "Electric Blue", color: "#0288D1" },
+  { id: "camel", label: "Camel", color: "#A68B5B" },
+  { id: "red", label: "Red", color: "#C62828" },
+  { id: "dark-green", label: "Dark Green", color: "#1B4332" },
+  { id: "tournament-blue", label: "Tournament Blue", color: "#1A237E" },
+  { id: "gold", label: "Gold", color: "#B8860B" },
+  { id: "purple", label: "Purple", color: "#6A1B9A" },
+  { id: "petroleum-blue", label: "Petroleum Blue", color: "#01579B" },
+  { id: "powder-blue", label: "Powder Blue", color: "#64B5F6" },
+  { id: "olive", label: "Olive", color: "#7CB342" },
+  { id: "burnt-orange", label: "Burnt Orange", color: "#E65100" },
+  { id: "fuchsia", label: "Fuchsia", color: "#AD1457" },
+  { id: "blue-green", label: "Blue Green", color: "#00695C" },
+  { id: "grey", label: "Grey", color: "#757575" },
+  { id: "chartreuse", label: "Chartreuse", color: "#9ACD32" },
+  { id: "orange", label: "Orange", color: "#EF6C00" },
+  { id: "dusty-pink", label: "Dusty Pink", color: "#C48B9F" },
 ]
 
 const moveTypes = [
@@ -248,22 +264,27 @@ export default function QuotePage() {
 
                 <div>
                   <p className="font-medium mb-2">Cloth Color</p>
-                  <div className="grid grid-cols-4 gap-2">
-                    {clothColors.map((color) => (
-                      <button
-                        key={color.id}
-                        onClick={() => setFormData((prev) => ({ ...prev, clothColor: color.id }))}
-                        className={cn(
-                          "flex flex-col items-center gap-1 p-2 border-2 rounded-lg transition-all",
-                          formData.clothColor === color.id
-                            ? "border-primary"
-                            : "border-border hover:border-muted-foreground"
-                        )}
-                      >
-                        <div className={cn("w-8 h-8 rounded-full", color.color)} />
-                        <span className="text-xs">{color.label}</span>
-                      </button>
-                    ))}
+                  <div className="overflow-x-auto -mx-4 px-4 pb-2">
+                    <div className="flex gap-3" style={{ width: "max-content" }}>
+                      {clothColors.map((color) => (
+                        <button
+                          key={color.id}
+                          onClick={() => setFormData((prev) => ({ ...prev, clothColor: color.id }))}
+                          className={cn(
+                            "flex flex-col items-center gap-1.5 p-2 border-2 rounded-lg transition-all min-w-[72px]",
+                            formData.clothColor === color.id
+                              ? "border-primary"
+                              : "border-border hover:border-muted-foreground"
+                          )}
+                        >
+                          <div 
+                            className="w-10 h-10 rounded-full border border-black/10" 
+                            style={{ backgroundColor: color.color }}
+                          />
+                          <span className="text-xs text-center whitespace-nowrap">{color.label}</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
