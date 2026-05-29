@@ -16,8 +16,8 @@ export function Brands() {
   const [emblaRef] = useEmblaCarousel(
     { 
       loop: true,
-      align: "center",
-      dragFree: true,
+      align: "start",
+      dragFree: false,
       duration: 25,
       skipSnaps: false,
     },
@@ -37,13 +37,13 @@ export function Brands() {
           {brands.map((brand, index) => (
             <div
               key={index}
-              className="flex-[0_0_70%] min-w-0 px-4 flex items-center justify-center transform-gpu"
+              className="flex-[0_0_100%] min-w-0 px-8 flex items-center justify-center transform-gpu"
             >
               <Image
                 src={brand.logo}
                 alt={brand.name}
-                width={220}
-                height={90}
+                width={200}
+                height={80}
                 className="brightness-0 invert"
               />
             </div>
