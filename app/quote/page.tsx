@@ -4,8 +4,8 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Logo } from "@/components/logo"
-import { ArrowLeft, Check, Phone, Mail } from "lucide-react"
+import { MobileNavbar } from "@/components/mobile-navbar"
+import { Check, Phone, Mail } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
@@ -127,17 +127,8 @@ export default function QuotePage() {
 
   return (
     <div className="min-h-dvh bg-background flex flex-col">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-card border-b border-border px-4 py-3">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <ArrowLeft className="h-5 w-5" />
-            <span className="text-sm font-medium">Back</span>
-          </Link>
-          <Logo className="h-8 w-auto" />
-          <div className="w-16" />
-        </div>
-      </header>
+      {/* Header - Use same nav as main pages */}
+      <MobileNavbar />
 
       {/* Progress indicator */}
       {step <= 4 && (
