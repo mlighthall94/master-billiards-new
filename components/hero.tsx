@@ -86,14 +86,7 @@ export function Hero() {
           size="lg"
           className="mt-5 w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 py-6 text-base font-semibold"
         >
-          <Link href="/quote">
-            Get a Quote
-            <svg className="h-5 w-5 ml-2" viewBox="0 0 24 24" fill="currentColor">
-              <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="2" fill="currentColor" />
-              <circle cx="12" cy="12" r="5" fill="white" />
-              <text x="12" y="14" textAnchor="middle" fontSize="6" fontWeight="bold" fill="currentColor">8</text>
-            </svg>
-          </Link>
+          <Link href="/quote">Get a Quote</Link>
         </Button>
       </div>
     </section>
