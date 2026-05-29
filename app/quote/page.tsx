@@ -263,7 +263,10 @@ export default function QuotePage() {
                 </div>
 
                 <div>
-                  <p className="font-medium mb-2">Cloth Color</p>
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <p className="font-medium">Cloth Color</p>
+                    <p className="text-xs text-muted-foreground">(swipe to see all colors)</p>
+                  </div>
                   <div className="overflow-x-auto -mx-4 px-4 pb-2">
                     <div className="flex gap-3" style={{ width: "max-content" }}>
                       {clothColors.map((color) => (
