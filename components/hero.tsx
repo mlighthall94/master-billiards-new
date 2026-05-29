@@ -38,18 +38,19 @@ export function Hero() {
   const [emblaRef] = useEmblaCarousel(
     { 
       loop: true,
-      duration: 30,
+      duration: 25,
       dragFree: false,
+      skipSnaps: false,
     }, 
     [Autoplay({ delay: 4000, stopOnInteraction: false })]
   )
 
   return (
     <section className="w-full">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+      <div className="overflow-hidden touch-pan-y" ref={emblaRef}>
+        <div className="flex will-change-transform">
           {slides.map((slide, index) => (
-            <div key={index} className="relative flex-[0_0_100%] min-w-0">
+            <div key={index} className="relative flex-[0_0_100%] min-w-0 transform-gpu">
               <div className="relative h-56 sm:h-72 w-full overflow-hidden">
                 <Image
                   src={slide.image}

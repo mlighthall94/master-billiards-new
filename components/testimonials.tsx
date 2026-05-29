@@ -23,7 +23,11 @@ const reviews = [
 ]
 
 export function Testimonials() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    duration: 25,
+    skipSnaps: false,
+  })
   const [selectedIndex, setSelectedIndex] = useState(0)
 
   const onSelect = useCallback(() => {
@@ -46,10 +50,10 @@ export function Testimonials() {
         <h2 className="text-xl font-bold text-foreground">Reviews</h2>
       </div>
 
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+      <div className="overflow-hidden touch-pan-y" ref={emblaRef}>
+        <div className="flex will-change-transform">
           {reviews.map((review, index) => (
-            <div key={index} className="flex-[0_0_100%] min-w-0 px-3">
+            <div key={index} className="flex-[0_0_100%] min-w-0 px-3 transform-gpu">
               <div className="flex gap-0.5 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-primary text-primary" />

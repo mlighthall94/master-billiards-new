@@ -18,6 +18,8 @@ export function Brands() {
       loop: true,
       align: "center",
       dragFree: true,
+      duration: 25,
+      skipSnaps: false,
     },
     [Autoplay({ delay: 2500, stopOnInteraction: false })]
   )
@@ -30,12 +32,12 @@ export function Brands() {
         </p>
       </div>
 
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+      <div className="overflow-hidden touch-pan-y" ref={emblaRef}>
+        <div className="flex will-change-transform">
           {brands.map((brand, index) => (
             <div
               key={index}
-              className="flex-[0_0_50%] min-w-0 px-4 flex items-center justify-center"
+              className="flex-[0_0_50%] min-w-0 px-4 flex items-center justify-center transform-gpu"
             >
               <a 
                 href={brand.url} 
