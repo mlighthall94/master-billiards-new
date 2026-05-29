@@ -399,7 +399,7 @@ export default function QuotePage() {
         <div className="sticky bottom-0 bg-card border-t border-border p-4 space-y-3">
           <div className="flex gap-3">
             {step > 1 && (
-              <Button variant="outline" onClick={handleBack} className="flex-1">
+              <Button variant="outline" onClick={handleBack} className="flex-1 py-6 text-base">
                 Back
               </Button>
             )}
@@ -407,7 +407,7 @@ export default function QuotePage() {
               <Button 
                 onClick={handleNext} 
                 disabled={!canProceed()}
-                className="flex-1"
+                className="flex-1 py-6 text-base font-semibold"
               >
                 Continue
               </Button>
@@ -415,7 +415,7 @@ export default function QuotePage() {
               <Button 
                 onClick={handleSubmit}
                 disabled={!canProceed()}
-                className="flex-1"
+                className="flex-1 py-6 text-base font-semibold"
               >
                 Submit Request
               </Button>
