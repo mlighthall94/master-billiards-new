@@ -37,14 +37,14 @@ export function Brands() {
           {brands.map((brand, index) => (
             <div
               key={index}
-              className="flex-[0_0_100%] min-w-0 px-6 flex items-center justify-center transform-gpu"
+              className="flex-[0_0_70%] min-w-0 px-4 flex items-center justify-center transform-gpu"
             >
               <Image
                 src={brand.logo}
                 alt={brand.name}
-                width={280}
-                height={120}
-                className="brightness-0 invert w-full max-w-[280px] h-auto"
+                width={220}
+                height={90}
+                className="brightness-0 invert"
               />
             </div>
           ))}
