@@ -1,19 +1,31 @@
 "use client"
 
 import * as React from "react"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X, Phone, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { href: "#", label: "Home" },
-  { href: "#", label: "Features" },
-  { href: "#", label: "Pricing" },
-  { href: "#", label: "About" },
+  { href: "/", label: "Home" },
+  { href: "/quote", label: "Get a Quote" },
 ]
 
 export function MobileNavbar() {
   const [isOpen, setIsOpen] = React.useState(false)
+
+  // Prevent body scroll when menu is open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
 
   return (
     <>
@@ -30,19 +42,6 @@ export function MobileNavbar() {
                 <Logo className="h-14 w-auto" />
               </a>
 
-              {/* Desktop nav - positioned absolutely on the right */}
-              <div className="hidden sm:flex items-center gap-6 absolute right-0">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-
               {/* Mobile menu button - positioned absolutely on the right */}
               <button
                 type="button"
@@ -51,7 +50,7 @@ export function MobileNavbar() {
                 aria-label={isOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isOpen}
               >
-                {isOpen ? <X className="h-8 w-8 stroke-[3]" /> : <Menu className="h-8 w-8 stroke-[3]" />}
+                {isOpen ? <X className="h-8 w-8 stroke-[2.5]" /> : <Menu className="h-8 w-8 stroke-[2.5]" />}
               </button>
             </div>
           </nav>
@@ -71,37 +70,78 @@ export function MobileNavbar() {
         </div>
       </div>
 
-      {/* Slide-out mobile menu */}
+      {/* Full-screen mobile menu */}
       <div
         className={cn(
-          "sm:hidden fixed inset-0 z-[65] transition-opacity duration-300",
+          "sm:hidden fixed inset-0 z-[65] transition-all duration-500 ease-out",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        {/* Backdrop */}
+        {/* Full screen dark overlay with gradient */}
         <div 
-          className="absolute inset-0 bg-foreground/20"
+          className={cn(
+            "absolute inset-0 bg-primary transition-all duration-500",
+            isOpen ? "opacity-100" : "opacity-0"
+          )}
           onClick={() => setIsOpen(false)}
         />
         
-        {/* Menu panel */}
+        {/* Menu content - full screen */}
         <div
           className={cn(
-            "absolute top-0 right-0 h-full w-64 bg-card border-l border-border shadow-lg transition-transform duration-300 ease-out",
-            isOpen ? "translate-x-0" : "translate-x-full"
+            "absolute inset-0 flex flex-col transition-all duration-500 ease-out",
+            isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
           )}
         >
-          <div className="flex flex-col pt-32 px-4">
-            {navLinks.map((link) => (
-              <a
+          {/* Logo at top */}
+          <div className="pt-24 pb-8 flex justify-center">
+            <Logo className="h-20 w-auto text-primary-foreground" />
+          </div>
+
+          {/* Navigation links */}
+          <nav className="flex-1 flex flex-col items-center justify-center gap-2 px-8 -mt-16">
+            {navLinks.map((link, index) => (
+              <Link
                 key={link.label}
                 href={link.href}
-                className="py-4 text-lg font-medium text-foreground border-b border-border"
+                className={cn(
+                  "w-full text-center py-5 text-2xl font-semibold text-primary-foreground/90 hover:text-primary-foreground transition-all duration-300 rounded-xl hover:bg-primary-foreground/10",
+                  isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                )}
+                style={{ transitionDelay: isOpen ? `${150 + index * 75}ms` : "0ms" }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
+          </nav>
+
+          {/* Bottom CTA section */}
+          <div 
+            className={cn(
+              "px-8 pb-12 transition-all duration-500",
+              isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            )}
+            style={{ transitionDelay: isOpen ? "300ms" : "0ms" }}
+          >
+            <div className="border-t border-primary-foreground/20 pt-8">
+              <p className="text-primary-foreground/60 text-center text-sm mb-4">
+                Ready to get started?
+              </p>
+              <Button 
+                asChild 
+                size="lg" 
+                className="w-full py-6 text-base font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+              >
+                <a href="tel:+16032315345">
+                  <Phone className="h-5 w-5 mr-2" />
+                  Call Now
+                </a>
+              </Button>
+              <p className="text-primary-foreground/40 text-center text-xs mt-4">
+                Mon-Fri 8am-5pm | Southern NH
+              </p>
+            </div>
           </div>
         </div>
       </div>
