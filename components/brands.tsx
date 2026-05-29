@@ -42,9 +42,9 @@ export function Brands() {
               <Image
                 src={brand.logo}
                 alt={brand.name}
-                width={200}
-                height={80}
-                className="opacity-80"
+                width={240}
+                height={100}
+                className="brightness-0 invert"
               />
             </div>
           ))}
