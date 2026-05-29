@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -71,6 +71,7 @@ const accessTypes = [
 
 export default function QuotePage() {
   const [step, setStep] = useState(1)
+  const mainRef = useRef<HTMLElement>(null)
   const [formData, setFormData] = useState({
     services: [] as string[],
     tableSize: "",
@@ -142,6 +143,13 @@ export default function QuotePage() {
     setStep(5)
   }
 
+  // Scroll to top of form content when step changes
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }, [step])
+
   return (
     <div className="min-h-dvh bg-background flex flex-col">
       <MobileNavbar />
@@ -168,7 +176,7 @@ export default function QuotePage() {
       )}
 
       {/* Form content */}
-      <main className="flex-1 px-4 py-6">
+      <main ref={mainRef} className="flex-1 px-4 py-6">
         {/* Step 1: Service Selection */}
         {step === 1 && (
           <div className="space-y-4">
