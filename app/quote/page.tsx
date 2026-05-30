@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
-import { Check, Phone, Mail, Camera, X } from "lucide-react"
+import { Check, Camera, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
@@ -502,7 +502,7 @@ export default function QuotePage() {
 
       {/* Bottom navigation - fixed */}
       {step <= 4 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4 space-y-3">
+        <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4">
           <div className="flex gap-3">
             {step > 1 && (
               <Button variant="outline" onClick={handleBack} className="flex-1 py-6 text-base">
@@ -526,20 +526,6 @@ export default function QuotePage() {
                 Submit Request
               </Button>
             )}
-          </div>
-          
-          <div className="text-center">
-            <p className="text-xs text-muted-foreground mb-1">Prefer to talk?</p>
-            <div className="flex items-center justify-center gap-4">
-              <a href="tel:+16032315345" className="text-sm text-primary flex items-center gap-1">
-                <Phone className="h-3 w-3" />
-                Call
-              </a>
-              <a href="mailto:info@masterbilliards.com" className="text-sm text-primary flex items-center gap-1">
-                <Mail className="h-3 w-3" />
-                Email
-              </a>
-            </div>
           </div>
         </div>
       )}
