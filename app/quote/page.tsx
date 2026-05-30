@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
-import { Check, Camera, X } from "lucide-react"
+import { Check, Camera, X, Lock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
@@ -227,6 +227,11 @@ export default function QuotePage() {
                 </button>
               ))}
             </div>
+            
+            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
+              <Lock className="h-3 w-3" />
+              <span>Your information is secure and never shared</span>
+            </div>
           </div>
         )}
 
@@ -305,6 +310,11 @@ export default function QuotePage() {
               <p className="text-xs text-muted-foreground mt-2">
                 Photos help us provide a more accurate quote
               </p>
+            </div>
+            
+            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
+              <Lock className="h-3 w-3" />
+              <span>Your information is secure and never shared</span>
             </div>
           </div>
         )}
@@ -421,6 +431,11 @@ export default function QuotePage() {
                 </div>
               </div>
             )}
+            
+            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
+              <Lock className="h-3 w-3" />
+              <span>Your information is secure and never shared</span>
+            </div>
           </div>
         )}
 
@@ -479,6 +494,11 @@ export default function QuotePage() {
                   rows={3}
                 />
               </div>
+            </div>
+            
+            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
+              <Lock className="h-3 w-3" />
+              <span>Your information is secure and never shared</span>
             </div>
           </div>
         )}
