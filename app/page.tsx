@@ -4,6 +4,7 @@ import { Services } from "@/components/services"
 import { Brands } from "@/components/brands"
 import { Testimonials } from "@/components/testimonials"
 import { FAQ } from "@/components/faq"
+import { ServiceArea } from "@/components/service-area"
 import { Footer } from "@/components/footer"
 
 export default function Page() {
@@ -16,6 +17,7 @@ export default function Page() {
         <Brands />
         <Testimonials />
         <FAQ />
+        <ServiceArea />
       </main>
       <Footer />
     </div>
