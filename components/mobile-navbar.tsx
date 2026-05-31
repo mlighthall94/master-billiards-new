@@ -28,11 +28,11 @@ const pageTitles: Record<string, string> = {
   "/quote": "Get a Quote",
 }
 
-export function MobileNavbar() {
+export function MobileNavbar({ title }: { title?: string } = {}) {
   const [isOpen, setIsOpen] = React.useState(false)
   const pathname = usePathname()
   const isHome = pathname === "/"
-  const currentTitle = pageTitles[pathname]
+  const currentTitle = title ?? pageTitles[pathname]
 
   // Prevent body scroll when menu is open
   React.useEffect(() => {
