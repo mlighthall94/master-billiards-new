@@ -1,11 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { Menu, X, Phone, ArrowRight } from "lucide-react"
+import { Menu, X, Phone, ArrowRight, ArrowLeft } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -31,6 +31,7 @@ const pageTitles: Record<string, string> = {
 export function MobileNavbar({ title }: { title?: string } = {}) {
   const [isOpen, setIsOpen] = React.useState(false)
   const pathname = usePathname()
+  const router = useRouter()
   const isHome = pathname === "/"
   const currentTitle = title ?? pageTitles[pathname]
 
@@ -122,7 +123,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
 
         {/* Banner: phone number on home, current page title elsewhere */}
         <div className="bg-primary text-primary-foreground">
-          <div className="max-w-lg mx-auto px-4 sm:px-6 py-1.5">
+          <div className="max-w-lg mx-auto px-4 sm:px-6 py-1.5 relative flex items-center justify-center">
             {isHome ? (
               <a 
                 href="tel:+16032315345" 
@@ -132,9 +133,19 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                 603-231-5345
               </a>
             ) : (
-              <p className="flex items-center justify-center text-lg font-semibold tracking-wide">
-                {currentTitle ?? "Master Billiards"}
-              </p>
+              <>
+                <button
+                  type="button"
+                  onClick={() => router.back()}
+                  className="absolute left-0 p-1 -ml-1 text-primary-foreground transition-opacity hover:opacity-80"
+                  aria-label="Go back to previous page"
+                >
+                  <ArrowLeft className="h-6 w-6" />
+                </button>
+                <p className="flex items-center justify-center text-lg font-semibold tracking-wide">
+                  {currentTitle ?? "Master Billiards"}
+                </p>
+              </>
             )}
           </div>
         </div>
