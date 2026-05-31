@@ -133,7 +133,7 @@ export default function QuotePage() {
         }
         return true
       case 4:
-        return formData.name !== "" && formData.phone !== ""
+        return formData.name !== "" && formData.phone !== "" && formData.email !== ""
       default:
         return true
     }
@@ -467,7 +467,7 @@ export default function QuotePage() {
                 />
               </div>
               <div>
-                <label className="text-sm font-medium mb-1 block">Email</label>
+                <label className="text-sm font-medium mb-1 block">Email *</label>
                 <Input
                   type="email"
                   placeholder="your@email.com"
