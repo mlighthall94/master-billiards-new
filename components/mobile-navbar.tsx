@@ -9,7 +9,12 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/quote", label: "Get a Quote" },
+  { href: "/services", label: "Services" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/service-area", label: "Service Area" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export function MobileNavbar() {
@@ -91,16 +96,16 @@ export function MobileNavbar() {
           )}
         >
           {/* Navigation links */}
-          <nav className="flex-1 flex flex-col items-center justify-center gap-2 px-8">
+          <nav className="flex-1 flex flex-col items-center justify-center gap-1 px-8 pt-20">
             {navLinks.map((link, index) => (
               <Link
                 key={link.label}
                 href={link.href}
                 className={cn(
-                  "w-full text-center py-5 text-2xl font-semibold text-primary-foreground/90 hover:text-primary-foreground transition-all duration-300 rounded-xl hover:bg-primary-foreground/10",
+                  "w-full text-center py-3 text-2xl font-semibold text-primary-foreground/90 hover:text-primary-foreground transition-all duration-300 rounded-xl hover:bg-primary-foreground/10",
                   isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 )}
-                style={{ transitionDelay: isOpen ? `${150 + index * 75}ms` : "0ms" }}
+                style={{ transitionDelay: isOpen ? `${150 + index * 60}ms` : "0ms" }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -116,22 +121,31 @@ export function MobileNavbar() {
             )}
             style={{ transitionDelay: isOpen ? "300ms" : "0ms" }}
           >
-            <div className="border-t border-primary-foreground/20 pt-8">
-              <p className="text-primary-foreground/60 text-center text-sm mb-4">
-                Ready to get started?
-              </p>
+            <div className="border-t border-primary-foreground/20 pt-6 flex flex-col gap-3">
               <Button 
                 asChild 
                 size="lg" 
                 className="w-full py-6 text-base font-semibold bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                onClick={() => setIsOpen(false)}
+              >
+                <Link href="/quote">
+                  Get a Quote
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </Link>
+              </Button>
+              <Button 
+                asChild 
+                size="lg" 
+                variant="outline"
+                className="w-full py-6 text-base font-semibold bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
               >
                 <a href="tel:+16032315345">
                   <Phone className="h-5 w-5 mr-2" />
                   Call Now
                 </a>
               </Button>
-              <p className="text-primary-foreground/40 text-center text-xs mt-4">
-                Mon-Fri 8am-5pm | Southern NH
+              <p className="text-primary-foreground/40 text-center text-xs mt-1">
+                Mon-Fri 8am-5pm | Southern NH &amp; Northern MA
               </p>
             </div>
           </div>
