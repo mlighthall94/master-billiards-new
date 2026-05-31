@@ -1,6 +1,13 @@
 import { MapPin } from "lucide-react"
 
-const areas = [
+const counties = [
+  "Strafford County, NH",
+  "Rockingham County, NH",
+  "Essex County, MA",
+  "Middlesex County, MA",
+]
+
+const towns = [
   "Plaistow, NH",
   "Newburyport, MA",
   "Amesbury, MA",
@@ -22,7 +29,7 @@ export function ServiceArea() {
           <div>
             <h2 className="text-xl font-semibold text-foreground">Areas We Serve</h2>
             <p className="text-sm text-muted-foreground mt-1">
-              Based in Plaistow, NH — serving the surrounding region
+              Based in Plaistow, NH — serving Southern NH &amp; Northern MA
             </p>
           </div>
         </div>
@@ -31,9 +38,9 @@ export function ServiceArea() {
         <div className="rounded-lg overflow-hidden border border-border shadow-sm">
           <iframe
             title="Master Billiards service area map centered on Plaistow, New Hampshire"
-            src="https://www.google.com/maps?q=Plaistow,+NH&z=10&output=embed"
+            src="https://www.google.com/maps?q=Plaistow,+NH&z=9&output=embed"
             width="100%"
-            height="240"
+            height="280"
             style={{ border: 0 }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -41,15 +48,30 @@ export function ServiceArea() {
           />
         </div>
 
-        {/* Area chips */}
-        <ul className="flex flex-wrap gap-2 mt-4">
-          {areas.map((area) => (
+        {/* Counties */}
+        <p className="text-sm font-semibold text-foreground mt-5 mb-2">Counties Served</p>
+        <ul className="flex flex-wrap gap-2">
+          {counties.map((county) => (
             <li
-              key={area}
+              key={county}
+              className="flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-3 py-1.5 text-sm font-medium"
+            >
+              <MapPin className="h-3.5 w-3.5" />
+              {county}
+            </li>
+          ))}
+        </ul>
+
+        {/* Towns */}
+        <p className="text-sm font-semibold text-foreground mt-5 mb-2">Towns &amp; Regions</p>
+        <ul className="flex flex-wrap gap-2">
+          {towns.map((town) => (
+            <li
+              key={town}
               className="flex items-center gap-1 rounded-full bg-card text-foreground px-3 py-1.5 text-sm border border-border"
             >
               <MapPin className="h-3.5 w-3.5 text-primary" />
-              {area}
+              {town}
             </li>
           ))}
         </ul>
