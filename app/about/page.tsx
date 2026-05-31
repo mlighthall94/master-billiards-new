@@ -40,16 +40,6 @@ export default function AboutPage() {
     <div className="min-h-dvh flex flex-col">
       <MobileNavbar />
       <main className="flex-1 w-full">
-        <div className="relative h-56 w-full lg:h-96">
-          <ZoomableImage
-            src="/images/hero-modern.jpg"
-            alt="A freshly serviced pool table by Master Billiards"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
         <PageBanner
           title="About Master Billiards"
           subtitle="Family-run pool table specialists serving NH and MA with care and craftsmanship."

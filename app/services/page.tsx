@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { ZoomableImage } from "@/components/zoomable-image"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { PageBanner } from "@/components/page-banner"
@@ -57,16 +56,6 @@ export default function ServicesPage() {
     <div className="min-h-dvh flex flex-col">
       <MobileNavbar />
       <main className="flex-1 w-full">
-        <div className="relative h-52 w-full lg:h-80">
-          <ZoomableImage
-            src="/images/hero-measure.jpg"
-            alt="Technician measuring a pool table for precision setup"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
         <PageBanner
           title="Our Services"
           subtitle="Expert pool table care from moving to recovery, repairs, and everything in between."
