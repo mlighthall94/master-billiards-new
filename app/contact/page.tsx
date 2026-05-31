@@ -21,8 +21,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@masterbilliards.com",
-    href: "mailto:info@masterbilliards.com",
+    value: "kendra@masterbilliards.co",
+    href: "mailto:kendra@masterbilliards.co",
   },
   {
     icon: MapPin,
@@ -72,6 +72,21 @@ export default function ContactPage() {
           <div>
             <h2 className="text-xl font-bold text-foreground mb-4 lg:text-2xl">Send a Message</h2>
             <SimpleContactForm />
+          </div>
+        </section>
+
+        <section className="px-4 pb-10 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:pb-20">
+          <h2 className="text-xl font-bold text-foreground mb-4 lg:text-2xl">Find Us</h2>
+          <div className="overflow-hidden rounded-lg border border-border">
+            <iframe
+              title="Map showing Master Billiards service area in Plaistow, NH"
+              src="https://www.google.com/maps?q=Plaistow,+NH&output=embed"
+              width="100%"
+              height="320"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block w-full lg:h-[420px]"
+            />
           </div>
         </section>
       </main>
