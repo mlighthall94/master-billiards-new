@@ -57,16 +57,7 @@ export default async function ProjectPage({
 
         {/* Title block with logo */}
         <section className="bg-primary text-primary-foreground px-4 py-6 lg:py-10">
-          <div className="max-w-lg mx-auto flex items-center gap-4 lg:max-w-4xl lg:px-8 lg:gap-6">
-            <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg border border-primary-foreground/20 bg-primary-foreground lg:h-24 lg:w-24">
-              <Image
-                src={project.logo || "/placeholder.svg"}
-                alt={`${project.title} logo`}
-                fill
-                className="object-contain p-1"
-                sizes="96px"
-              />
-            </div>
+          <div className="max-w-lg mx-auto lg:max-w-4xl lg:px-8">
             <div className="min-w-0">
               <h1 className="text-xl font-bold leading-tight text-balance lg:text-4xl">
                 {project.title}

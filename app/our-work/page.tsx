@@ -53,10 +53,10 @@ export default function OurWorkPage() {
                         >
                           <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg border border-border bg-background">
                             <Image
-                              src={project.logo || "/placeholder.svg"}
-                              alt={`${project.title} logo`}
+                              src={project.cover || "/placeholder.svg"}
+                              alt={`${project.title}`}
                               fill
-                              className="object-contain p-1"
+                              className="object-cover"
                               sizes="64px"
                             />
                           </div>
