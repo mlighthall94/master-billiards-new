@@ -5,6 +5,7 @@ import { Menu, X, Phone, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -17,8 +18,21 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ]
 
+const pageTitles: Record<string, string> = {
+  "/services": "Services",
+  "/gallery": "Gallery",
+  "/reviews": "Reviews",
+  "/service-area": "Service Area",
+  "/about": "About",
+  "/contact": "Contact",
+  "/quote": "Get a Quote",
+}
+
 export function MobileNavbar() {
   const [isOpen, setIsOpen] = React.useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === "/"
+  const currentTitle = pageTitles[pathname]
 
   // Prevent body scroll when menu is open
   React.useEffect(() => {
@@ -61,16 +75,22 @@ export function MobileNavbar() {
           </nav>
         </header>
 
-        {/* Phone banner */}
+        {/* Banner: phone number on home, current page title elsewhere */}
         <div className="bg-primary text-primary-foreground">
           <div className="max-w-lg mx-auto px-4 sm:px-6 py-1.5">
-            <a 
-              href="tel:+16032315345" 
-              className="flex items-center justify-center gap-2 text-lg font-semibold tracking-wide"
-            >
-              <Phone className="h-5 w-5 fill-current" />
-              603-231-5345
-            </a>
+            {isHome ? (
+              <a 
+                href="tel:+16032315345" 
+                className="flex items-center justify-center gap-2 text-lg font-semibold tracking-wide"
+              >
+                <Phone className="h-5 w-5 fill-current" />
+                603-231-5345
+              </a>
+            ) : (
+              <p className="flex items-center justify-center text-lg font-semibold tracking-wide">
+                {currentTitle ?? "Master Billiards"}
+              </p>
+            )}
           </div>
         </div>
       </div>
