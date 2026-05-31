@@ -137,7 +137,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                 <button
                   type="button"
                   onClick={() => router.back()}
-                  className="absolute left-0 text-primary-foreground transition-opacity hover:opacity-80"
+                  className="absolute left-2.5 text-primary-foreground transition-opacity hover:opacity-80"
                   aria-label="Go back to previous page"
                 >
                   <ArrowLeft className="h-6 w-6" />
