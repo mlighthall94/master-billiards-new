@@ -40,11 +40,6 @@ export default function AboutPage() {
     <div className="min-h-dvh flex flex-col">
       <MobileNavbar />
       <main className="flex-1 w-full">
-        <PageBanner
-          title="About Master Billiards"
-          subtitle="Family-run pool table specialists serving NH and MA with care and craftsmanship."
-        />
-
         <div className="relative h-56 w-full">
           <Image
             src="/images/hero-team.png"
@@ -54,6 +49,11 @@ export default function AboutPage() {
             priority
           />
         </div>
+
+        <PageBanner
+          title="About Master Billiards"
+          subtitle="Family-run pool table specialists serving NH and MA with care and craftsmanship."
+        />
 
         <section className="px-4 py-8 max-w-lg mx-auto w-full">
           <h2 className="text-xl font-bold text-foreground">Our Story</h2>

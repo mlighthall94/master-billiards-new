@@ -57,11 +57,6 @@ export default function ServicesPage() {
     <div className="min-h-dvh flex flex-col">
       <MobileNavbar />
       <main className="flex-1 w-full">
-        <PageBanner
-          title="Our Services"
-          subtitle="Expert pool table care from moving to recovery, repairs, and everything in between."
-        />
-
         <div className="relative h-52 w-full">
           <Image
             src="/images/hero-measure.jpg"
@@ -71,6 +66,11 @@ export default function ServicesPage() {
             priority
           />
         </div>
+
+        <PageBanner
+          title="Our Services"
+          subtitle="Expert pool table care from moving to recovery, repairs, and everything in between."
+        />
 
         <section className="px-4 py-8 max-w-lg mx-auto w-full">
           <div className="flex flex-col gap-6">
