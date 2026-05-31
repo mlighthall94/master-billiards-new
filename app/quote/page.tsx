@@ -174,7 +174,7 @@ export default function QuotePage() {
       {/* Progress indicator */}
       {step <= 4 && (
         <div className="px-4 py-4 bg-card border-b border-border">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-2 lg:max-w-2xl lg:mx-auto">
             <span className="text-sm font-medium">Step {step} of {totalSteps}</span>
             <span className="text-sm text-muted-foreground">
               {step === 1 && "Select Services"}
@@ -183,7 +183,7 @@ export default function QuotePage() {
               {step === 4 && "Contact Info"}
             </span>
           </div>
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
+          <div className="h-2 bg-muted rounded-full overflow-hidden lg:max-w-2xl lg:mx-auto">
             <div 
               className="h-full bg-primary transition-all duration-300"
               style={{ width: `${(step / totalSteps) * 100}%` }}
@@ -193,7 +193,7 @@ export default function QuotePage() {
       )}
 
       {/* Form content */}
-      <main className="flex-1 px-4 py-6 pb-32">
+      <main className="flex-1 px-4 py-6 pb-32 w-full lg:max-w-2xl lg:mx-auto lg:py-12">
         {/* Step 1: Service Selection */}
         {step === 1 && (
           <div className="space-y-4">
@@ -523,7 +523,7 @@ export default function QuotePage() {
       {/* Bottom navigation - fixed */}
       {step <= 4 && (
         <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4">
-          <div className="flex gap-3">
+          <div className="flex gap-3 lg:max-w-2xl lg:mx-auto">
             {step > 1 && (
               <Button variant="outline" onClick={handleBack} className="flex-1 py-6 text-base">
                 Back

@@ -24,13 +24,13 @@ export default function OurWorkPage() {
           subtitle="Pool rooms and billiards halls across NH and MA that we've installed, recovered, and maintained."
         />
 
-        <section className="px-4 py-6 max-w-lg mx-auto w-full">
-          <ul className="flex flex-col gap-4">
+        <section className="px-4 py-6 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:py-12">
+          <ul className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:gap-6">
             {projects.map((project) => (
               <li key={project.slug}>
                 <Link
                   href={`/our-work/${project.slug}`}
-                  className="group flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-colors hover:border-foreground/30"
+                  className="group flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-colors hover:border-foreground/30 lg:h-full lg:p-6"
                 >
                   <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg border border-border bg-background">
                     <Image

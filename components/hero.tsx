@@ -46,9 +46,9 @@ export function Hero() {
   )
 
   return (
-    <section className="w-full h-[calc(100dvh-116px)] flex flex-col">
+    <section className="w-full h-[calc(100dvh-116px)] flex flex-col lg:flex-row lg:h-[calc(100vh-80px)] lg:max-h-[680px]">
       {/* Image Carousel - takes remaining space */}
-      <div className="overflow-hidden touch-pan-y flex-1 min-h-0" ref={emblaRef}>
+      <div className="overflow-hidden touch-pan-y flex-1 min-h-0 lg:flex-[0_0_60%] lg:h-full" ref={emblaRef}>
         <div className="flex will-change-transform h-full">
           {slides.map((slide, index) => (
             <div key={index} className="relative flex-[0_0_100%] min-w-0 transform-gpu h-full">
@@ -65,7 +65,7 @@ export function Hero() {
       </div>
 
       {/* Content - fixed at bottom */}
-      <div className="bg-primary text-primary-foreground px-4 py-5 flex-shrink-0">
+      <div className="bg-primary text-primary-foreground px-4 py-5 flex-shrink-0 lg:flex-1 lg:flex lg:flex-col lg:justify-center lg:px-16 lg:py-0">
         <div className="flex items-center gap-1 mb-3">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -73,18 +73,18 @@ export function Hero() {
           <span className="text-sm text-primary-foreground/70 ml-1">5.0 on Google</span>
         </div>
         
-        <h1 className="text-2xl font-bold leading-tight">
+        <h1 className="text-2xl font-bold leading-tight lg:text-5xl lg:leading-[1.05] text-balance">
           Pool Table Services in NH and MA
         </h1>
         
-        <p className="text-base text-primary-foreground/80 mt-2">
+        <p className="text-base text-primary-foreground/80 mt-2 lg:text-xl lg:mt-4 lg:max-w-md">
           Moving, recovery, repairs. Done right.
         </p>
 
         <Button
           asChild
           size="lg"
-          className="mt-5 w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 py-6 text-base font-semibold"
+          className="mt-5 w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 py-6 text-base font-semibold lg:w-auto lg:self-start lg:mt-8 lg:px-12 lg:py-7 lg:text-lg"
         >
           <Link href="/quote">Get a Quote</Link>
         </Button>

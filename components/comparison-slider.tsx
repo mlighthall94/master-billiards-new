@@ -47,18 +47,18 @@ export function ComparisonSlider() {
   )
 
   return (
-    <section className="w-full py-8 bg-background">
-      <div className="px-3 mb-6">
-        <h2 className="text-xl font-semibold text-foreground">
+    <section className="w-full py-8 bg-background lg:py-20">
+      <div className="px-3 mb-6 lg:max-w-6xl lg:mx-auto lg:px-8 lg:mb-10 lg:text-center">
+        <h2 className="text-xl font-semibold text-foreground lg:text-3xl">
           Quality You Can See
         </h2>
-        <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+        <p className="text-sm text-muted-foreground mt-2 leading-relaxed lg:text-lg lg:mt-4 lg:max-w-3xl lg:mx-auto">
           We don&apos;t cut corners. Every table we service receives meticulous attention to detail - from precision fabric cuts to hidden staple work. The difference between amateur and professional craftsmanship is clear.
         </p>
       </div>
 
-      {/* Slider */}
-      <div className="overflow-hidden" ref={emblaRef}>
+      {/* Mobile slider */}
+      <div className="overflow-hidden lg:hidden" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide, index) => (
             <div key={index} className="relative flex-[0_0_100%] min-w-0">
@@ -81,8 +81,8 @@ export function ComparisonSlider() {
         </div>
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-4">
+      {/* Dot indicators (mobile) */}
+      <div className="flex justify-center gap-2 mt-4 lg:hidden">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -93,6 +93,23 @@ export function ComparisonSlider() {
             )}
             aria-label={`Go to slide ${index + 1}`}
           />
+        ))}
+      </div>
+
+      {/* Desktop side-by-side */}
+      <div className="hidden lg:grid grid-cols-2 gap-6 max-w-6xl mx-auto px-8">
+        {slides.map((slide, index) => (
+          <div key={index} className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+            <Image src={slide.image} alt={slide.alt} fill className="object-cover" />
+            <div className="absolute bottom-4 left-4">
+              <span className="bg-primary text-primary-foreground text-sm font-semibold uppercase tracking-wider px-4 py-2">
+                {slide.label}
+              </span>
+            </div>
+            <div className="absolute bottom-4 right-4 left-24">
+              <p className="text-right text-sm text-white font-medium drop-shadow-lg">{slide.description}</p>
+            </div>
+          </div>
         ))}
       </div>
     </section>

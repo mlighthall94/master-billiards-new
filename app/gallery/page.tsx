@@ -32,18 +32,18 @@ export default function GalleryPage() {
           subtitle="A look at the tables we've moved, recovered, and restored for customers across the region."
         />
 
-        <section className="px-3 py-6 max-w-lg mx-auto w-full">
-          <div className="grid grid-cols-2 gap-2">
+        <section className="px-3 py-6 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:py-12">
+          <div className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4">
             {gallery.map((item, index) => (
               <div
                 key={index}
-                className="relative aspect-square overflow-hidden rounded-lg border border-border"
+                className="relative aspect-square overflow-hidden rounded-lg border border-border group"
               >
                 <Image
                   src={item.src || "/placeholder.svg"}
                   alt={item.alt}
                   fill
-                  className="object-cover"
+                  className="object-cover lg:transition-transform lg:duration-300 lg:group-hover:scale-105"
                   sizes="(max-width: 512px) 50vw, 256px"
                   priority={index < 2}
                 />

@@ -48,7 +48,52 @@ export function MobileNavbar() {
 
   return (
     <>
-      <div className="sticky top-0 z-[70]">
+      {/* Desktop header */}
+      <header className="hidden lg:block sticky top-0 z-[70] border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+        <div className="max-w-6xl mx-auto px-8 flex items-center justify-between h-20">
+          <Link href="/" className="text-foreground shrink-0" aria-label="Home">
+            <Logo className="h-12 w-auto" />
+          </Link>
+
+          <nav className="flex items-center gap-1">
+            {navLinks.map((link) => {
+              const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={cn(
+                    "px-4 py-2 text-sm font-medium rounded-md transition-colors",
+                    isActive
+                      ? "text-foreground bg-secondary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+          </nav>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href="tel:+16032315345"
+              className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-foreground/80 transition-colors"
+            >
+              <Phone className="h-4 w-4 fill-current" />
+              603-231-5345
+            </a>
+            <Button asChild size="sm" className="font-semibold">
+              <Link href="/quote">
+                Get a Quote
+                <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <div className="lg:hidden sticky top-0 z-[70]">
         <header className="border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
           <nav className="max-w-lg mx-auto px-4 sm:px-6">
             <div className="flex py-3 items-center justify-center relative">
@@ -64,7 +109,7 @@ export function MobileNavbar() {
               {/* Mobile menu button - positioned absolutely on the right */}
               <button
                 type="button"
-                className="sm:hidden absolute right-0 p-2 -mr-2 text-foreground z-[70]"
+                className="lg:hidden absolute right-0 p-2 -mr-2 text-foreground z-[70]"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isOpen}
@@ -98,7 +143,7 @@ export function MobileNavbar() {
       {/* Full-screen mobile menu */}
       <div
         className={cn(
-          "sm:hidden fixed inset-0 z-[65] transition-all duration-500 ease-out",
+          "lg:hidden fixed inset-0 z-[65] transition-all duration-500 ease-out",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >

@@ -25,14 +25,15 @@ export function Brands() {
   )
 
   return (
-    <section className="w-full py-8 bg-black">
-      <div className="px-3 mb-4">
+    <section className="w-full py-8 bg-black lg:py-16">
+      <div className="px-3 mb-4 lg:mb-10">
         <p className="text-sm text-white/60 text-center">
           Brands We Work With
         </p>
       </div>
 
-      <div className="overflow-hidden touch-pan-y" ref={emblaRef}>
+      {/* Mobile carousel */}
+      <div className="overflow-hidden touch-pan-y lg:hidden" ref={emblaRef}>
         <div className="flex will-change-transform">
           {brands.map((brand, index) => (
             <div
@@ -49,6 +50,20 @@ export function Brands() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Desktop static row */}
+      <div className="hidden lg:flex max-w-6xl mx-auto px-8 items-center justify-between gap-8">
+        {brands.map((brand, index) => (
+          <Image
+            key={index}
+            src={brand.logo}
+            alt={brand.name}
+            width={160}
+            height={64}
+            className="brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"
+          />
+        ))}
       </div>
     </section>
   )

@@ -23,9 +23,9 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null)
 
   return (
-    <section className="w-full py-8">
-      <div className="px-3">
-        <h2 className="text-xl font-bold text-foreground mb-4">
+    <section className="w-full py-8 lg:py-20">
+      <div className="px-3 lg:max-w-3xl lg:mx-auto lg:px-8">
+        <h2 className="text-xl font-bold text-foreground mb-4 lg:text-3xl lg:text-center lg:mb-10">
           Common Questions
         </h2>
 
@@ -34,9 +34,9 @@ export function FAQ() {
             <div key={index} className="border-b border-border">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-3 flex items-center justify-between text-left"
+                className="w-full py-3 flex items-center justify-between text-left lg:py-5"
               >
-                <span className="text-base font-semibold text-foreground pr-4">
+                <span className="text-base font-semibold text-foreground pr-4 lg:text-lg">
                   {faq.question}
                 </span>
                 <ChevronDown
@@ -49,7 +49,7 @@ export function FAQ() {
               <div
                 className={cn(
                   "overflow-hidden transition-all duration-200",
-                  openIndex === index ? "max-h-32 pb-3" : "max-h-0"
+                  openIndex === index ? "max-h-40 pb-3 lg:max-h-52 lg:pb-5" : "max-h-0"
                 )}
               >
                 <p className="text-base text-muted-foreground leading-relaxed">

@@ -57,7 +57,7 @@ export default function ServicesPage() {
     <div className="min-h-dvh flex flex-col">
       <MobileNavbar />
       <main className="flex-1 w-full">
-        <div className="relative h-52 w-full">
+        <div className="relative h-52 w-full lg:h-80">
           <Image
             src="/images/hero-measure.jpg"
             alt="Technician measuring a pool table for precision setup"
@@ -72,20 +72,20 @@ export default function ServicesPage() {
           subtitle="Expert pool table care from moving to recovery, repairs, and everything in between."
         />
 
-        <section className="px-4 py-8 max-w-lg mx-auto w-full">
-          <div className="flex flex-col gap-6">
+        <section className="px-4 py-8 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:py-20">
+          <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 lg:gap-8">
             {services.map((service) => {
               const Icon = service.icon
               return (
-                <div key={service.title} className="flex gap-4">
+                <div key={service.title} className="flex gap-4 lg:flex-col lg:gap-4 lg:border lg:border-border lg:rounded-xl lg:p-8 lg:bg-card">
                   <div className="flex-shrink-0">
-                    <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-primary" />
+                    <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center lg:h-14 lg:w-14">
+                      <Icon className="h-5 w-5 text-primary lg:h-7 lg:w-7" />
                     </div>
                   </div>
                   <div>
-                    <h2 className="text-base font-semibold text-foreground">{service.title}</h2>
-                    <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                    <h2 className="text-base font-semibold text-foreground lg:text-xl">{service.title}</h2>
+                    <p className="text-sm text-muted-foreground mt-1 leading-relaxed lg:text-base lg:mt-3">
                       {service.description}
                     </p>
                   </div>

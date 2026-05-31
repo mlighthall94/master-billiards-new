@@ -46,29 +46,33 @@ export default function ContactPage() {
           subtitle="Questions about your table? Send us a message or give us a call — we're happy to help."
         />
 
-        <section className="px-4 py-8 max-w-lg mx-auto w-full">
-          <div className="grid grid-cols-2 gap-3 mb-8">
-            {contactInfo.map((item) => {
-              const Icon = item.icon
-              const content = (
-                <div className="border border-border rounded-lg p-4 h-full">
-                  <Icon className="h-5 w-5 text-primary mb-2" />
-                  <p className="text-xs text-muted-foreground">{item.label}</p>
-                  <p className="text-sm font-semibold text-foreground mt-0.5">{item.value}</p>
-                </div>
-              )
-              return item.href ? (
-                <a key={item.label} href={item.href} className="block">
-                  {content}
-                </a>
-              ) : (
-                <div key={item.label}>{content}</div>
-              )
-            })}
+        <section className="px-4 py-8 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:py-16 lg:grid lg:grid-cols-2 lg:gap-16">
+          <div>
+            <div className="grid grid-cols-2 gap-3 mb-8 lg:mb-0">
+              {contactInfo.map((item) => {
+                const Icon = item.icon
+                const content = (
+                  <div className="border border-border rounded-lg p-4 h-full lg:p-6">
+                    <Icon className="h-5 w-5 text-primary mb-2 lg:h-6 lg:w-6 lg:mb-3" />
+                    <p className="text-xs text-muted-foreground">{item.label}</p>
+                    <p className="text-sm font-semibold text-foreground mt-0.5 lg:text-base">{item.value}</p>
+                  </div>
+                )
+                return item.href ? (
+                  <a key={item.label} href={item.href} className="block">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={item.label}>{content}</div>
+                )
+              })}
+            </div>
           </div>
 
-          <h2 className="text-xl font-bold text-foreground mb-4">Send a Message</h2>
-          <SimpleContactForm />
+          <div>
+            <h2 className="text-xl font-bold text-foreground mb-4 lg:text-2xl">Send a Message</h2>
+            <SimpleContactForm />
+          </div>
         </section>
       </main>
       <Footer />

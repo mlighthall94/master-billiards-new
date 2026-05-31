@@ -54,31 +54,31 @@ export default function ReviewsPage() {
           subtitle="We're proud of our reputation. Here's what customers across NH and MA have to say."
         />
 
-        <section className="px-4 py-8 max-w-lg mx-auto w-full">
-          <div className="flex items-center gap-3 mb-6 rounded-lg bg-secondary p-4">
-            <span className="text-3xl font-bold text-foreground">5.0</span>
+        <section className="px-4 py-8 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:py-16">
+          <div className="flex items-center gap-3 mb-6 rounded-lg bg-secondary p-4 lg:max-w-md lg:mx-auto lg:mb-12 lg:p-6 lg:justify-center">
+            <span className="text-3xl font-bold text-foreground lg:text-4xl">5.0</span>
             <div>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                  <Star key={i} className="h-4 w-4 fill-primary text-primary lg:h-5 lg:w-5" />
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mt-0.5">Based on Google reviews</p>
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:gap-6">
             {reviews.map((review) => (
-              <div key={review.name} className="border border-border rounded-lg p-4">
-                <div className="flex gap-0.5 mb-2">
+              <div key={review.name} className="border border-border rounded-lg p-4 lg:p-8 lg:bg-card lg:flex lg:flex-col">
+                <div className="flex gap-0.5 mb-2 lg:mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    <Star key={i} className="h-4 w-4 fill-primary text-primary lg:h-5 lg:w-5" />
                   ))}
                 </div>
-                <p className="text-base text-foreground leading-relaxed">
+                <p className="text-base text-foreground leading-relaxed lg:text-lg lg:flex-1">
                   &quot;{review.text}&quot;
                 </p>
-                <p className="text-sm text-muted-foreground mt-3 font-medium">
+                <p className="text-sm text-muted-foreground mt-3 font-medium lg:mt-6">
                   {review.name} — {review.location}
                 </p>
               </div>
