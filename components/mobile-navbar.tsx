@@ -104,7 +104,7 @@ export function MobileNavbar() {
       >
         {/* Full screen dark overlay */}
         <div 
-          className="absolute inset-0 bg-primary"
+          className="absolute inset-0 bg-black"
           onClick={() => setIsOpen(false)}
         />
         
