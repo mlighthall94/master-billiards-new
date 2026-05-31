@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/reviews", label: "Reviews" },
   { href: "/service-area", label: "Service Area" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -23,7 +23,7 @@ const pageTitles: Record<string, string> = {
   "/gallery": "Gallery",
   "/reviews": "Reviews",
   "/service-area": "Service Area",
-  "/about": "About",
+  "/about": "About Us",
   "/contact": "Contact",
   "/quote": "Get a Quote",
 }
