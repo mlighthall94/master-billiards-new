@@ -28,7 +28,7 @@ export default function GalleryPage() {
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner
-          title="Our Work"
+          title="Gallery"
           subtitle="A look at the tables we've moved, recovered, and restored for customers across the region."
         />
 
