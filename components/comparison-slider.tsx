@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
+import { ZoomableImage } from "@/components/zoomable-image"
 import useEmblaCarousel from "embla-carousel-react"
 import { cn } from "@/lib/utils"
 
@@ -63,7 +63,7 @@ export function ComparisonSlider() {
           {slides.map((slide, index) => (
             <div key={index} className="relative flex-[0_0_100%] min-w-0">
               <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <Image
+                <ZoomableImage
                   src={slide.image}
                   alt={slide.alt}
                   fill
@@ -100,7 +100,7 @@ export function ComparisonSlider() {
       <div className="hidden lg:grid grid-cols-2 gap-6 max-w-6xl mx-auto px-8">
         {slides.map((slide, index) => (
           <div key={index} className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
-            <Image src={slide.image} alt={slide.alt} fill className="object-cover" />
+            <ZoomableImage src={slide.image} alt={slide.alt} fill className="object-cover" />
             <div className="absolute bottom-4 left-4">
               <span className="bg-primary text-primary-foreground text-sm font-semibold uppercase tracking-wider px-4 py-2">
                 {slide.label}

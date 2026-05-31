@@ -8,7 +8,7 @@ import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { Check, Camera, X, Lock } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+import { ZoomableImage } from "@/components/zoomable-image"
 import { cn } from "@/lib/utils"
 
 const services = [
@@ -282,11 +282,12 @@ export default function QuotePage() {
               <div className="grid grid-cols-3 gap-2">
                 {images.map((img, index) => (
                   <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-border">
-                    <Image
+                    <ZoomableImage
                       src={img}
                       alt={`Upload ${index + 1}`}
                       fill
                       className="object-cover"
+                      unoptimized
                     />
                     <button
                       onClick={() => removeImage(index)}

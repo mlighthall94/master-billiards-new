@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import Image from "next/image"
+import { ZoomableImage } from "@/components/zoomable-image"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { PageBanner } from "@/components/page-banner"
@@ -39,7 +39,7 @@ export default function GalleryPage() {
                 key={index}
                 className="relative aspect-square overflow-hidden rounded-lg border border-border group"
               >
-                <Image
+                <ZoomableImage
                   src={item.src || "/placeholder.svg"}
                   alt={item.alt}
                   fill

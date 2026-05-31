@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import { ZoomableImage } from "@/components/zoomable-image"
 import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -52,7 +52,7 @@ export function Hero() {
         <div className="flex will-change-transform h-full">
           {slides.map((slide, index) => (
             <div key={index} className="relative flex-[0_0_100%] min-w-0 transform-gpu h-full">
-              <Image
+              <ZoomableImage
                 src={slide.image}
                 alt={slide.alt}
                 fill

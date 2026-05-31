@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import Image from "next/image"
+import { ZoomableImage } from "@/components/zoomable-image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Check, MapPin } from "lucide-react"
@@ -46,7 +46,7 @@ export default async function ProjectPage({
       <main className="flex-1 w-full">
         {/* Cover image */}
         <div className="relative h-60 w-full lg:h-[420px]">
-          <Image
+          <ZoomableImage
             src={project.cover || "/placeholder.svg"}
             alt={`${project.title} project`}
             fill
@@ -113,7 +113,7 @@ export default async function ProjectPage({
                     key={index}
                     className="relative aspect-square overflow-hidden rounded-lg border border-border"
                   >
-                    <Image
+                    <ZoomableImage
                       src={item.src || "/placeholder.svg"}
                       alt={item.alt}
                       fill

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import Image from "next/image"
+import { ZoomableImage } from "@/components/zoomable-image"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { PageBanner } from "@/components/page-banner"
@@ -41,7 +41,7 @@ export default function AboutPage() {
       <MobileNavbar />
       <main className="flex-1 w-full">
         <div className="relative h-56 w-full lg:h-96">
-          <Image
+          <ZoomableImage
             src="/images/hero-team.png"
             alt="The Master Billiards team"
             fill
