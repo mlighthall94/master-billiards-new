@@ -52,6 +52,10 @@ export default function ReviewsPage() {
         <PageBanner
           title="Customer Reviews"
           subtitle="We're proud of our reputation. Here's what customers across NH and MA have to say."
+          cta={{
+            label: "Leave a Review",
+            href: "https://www.google.com/search?q=Master+Billiards+LLC+Plaistow+NH",
+          }}
         />
 
         <section className="px-4 py-8 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:py-16">
