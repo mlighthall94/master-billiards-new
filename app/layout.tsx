@@ -9,26 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Swift Forms',
-  description: 'A minimal, mobile-first form experience',
+  title: 'Master Billiards',
+  description: 'Professional pool table services in NH and MA — moving, recovery, repairs, and setup.',
   generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
