@@ -32,11 +32,11 @@ export const projects: Project[] = [
       "Legends came to us ahead of their fall league season with a room full of tables that hadn't been touched in years. The cloth was worn through in the break areas and several tables had developed a noticeable roll.",
       "Over the course of a week, our team recovered all twelve tables with tournament-grade Simonis 860, re-leveled every slate seam, and rebuilt the cushions on the tables that saw the heaviest play. The result is a room that now hosts sanctioned league nights with confidence.",
     ],
-    cover: "/images/hero-modern.jpg",
+    cover: "/images/work/legends-1.png",
     gallery: [
-      { src: "/images/hero-2.jpg", alt: "Row of recovered league tables at Legends" },
-      { src: "/images/our-work.jpg", alt: "Close-up of new tournament cloth installation" },
-      { src: "/images/hero-measure.jpg", alt: "Technician leveling slate at Legends" },
+      { src: "/images/work/legends-2.png", alt: "Freshly recovered table with oak rails at Legends" },
+      { src: "/images/work/legends-3.png", alt: "Head-on view of a newly clothed table at Legends" },
+      { src: "/images/work/legends-4.png", alt: "Technician measuring and leveling a table at Legends" },
     ],
   },
   {
