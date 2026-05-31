@@ -17,7 +17,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "legends-billiards",
-    title: "Legends",
+    title: "Legends Bar & Billiards",
     logo: "/images/work/legends-billiards.png",
     location: "Portsmouth, NH",
     summary:
