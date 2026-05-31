@@ -63,20 +63,12 @@ export function ServiceArea() {
         </ul>
 
         {/* Towns */}
-        <p className="text-sm font-semibold text-foreground mt-5 mb-2">Towns &amp; Regions</p>
-        <ul className="flex flex-wrap gap-2">
-          {towns.map((town) => (
-            <li
-              key={town}
-              className="flex items-center gap-1 rounded-full bg-card text-foreground px-3 py-1.5 text-sm border border-border"
-            >
-              <MapPin className="h-3.5 w-3.5 text-primary" />
-              {town}
-            </li>
-          ))}
-        </ul>
+        <p className="text-sm font-semibold text-foreground mt-5 mb-1">Towns &amp; Regions</p>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          {towns.join(" · ")}
+        </p>
 
-        <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
+        <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
           Don&apos;t see your town? We likely service your area. Give us a call to confirm availability.
         </p>
       </div>
