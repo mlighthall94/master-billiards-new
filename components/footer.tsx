@@ -18,7 +18,7 @@ export function Footer() {
       <div className="hidden lg:block">
         <div className="max-w-6xl mx-auto px-8 py-14">
           <div className="grid grid-cols-4 gap-10">
-            <div className="col-span-1 flex flex-col gap-4">
+            <div className="col-span-1 flex flex-col items-start gap-4">
               <Logo className="h-12 w-auto text-primary-foreground" />
               <p className="text-sm text-primary-foreground/60 leading-relaxed">
                 Professional pool table moving, recovery, and repair across Southern NH and Northern MA.
