@@ -74,7 +74,7 @@ export function Hero() {
         </div>
         
         <h1 className="text-2xl font-bold leading-tight">
-          Pool Table Services in Southern NH
+          Pool Table Services in NH and MA
         </h1>
         
         <p className="text-base text-primary-foreground/80 mt-2">
