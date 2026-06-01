@@ -4,8 +4,7 @@ import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { MobileNavbar } from "@/components/mobile-navbar"
-import { Footer } from "@/components/footer"
+import { Logo } from "@/components/logo"
 import { Check, Camera, X, Lock } from "lucide-react"
 import Link from "next/link"
 import { ZoomableImage } from "@/components/zoomable-image"
@@ -169,7 +168,21 @@ export default function QuotePage() {
 
   return (
     <div className="min-h-dvh bg-background flex flex-col">
-      <MobileNavbar />
+      {/* Minimal immersive header — hides all site chrome while in the flow */}
+      <header className="sticky top-0 z-30 bg-background border-b border-border">
+        <div className="relative flex items-center justify-center h-14 px-4 lg:max-w-2xl lg:mx-auto">
+          <Link href="/" className="text-foreground" aria-label="Master Billiards home">
+            <Logo className="h-7 w-auto" />
+          </Link>
+          <Link
+            href="/"
+            aria-label="Exit quote form"
+            className="absolute right-4 flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            <X className="h-5 w-5" />
+          </Link>
+        </div>
+      </header>
 
       {/* Progress indicator */}
       {step <= 4 && (
@@ -550,8 +563,6 @@ export default function QuotePage() {
           </div>
         </div>
       )}
-
-      <Footer />
     </div>
   )
 }
