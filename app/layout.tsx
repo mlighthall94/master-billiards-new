@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`bg-background ${inter.className}`}>
-      <body className="antialiased min-h-dvh">
+      <body className="antialiased min-h-dvh pb-16 lg:pb-0">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
