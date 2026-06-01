@@ -12,6 +12,26 @@ export const metadata: Metadata = {
   title: 'Master Billiards',
   description: 'Professional pool table services in NH and MA — moving, recovery, repairs, and setup.',
   generator: 'v0.app',
+  openGraph: {
+    title: 'Master Billiards',
+    description: 'Professional pool table services in NH and MA — moving, recovery, repairs, and setup.',
+    siteName: 'Master Billiards',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1456,
+        height: 1088,
+        alt: 'Master Billiards — professional pool table services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Master Billiards',
+    description: 'Professional pool table services in NH and MA — moving, recovery, repairs, and setup.',
+    images: ['/og-image.png'],
+  },
 }
 
 export const viewport: Viewport = {
