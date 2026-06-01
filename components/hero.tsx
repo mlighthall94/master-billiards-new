@@ -46,7 +46,7 @@ export function Hero() {
   )
 
   return (
-    <section className="w-full h-[calc(100dvh-116px)] flex flex-col lg:flex-row lg:h-[calc(100vh-80px)] lg:max-h-[680px]">
+    <section className="w-full h-[calc(100svh-116px)] flex flex-col lg:flex-row lg:h-[calc(100vh-80px)] lg:max-h-[680px]">
       {/* Image Carousel - takes remaining space */}
       <div className="overflow-hidden touch-pan-y flex-1 min-h-0 lg:flex-[0_0_60%] lg:h-full" ref={emblaRef}>
         <div className="flex will-change-transform h-full">
