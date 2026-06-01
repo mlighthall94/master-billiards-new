@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Logo } from "@/components/logo"
-import { Check, Camera, X, Lock } from "lucide-react"
+import { Check, Camera, X, Lock, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { ZoomableImage } from "@/components/zoomable-image"
 import { cn } from "@/lib/utils"
@@ -68,6 +68,8 @@ const accessTypes = [
   { id: "stairs", label: "Stairs Involved", description: "Up or down stairs" },
   { id: "tight", label: "Tight Spaces", description: "Narrow hallways" },
 ]
+
+const stepLabels = ["Services", "Table Info", "Details", "Contact"]
 
 export default function QuotePage() {
   const [step, setStep] = useState(1)
@@ -169,397 +171,436 @@ export default function QuotePage() {
   return (
     <div className="min-h-dvh bg-background flex flex-col">
       {/* Minimal immersive header — hides all site chrome while in the flow */}
-      <header className="sticky top-0 z-30 bg-background border-b border-border">
+      <header className="sticky top-0 z-30 bg-background/90 backdrop-blur-sm border-b border-border">
         <div className="relative flex items-center justify-center h-14 px-4 lg:max-w-2xl lg:mx-auto">
+          {step > 1 && step <= 4 ? (
+            <button
+              onClick={handleBack}
+              aria-label="Go back a step"
+              className="absolute left-2 flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </button>
+          ) : null}
           <Link href="/" className="text-foreground" aria-label="Master Billiards home">
             <Logo className="h-7 w-auto" />
           </Link>
           <Link
             href="/"
             aria-label="Exit quote form"
-            className="absolute right-4 flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            className="absolute right-2 flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           >
             <X className="h-5 w-5" />
           </Link>
         </div>
       </header>
 
-      {/* Progress indicator */}
+      {/* Segmented progress tracker */}
       {step <= 4 && (
-        <div className="px-4 py-4 bg-card border-b border-border">
-          <div className="flex items-center justify-between mb-2 lg:max-w-2xl lg:mx-auto">
-            <span className="text-sm font-medium">Step {step} of {totalSteps}</span>
-            <span className="text-sm text-muted-foreground">
-              {step === 1 && "Select Services"}
-              {step === 2 && "Table Info"}
-              {step === 3 && "Service Details"}
-              {step === 4 && "Contact Info"}
-            </span>
-          </div>
-          <div className="h-2 bg-muted rounded-full overflow-hidden lg:max-w-2xl lg:mx-auto">
-            <div 
-              className="h-full bg-primary transition-all duration-300"
-              style={{ width: `${(step / totalSteps) * 100}%` }}
-            />
+        <div className="px-4 pt-4 pb-4 bg-background border-b border-border">
+          <div className="lg:max-w-2xl lg:mx-auto">
+            <div className="flex items-center gap-1.5">
+              {stepLabels.map((label, index) => {
+                const stepNum = index + 1
+                const isComplete = step > stepNum
+                const isCurrent = step === stepNum
+                return (
+                  <div key={label} className="flex-1">
+                    <div
+                      className={cn(
+                        "h-1.5 rounded-full transition-colors duration-300",
+                        isComplete || isCurrent ? "bg-primary" : "bg-muted",
+                      )}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+            <div className="mt-2 flex items-center justify-between">
+              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                Step {step} of {totalSteps}
+              </span>
+              <span className="text-xs font-semibold text-foreground">{stepLabels[step - 1]}</span>
+            </div>
           </div>
         </div>
       )}
 
       {/* Form content */}
-      <main className="flex-1 px-4 py-6 pb-32 w-full lg:max-w-2xl lg:mx-auto lg:py-12">
-        {/* Step 1: Service Selection */}
-        {step === 1 && (
-          <div className="space-y-4">
-            <div>
-              <h1 className="text-2xl font-bold">What do you need?</h1>
-              <p className="text-muted-foreground mt-1">Select all that apply</p>
-            </div>
-            <div className="grid gap-3">
-              {services.map((service) => (
-                <button
-                  key={service.id}
-                  onClick={() => toggleService(service.id)}
-                  className={cn(
-                    "w-full p-4 text-left border-2 rounded-lg transition-all",
-                    formData.services.includes(service.id)
-                      ? "border-primary bg-primary/5"
-                      : "border-border hover:border-muted-foreground"
-                  )}
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-semibold text-base">{service.label}</p>
-                      <p className="text-sm text-muted-foreground">{service.description}</p>
-                    </div>
-                    {formData.services.includes(service.id) && (
-                      <div className="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
-                        <Check className="h-4 w-4 text-primary-foreground" />
-                      </div>
-                    )}
-                  </div>
-                </button>
-              ))}
-            </div>
-            
-            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
-              <Lock className="h-3 w-3" />
-              <span>Your information is secure and never shared</span>
-            </div>
-          </div>
-        )}
-
-        {/* Step 2: Table Info + Photos */}
-        {step === 2 && (
-          <div className="space-y-6">
-            <div>
-              <h1 className="text-2xl font-bold">Table Information</h1>
-              <p className="text-muted-foreground mt-1">Tell us about your table</p>
-            </div>
-            
-            <div>
-              <p className="font-medium mb-3">Table Size</p>
-              <div className="grid grid-cols-2 gap-3">
-                {tableSizes.map((size) => (
-                  <button
-                    key={size.id}
-                    onClick={() => setFormData((prev) => ({ ...prev, tableSize: size.id }))}
-                    className={cn(
-                      "p-4 text-center border-2 rounded-lg transition-all",
-                      formData.tableSize === size.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border hover:border-muted-foreground"
-                    )}
-                  >
-                    <p className="font-semibold text-base">{size.label}</p>
-                  </button>
-                ))}
+      <main className="flex-1 px-4 py-7 pb-40 w-full lg:max-w-2xl lg:mx-auto lg:py-12">
+        <div key={step} className="animate-in fade-in-0 slide-in-from-bottom-3 duration-300">
+          {/* Step 1: Service Selection */}
+          {step === 1 && (
+            <div className="space-y-5">
+              <div>
+                <h1 className="text-3xl font-bold tracking-tight text-balance">What can we help with?</h1>
+                <p className="text-muted-foreground mt-1.5">Select all the services you need.</p>
               </div>
-            </div>
-
-            {/* Photo Upload Section */}
-            <div>
-              <div className="flex items-baseline gap-2 mb-3">
-                <p className="font-medium">Photos of Your Table</p>
-                <p className="text-xs text-muted-foreground">(optional)</p>
-              </div>
-              
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleImageUpload}
-                className="hidden"
-              />
-              
-              <div className="grid grid-cols-3 gap-2">
-                {images.map((img, index) => (
-                  <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-border">
-                    <ZoomableImage
-                      src={img}
-                      alt={`Upload ${index + 1}`}
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
+              <div className="grid gap-3">
+                {services.map((service) => {
+                  const selected = formData.services.includes(service.id)
+                  return (
                     <button
-                      onClick={() => removeImage(index)}
-                      className="absolute top-1 right-1 h-6 w-6 bg-black/60 rounded-full flex items-center justify-center"
+                      key={service.id}
+                      onClick={() => toggleService(service.id)}
+                      className={cn(
+                        "group w-full p-4 text-left border rounded-xl transition-all active:scale-[0.99]",
+                        selected
+                          ? "border-primary bg-primary/[0.04] shadow-sm"
+                          : "border-border hover:border-foreground/30",
+                      )}
                     >
-                      <X className="h-4 w-4 text-white" />
-                    </button>
-                  </div>
-                ))}
-                
-                {images.length < 6 && (
-                  <button
-                    onClick={() => fileInputRef.current?.click()}
-                    className="aspect-square border-2 border-dashed border-border rounded-lg flex flex-col items-center justify-center gap-1 hover:border-muted-foreground transition-colors"
-                  >
-                    <Camera className="h-6 w-6 text-muted-foreground" />
-                    <span className="text-xs text-muted-foreground">Add Photo</span>
-                  </button>
-                )}
-              </div>
-              <p className="text-xs text-muted-foreground mt-2">
-                Photos help us provide a more accurate quote
-              </p>
-            </div>
-            
-            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
-              <Lock className="h-3 w-3" />
-              <span>Your information is secure and never shared</span>
-            </div>
-          </div>
-        )}
-
-        {/* Step 3: Service-specific details */}
-        {step === 3 && (
-          <div className="space-y-6">
-            {formData.services.includes("recovering") && (
-              <div className="space-y-4">
-                <div>
-                  <h1 className="text-2xl font-bold">Cloth Selection</h1>
-                  <p className="text-muted-foreground mt-1">Choose your cloth grade and color</p>
-                </div>
-                
-                <div>
-                  <p className="font-medium mb-2">Cloth Grade</p>
-                  <div className="grid grid-cols-2 gap-3">
-                    {clothGrades.map((grade) => (
-                      <button
-                        key={grade.id}
-                        onClick={() => setFormData((prev) => ({ ...prev, clothGrade: grade.id }))}
-                        className={cn(
-                          "p-3 text-left border-2 rounded-lg transition-all",
-                          formData.clothGrade === grade.id
-                            ? "border-primary bg-primary/5"
-                            : "border-border hover:border-muted-foreground"
-                        )}
-                      >
-                        <p className="font-semibold text-sm">{grade.label}</p>
-                        <p className="text-xs text-muted-foreground">{grade.description}</p>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <p className="font-medium">Cloth Color</p>
-                    <p className="text-xs text-muted-foreground">(swipe to see all)</p>
-                  </div>
-                  <div className="overflow-x-auto -mx-4 px-4 pb-2 touch-pan-x">
-                    <div className="flex gap-3 will-change-transform" style={{ width: "max-content" }}>
-                      {clothColors.map((color) => (
-                        <button
-                          key={color.id}
-                          onClick={() => setFormData((prev) => ({ ...prev, clothColor: color.id }))}
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="font-semibold text-base">{service.label}</p>
+                          <p className="text-sm text-muted-foreground">{service.description}</p>
+                        </div>
+                        <div
                           className={cn(
-                            "flex flex-col items-center gap-1.5 p-2 border-2 rounded-lg transition-all min-w-[72px]",
-                            formData.clothColor === color.id
-                              ? "border-primary"
-                              : "border-border hover:border-muted-foreground"
+                            "h-6 w-6 flex-shrink-0 rounded-full border-2 flex items-center justify-center transition-all duration-200",
+                            selected
+                              ? "border-primary bg-primary scale-100"
+                              : "border-muted-foreground/30 bg-transparent",
                           )}
                         >
-                          <div 
-                            className="w-10 h-10 rounded-full border border-black/10" 
-                            style={{ backgroundColor: color.color }}
+                          <Check
+                            className={cn(
+                              "h-4 w-4 text-primary-foreground transition-opacity duration-200",
+                              selected ? "opacity-100" : "opacity-0",
+                            )}
                           />
-                          <span className="text-xs text-center whitespace-nowrap">{color.label}</span>
-                        </button>
-                      ))}
+                        </div>
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Step 2: Table Info + Photos */}
+          {step === 2 && (
+            <div className="space-y-7">
+              <div>
+                <h1 className="text-3xl font-bold tracking-tight text-balance">Your table</h1>
+                <p className="text-muted-foreground mt-1.5">A few details so we get it right.</p>
+              </div>
+
+              <div>
+                <p className="font-semibold mb-3">Table Size</p>
+                <div className="grid grid-cols-2 gap-3">
+                  {tableSizes.map((size) => {
+                    const selected = formData.tableSize === size.id
+                    return (
+                      <button
+                        key={size.id}
+                        onClick={() => setFormData((prev) => ({ ...prev, tableSize: size.id }))}
+                        className={cn(
+                          "p-4 text-center border rounded-xl transition-all active:scale-[0.98]",
+                          selected
+                            ? "border-primary bg-primary/[0.04] shadow-sm"
+                            : "border-border hover:border-foreground/30",
+                        )}
+                      >
+                        <p className="font-semibold text-base">{size.label}</p>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Photo Upload Section */}
+              <div>
+                <div className="flex items-baseline gap-2 mb-3">
+                  <p className="font-semibold">Photos</p>
+                  <p className="text-xs text-muted-foreground">optional, but helpful</p>
+                </div>
+
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleImageUpload}
+                  className="hidden"
+                />
+
+                <div className="grid grid-cols-3 gap-2.5">
+                  {images.map((img, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-square rounded-xl overflow-hidden border border-border"
+                    >
+                      <ZoomableImage src={img} alt={`Upload ${index + 1}`} fill className="object-cover" unoptimized />
+                      <button
+                        onClick={() => removeImage(index)}
+                        aria-label="Remove photo"
+                        className="absolute top-1.5 right-1.5 h-6 w-6 bg-foreground/70 rounded-full flex items-center justify-center backdrop-blur-sm"
+                      >
+                        <X className="h-3.5 w-3.5 text-background" />
+                      </button>
+                    </div>
+                  ))}
+
+                  {images.length < 6 && (
+                    <button
+                      onClick={() => fileInputRef.current?.click()}
+                      className="aspect-square border-2 border-dashed border-border rounded-xl flex flex-col items-center justify-center gap-1.5 hover:border-foreground/30 hover:bg-muted/40 transition-colors"
+                    >
+                      <Camera className="h-6 w-6 text-muted-foreground" />
+                      <span className="text-xs text-muted-foreground">Add</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Service-specific details */}
+          {step === 3 && (
+            <div className="space-y-8">
+              {formData.services.includes("recovering") && (
+                <div className="space-y-5">
+                  <div>
+                    <h1 className="text-3xl font-bold tracking-tight text-balance">Cloth selection</h1>
+                    <p className="text-muted-foreground mt-1.5">Choose your grade and color.</p>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold mb-3">Cloth Grade</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      {clothGrades.map((grade) => {
+                        const selected = formData.clothGrade === grade.id
+                        return (
+                          <button
+                            key={grade.id}
+                            onClick={() => setFormData((prev) => ({ ...prev, clothGrade: grade.id }))}
+                            className={cn(
+                              "p-4 text-left border rounded-xl transition-all active:scale-[0.98]",
+                              selected
+                                ? "border-primary bg-primary/[0.04] shadow-sm"
+                                : "border-border hover:border-foreground/30",
+                            )}
+                          >
+                            <p className="font-semibold text-sm">{grade.label}</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">{grade.description}</p>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline gap-2 mb-3">
+                      <p className="font-semibold">Cloth Color</p>
+                      <p className="text-xs text-muted-foreground">swipe to see all</p>
+                    </div>
+                    <div className="overflow-x-auto -mx-4 px-4 pb-2 touch-pan-x">
+                      <div className="flex gap-3 will-change-transform" style={{ width: "max-content" }}>
+                        {clothColors.map((color) => {
+                          const selected = formData.clothColor === color.id
+                          return (
+                            <button
+                              key={color.id}
+                              onClick={() => setFormData((prev) => ({ ...prev, clothColor: color.id }))}
+                              className="flex flex-col items-center gap-2 min-w-[68px]"
+                            >
+                              <span
+                                className={cn(
+                                  "relative w-12 h-12 rounded-full transition-all duration-200 flex items-center justify-center ring-offset-2 ring-offset-background",
+                                  selected ? "ring-2 ring-primary scale-105" : "ring-1 ring-black/10",
+                                )}
+                                style={{ backgroundColor: color.color }}
+                              >
+                                {selected && (
+                                  <Check className="h-5 w-5 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]" />
+                                )}
+                              </span>
+                              <span
+                                className={cn(
+                                  "text-[11px] leading-tight text-center whitespace-nowrap transition-colors",
+                                  selected ? "font-semibold text-foreground" : "text-muted-foreground",
+                                )}
+                              >
+                                {color.label}
+                              </span>
+                            </button>
+                          )
+                        })}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {formData.services.includes("relocation") && (
+              {formData.services.includes("relocation") && (
+                <div className="space-y-5">
+                  <div>
+                    <h1 className="text-3xl font-bold tracking-tight text-balance">Move details</h1>
+                    <p className="text-muted-foreground mt-1.5">Tell us about the relocation.</p>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold mb-3">Move Type</p>
+                    <div className="grid gap-2.5">
+                      {moveTypes.map((type) => {
+                        const selected = formData.moveType === type.id
+                        return (
+                          <button
+                            key={type.id}
+                            onClick={() => setFormData((prev) => ({ ...prev, moveType: type.id }))}
+                            className={cn(
+                              "p-4 text-left border rounded-xl transition-all active:scale-[0.99]",
+                              selected
+                                ? "border-primary bg-primary/[0.04] shadow-sm"
+                                : "border-border hover:border-foreground/30",
+                            )}
+                          >
+                            <p className="font-semibold text-sm">{type.label}</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">{type.description}</p>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold mb-3">Access Type</p>
+                    <div className="grid gap-2.5">
+                      {accessTypes.map((type) => {
+                        const selected = formData.accessType === type.id
+                        return (
+                          <button
+                            key={type.id}
+                            onClick={() => setFormData((prev) => ({ ...prev, accessType: type.id }))}
+                            className={cn(
+                              "p-4 text-left border rounded-xl transition-all active:scale-[0.99]",
+                              selected
+                                ? "border-primary bg-primary/[0.04] shadow-sm"
+                                : "border-border hover:border-foreground/30",
+                            )}
+                          >
+                            <p className="font-semibold text-sm">{type.label}</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">{type.description}</p>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Step 4: Contact Information */}
+          {step === 4 && (
+            <div className="space-y-6">
+              <div>
+                <h1 className="text-3xl font-bold tracking-tight text-balance">Almost done</h1>
+                <p className="text-muted-foreground mt-1.5">How can we reach you with your quote?</p>
+              </div>
               <div className="space-y-4">
                 <div>
-                  <h1 className="text-2xl font-bold">Move Details</h1>
-                  <p className="text-muted-foreground mt-1">Tell us about the move</p>
+                  <label className="text-sm font-medium mb-1.5 block">Name *</label>
+                  <Input
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+                    className="h-12 rounded-xl"
+                  />
                 </div>
-                
                 <div>
-                  <p className="font-medium mb-2">Move Type</p>
-                  <div className="grid gap-2">
-                    {moveTypes.map((type) => (
-                      <button
-                        key={type.id}
-                        onClick={() => setFormData((prev) => ({ ...prev, moveType: type.id }))}
-                        className={cn(
-                          "p-3 text-left border-2 rounded-lg transition-all",
-                          formData.moveType === type.id
-                            ? "border-primary bg-primary/5"
-                            : "border-border hover:border-muted-foreground"
-                        )}
-                      >
-                        <p className="font-semibold text-sm">{type.label}</p>
-                        <p className="text-xs text-muted-foreground">{type.description}</p>
-                      </button>
-                    ))}
-                  </div>
+                  <label className="text-sm font-medium mb-1.5 block">Phone *</label>
+                  <Input
+                    type="tel"
+                    placeholder="(555) 555-5555"
+                    value={formData.phone}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                    className="h-12 rounded-xl"
+                  />
                 </div>
-
                 <div>
-                  <p className="font-medium mb-2">Access Type</p>
-                  <div className="grid gap-2">
-                    {accessTypes.map((type) => (
-                      <button
-                        key={type.id}
-                        onClick={() => setFormData((prev) => ({ ...prev, accessType: type.id }))}
-                        className={cn(
-                          "p-3 text-left border-2 rounded-lg transition-all",
-                          formData.accessType === type.id
-                            ? "border-primary bg-primary/5"
-                            : "border-border hover:border-muted-foreground"
-                        )}
-                      >
-                        <p className="font-semibold text-sm">{type.label}</p>
-                        <p className="text-xs text-muted-foreground">{type.description}</p>
-                      </button>
-                    ))}
-                  </div>
+                  <label className="text-sm font-medium mb-1.5 block">Email *</label>
+                  <Input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                    className="h-12 rounded-xl"
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-1.5 block">Service Address</label>
+                  <Input
+                    placeholder="Where is the table located?"
+                    value={formData.address}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
+                    className="h-12 rounded-xl"
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-1.5 block">Additional Notes</label>
+                  <Textarea
+                    placeholder="Anything else we should know? (brand, age, condition, etc.)"
+                    value={formData.notes}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, notes: e.target.value }))}
+                    rows={3}
+                    className="rounded-xl"
+                  />
                 </div>
               </div>
-            )}
-            
-            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
-              <Lock className="h-3 w-3" />
-              <span>Your information is secure and never shared</span>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Step 4: Contact Information */}
-        {step === 4 && (
-          <div className="space-y-4">
-            <div>
-              <h1 className="text-2xl font-bold">Contact Information</h1>
-              <p className="text-muted-foreground mt-1">How can we reach you?</p>
+          {/* Step 5: Success */}
+          {step === 5 && (
+            <div className="flex flex-col items-center justify-center text-center py-16">
+              <div className="h-20 w-20 rounded-full bg-success/10 flex items-center justify-center mb-5 animate-in zoom-in-50 duration-500">
+                <div className="h-14 w-14 rounded-full bg-success flex items-center justify-center">
+                  <Check className="h-8 w-8 text-success-foreground" />
+                </div>
+              </div>
+              <h1 className="text-3xl font-bold tracking-tight">Request submitted</h1>
+              <p className="text-muted-foreground mt-2.5 max-w-sm text-balance">
+                Thank you! We&apos;ll review your details and get back to you within 24 hours.
+              </p>
+              <Button asChild size="lg" className="mt-7 h-12 px-8 text-base font-semibold rounded-xl">
+                <Link href="/">Return Home</Link>
+              </Button>
             </div>
-            <div className="space-y-3">
-              <div>
-                <label className="text-sm font-medium mb-1 block">Name *</label>
-                <Input
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                  className="h-12"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Phone *</label>
-                <Input
-                  type="tel"
-                  placeholder="(555) 555-5555"
-                  value={formData.phone}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                  className="h-12"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Email *</label>
-                <Input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                  className="h-12"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Service Address</label>
-                <Input
-                  placeholder="Where is the table located?"
-                  value={formData.address}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
-                  className="h-12"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Additional Notes</label>
-                <Textarea
-                  placeholder="Anything else we should know? (brand, age, condition, etc.)"
-                  value={formData.notes}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, notes: e.target.value }))}
-                  rows={3}
-                />
-              </div>
-            </div>
-            
-            <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-4">
-              <Lock className="h-3 w-3" />
-              <span>Your information is secure and never shared</span>
-            </div>
-          </div>
-        )}
-
-        {/* Step 5: Success */}
-        {step === 5 && (
-          <div className="flex flex-col items-center justify-center text-center py-12">
-            <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
-              <Check className="h-8 w-8 text-green-600" />
-            </div>
-            <h1 className="text-2xl font-bold">Request Submitted!</h1>
-            <p className="text-muted-foreground mt-2 max-w-sm">
-              Thank you! We&apos;ll review your request and get back to you within 24 hours.
-            </p>
-            <Button asChild className="mt-6 py-6 px-8 text-base font-semibold">
-              <Link href="/">Return Home</Link>
-            </Button>
-          </div>
-        )}
+          )}
+        </div>
       </main>
 
       {/* Bottom navigation - fixed */}
       {step <= 4 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4">
-          <div className="flex gap-3 lg:max-w-2xl lg:mx-auto">
-            {step > 1 && (
-              <Button variant="outline" onClick={handleBack} className="flex-1 py-6 text-base">
-                Back
-              </Button>
-            )}
-            {step < 4 ? (
-              <Button 
-                onClick={handleNext} 
-                disabled={!canProceed()}
-                className="flex-1 py-6 text-base font-semibold"
-              >
-                Continue
-              </Button>
-            ) : (
-              <Button 
-                onClick={handleSubmit}
-                disabled={!canProceed()}
-                className="flex-1 py-6 text-base font-semibold"
-              >
-                Submit Request
-              </Button>
-            )}
+        <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border">
+          <div className="px-4 pt-3 pb-[calc(0.875rem+env(safe-area-inset-bottom))] lg:max-w-2xl lg:mx-auto">
+            <div className="flex items-center gap-3">
+              {step < 4 ? (
+                <Button
+                  onClick={handleNext}
+                  disabled={!canProceed()}
+                  size="lg"
+                  className="flex-1 h-14 text-base font-semibold rounded-xl"
+                >
+                  Continue
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleSubmit}
+                  disabled={!canProceed()}
+                  size="lg"
+                  className="flex-1 h-14 text-base font-semibold rounded-xl"
+                >
+                  Submit Request
+                </Button>
+              )}
+            </div>
+            <div className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground">
+              <Lock className="h-3 w-3" />
+              <span>Your information is secure and never shared</span>
+            </div>
           </div>
         </div>
       )}
