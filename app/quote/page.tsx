@@ -170,7 +170,7 @@ export default function QuotePage() {
     setSubmitting(true)
     setError("")
     try {
-      const result = await submitQuote(formData)
+      const result = await submitQuote({ ...formData, images })
       if (result.ok) {
         setStep(5)
         window.scrollTo({ top: 0, behavior: "instant" })
