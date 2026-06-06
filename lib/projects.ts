@@ -97,16 +97,16 @@ export const projects: Project[] = [
     logo: "/images/work/the-nest-logo.png",
     location: "Plaistow, NH",
     summary:
-      "New install of eight 9-foot tables for a brand-new pool hall in Plaistow.",
+      "Install and setup of twelve 8-foot Diamond tables for a pool hall hosting APA Tri Cup tournaments and various leagues.",
     scope: [
-      "Delivered and assembled eight 9-foot tables",
-      "Installed new cloth across the floor",
-      "Calibrated rail speed and pocket cut",
-      "Trained staff on basic upkeep",
+      "Delivered and assembled twelve 8-foot Diamond tables",
+      "Installed Simonis cloth across the floor",
+      "Calibrated rail speed and pocket cut to tournament spec",
+      "Set up the room for APA Tri Cup and league play",
     ],
     story: [
-      "The Nest opened its doors with a clean slate — quite literally. We delivered and assembled eight brand-new 9-foot tables, dialing in rail speed and pocket geometry so every table played consistently across the room.",
-      "Before opening night, we walked the staff through day-to-day upkeep so they could keep the tables looking sharp between our scheduled visits.",
+      "The Nest opened its doors with a clean slate — quite literally. We delivered and assembled twelve brand-new 8-foot Diamond tables, dialing in rail speed and pocket geometry so every table played consistently across the room.",
+      "Because The Nest hosts APA Tri Cup tournaments and various leagues, the tables had to perform to tournament spec night after night. We tuned each one accordingly and walked the staff through day-to-day upkeep so they could keep the tables sharp between our scheduled visits.",
     ],
     cover: "/images/work/the-nest-1.jpg",
     gallery: [
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     ],
     venue: {
       description:
-        "The Nest Pub & Grill in Plaistow is home to twelve 8-foot Diamond tables used for APA Tri Cup tournaments and various leagues, offering a clean, modern room for casual players and serious shooters alike.",
+        "The Nest Pub & Grill in Plaistow offers a clean, modern room for casual players and serious shooters alike, alongside dining, spirits, and entertainment.",
       address: "4 Plaistow Road",
       cityStateZip: "Plaistow, NH 03865",
       website: "https://www.thenestpoolhall.com",
