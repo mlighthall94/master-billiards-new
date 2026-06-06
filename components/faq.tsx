@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils"
 const faqs = [
   {
     question: "How much does it cost?",
-    answer: "Recovery starts around $300-500 depending on table size. Moves vary by distance. We provide free quotes.",
+    answer:
+      "It depends on the services required. We always do our best to be flexible with scheduling and pricing, and we're happy to provide a free quote.",
   },
   {
     question: "How long does it take?",
