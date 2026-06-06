@@ -12,14 +12,25 @@ export const metadata: Metadata = {
 }
 
 const gallery = [
-  { src: "/images/hero-modern.jpg", alt: "Modern game room with professionally set up pool table" },
-  { src: "/images/hero-red.jpg", alt: "Elegant pool table with new red felt" },
-  { src: "/images/our-work.jpg", alt: "Professional pool table recovery with clean finish" },
-  { src: "/images/hero-2.jpg", alt: "Game room featuring multiple pool tables" },
-  { src: "/images/hero-measure.jpg", alt: "Technician measuring a pool table for setup" },
-  { src: "/images/hero-bar.jpg", alt: "Bar area with pool tables" },
-  { src: "/images/hero.png", alt: "Craftsman working on a pool table" },
-  { src: "/images/hero-team.png", alt: "Master Billiards team at work" },
+  { src: "/images/gallery/gallery-1.png", alt: "Master Billiards team with a freshly recovered table under an LED light fixture" },
+  { src: "/images/gallery/gallery-2.png", alt: "Two Diamond tables with blue cloth in a sports bar" },
+  { src: "/images/gallery/gallery-4.png", alt: "Black Diamond table with light blue cloth in a sunlit clubhouse" },
+  { src: "/images/gallery/gallery-7.png", alt: "Olhausen table with blue cloth in a busy pool hall" },
+  { src: "/images/gallery/gallery-9.png", alt: "Recovered table with blue cloth on a checkered floor" },
+  { src: "/images/gallery/gallery-12.png", alt: "Ornate carved antique table with blue cloth on a wood floor" },
+  { src: "/images/gallery/gallery-14.png", alt: "APA Pool Leagues room with multiple blue-felt tables" },
+  { src: "/images/gallery/gallery-19.png", alt: "Brunswick Gold Crown VII table with light cloth" },
+  { src: "/images/gallery/gallery-3.png", alt: "Close-up of a precision pocket with new blue cloth" },
+  { src: "/images/gallery/gallery-13.png", alt: "Dark wood table with blue cloth racked and ready to play" },
+  { src: "/images/gallery/gallery-8.png", alt: "Table mid-install with the slate exposed before re-felting" },
+  { src: "/images/gallery/gallery-11.png", alt: "Table with blue cloth and a fresh rack in a home game room" },
+  { src: "/images/gallery/gallery-15.png", alt: "Predator branded tournament table with blue cloth at an expo" },
+  { src: "/images/gallery/gallery-17.png", alt: "Brunswick table with blue cloth in a dimly lit workshop" },
+  { src: "/images/gallery/gallery-18.png", alt: "Brown table with blue cloth on a dark area rug" },
+  { src: "/images/gallery/gallery-6.png", alt: "Killington branded shuffleboard table" },
+  { src: "/images/gallery/gallery-16.png", alt: "Bumper pool table set up with red and white pegs" },
+  { src: "/images/gallery/gallery-10.png", alt: "Ballroom full of tournament tables being assembled" },
+  { src: "/images/gallery/gallery-5.png", alt: "CueSports International Expo welcome entrance" },
 ]
 
 export default function GalleryPage() {
