@@ -107,6 +107,7 @@ export const projects: Project[] = [
     story: [
       "The Nest opened its doors with a clean slate — quite literally. We delivered and assembled twelve brand-new 8-foot Diamond tables, dialing in rail speed and pocket geometry so every table played consistently across the room.",
       "Because The Nest hosts APA Tri Cup tournaments and various leagues, the tables had to perform to tournament spec night after night. We tuned each one accordingly and walked the staff through day-to-day upkeep so they could keep the tables sharp between our scheduled visits.",
+      "The Nest has been one of our most loyal customers, dating back over 10 years of work together — a relationship we're proud to have built and continue to maintain.",
     ],
     cover: "/images/work/the-nest-1.jpg",
     gallery: [
