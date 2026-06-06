@@ -51,7 +51,7 @@ const pageTitles: Record<string, string> = {
   "/quote": "Get a Quote",
 }
 
-export function MobileNavbar({ title }: { title?: string } = {}) {
+export function MobileNavbar({ title, backHref }: { title?: string; backHref?: string } = {}) {
   const [moreOpen, setMoreOpen] = React.useState(false)
   const pathname = usePathname()
   const router = useRouter()
@@ -144,14 +144,24 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
               </a>
             ) : (
               <>
-                <button
-                  type="button"
-                  onClick={() => router.back()}
-                  className="absolute left-2.5 p-1 -ml-1 text-primary-foreground transition-transform touch-manipulation active:scale-90 hover:opacity-80"
-                  aria-label="Go back to previous page"
-                >
-                  <ArrowLeft className="h-6 w-6" />
-                </button>
+                {backHref ? (
+                  <Link
+                    href={backHref}
+                    className="absolute left-2.5 p-1 -ml-1 text-primary-foreground transition-transform touch-manipulation active:scale-90 hover:opacity-80"
+                    aria-label="Go back"
+                  >
+                    <ArrowLeft className="h-6 w-6" />
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => router.back()}
+                    className="absolute left-2.5 p-1 -ml-1 text-primary-foreground transition-transform touch-manipulation active:scale-90 hover:opacity-80"
+                    aria-label="Go back to previous page"
+                  >
+                    <ArrowLeft className="h-6 w-6" />
+                  </button>
+                )}
                 <p className="flex items-center justify-center text-lg font-semibold tracking-wide">
                   {currentTitle ?? "Master Billiards"}
                 </p>

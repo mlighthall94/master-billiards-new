@@ -42,7 +42,7 @@ export default async function ProjectPage({
 
   return (
     <div className="min-h-dvh flex flex-col">
-      <MobileNavbar title={project.title} />
+      <MobileNavbar title={project.title} backHref="/our-work" />
       <main className="flex-1 w-full">
         {/* Cover image */}
         <div className="relative h-60 w-full lg:h-[420px]">
