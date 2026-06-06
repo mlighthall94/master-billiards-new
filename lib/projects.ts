@@ -1,7 +1,12 @@
 export interface Project {
   slug: string
   title: string
-  logo: string
+  /**
+   * Optional shorter title used in space-constrained spots like the banner.
+   * If omitted, getBannerTitle() will derive one from `title` when it's too long.
+   */
+  bannerTitle?: string
+  logo?: string
   location: string
   summary: string
   /** Short list of the work performed, shown on the detail page */
@@ -12,6 +17,17 @@ export interface Project {
   cover: string
   /** Additional images featured on the detail page */
   gallery: { src: string; alt: string }[]
+  /** Optional video testimonial from the venue owner/operator */
+  testimonial?: {
+    /** Name of the person giving the testimonial */
+    name: string
+    /** Their role/title, e.g. "Owner, Red Dragon Billiards" */
+    role: string
+    /** Full URL to the testimonial video */
+    videoUrl: string
+    /** YouTube video ID used to embed the player */
+    youtubeId: string
+  }
   /** Information about the venue itself, shown in an "About the venue" card */
   venue: {
     /** Short blurb describing the place */
@@ -21,9 +37,9 @@ export interface Project {
     /** City, state ZIP line */
     cityStateZip: string
     /** Public website URL */
-    website: string
+    website?: string
     /** Display label for the website link, e.g. "legendsbilliards.com" */
-    websiteLabel: string
+    websiteLabel?: string
   }
 }
 
@@ -126,63 +142,59 @@ export const projects: Project[] = [
   {
     slug: "east-side-club",
     title: "East Side Club",
-    logo: "/images/work/east-side-club.png",
     location: "Manchester, NH",
     summary:
       "Re-felting and cushion replacement to bring a beloved neighborhood club back to life.",
     scope: [
-      "Recovered 10 tables with new cloth",
+      "Recovered tables with new blue cloth",
       "Replaced worn cushions throughout",
       "Repaired damaged pockets and leather",
       "Deep-cleaned and polished rails",
     ],
     story: [
       "This neighborhood club had been a Manchester staple for decades, but years of steady play had taken their toll. The owners wanted to honor the room's character while bringing the tables back to playable condition.",
-      "We recovered ten tables, replaced the tired cushions, and repaired the leather pockets — preserving the club's classic feel while restoring a true, fast roll on every table.",
+      "We recovered the club's Diamond tables in bright blue cloth, replaced the tired cushions, and repaired the leather pockets — preserving the club's classic feel while restoring a true, fast roll on every table.",
     ],
-    cover: "/images/our-work.jpg",
+    cover: "/images/work/east-side-1.jpg",
     gallery: [
-      { src: "/images/hero-red.jpg", alt: "Recovered table at East Side Club" },
-      { src: "/images/hero-bar.jpg", alt: "Restored bar-area tables" },
+      { src: "/images/work/east-side-2.jpg", alt: "Two freshly recovered Diamond tables at East Side Club" },
+      { src: "/images/work/east-side-3.jpg", alt: "Close-up of a Diamond table with new blue cloth at East Side Club" },
     ],
     venue: {
       description:
-        "A beloved neighborhood club that's been a Manchester staple for decades, East Side Club pairs classic character with ten freshly restored tables.",
-      address: "350 Hanover Street",
-      cityStateZip: "Manchester, NH 03104",
+        "A beloved neighborhood club that's been a Manchester staple for decades, East Side Club pairs classic character with freshly restored Diamond tables.",
+      address: "750 Massabesic St",
+      cityStateZip: "Manchester, NH 03103",
       website: "https://www.eastsideclubnh.com",
       websiteLabel: "eastsideclubnh.com",
     },
   },
   {
     slug: "breakaway-billiards",
-    title: "Breakaway Billiards",
-    logo: "/images/work/breakaway-billiards.png",
+    title: "Break-Away Billiards",
     location: "Clinton, MA",
     summary:
-      "A custom build featuring a showpiece table with custom cloth and full room setup.",
+      "Eight Olhausen tables recovered and re-leveled with brand-new pockets throughout.",
     scope: [
-      "Assembled a custom 8-foot table",
-      "Installed custom-color cloth",
-      "Mounted overhead billiard lighting",
-      "Added wall-mounted cue storage",
+      "Recovered 8 Olhausen tables with new green cloth",
+      "Installed brand-new leather pockets on every table",
+      "Re-leveled each table for true, consistent play",
+      "Cleaned and detailed rails and oak woodwork",
     ],
     story: [
-      "Breakaway Billiards wanted a flagship table that felt like a true centerpiece. We helped them select a showpiece 8-foot table and dressed it in a custom cloth color to match the room's palette.",
-      "Beyond the table, we handled the overhead lighting and built-in cue storage, delivering a finished space ready for league nights and walk-in play.",
+      "Break-Away Billiards came to us with a full room of eight classic Olhausen tables that had seen years of heavy league and walk-in play. The cloth was worn, the pockets were tired, and several tables had drifted out of level.",
+      "We recovered all eight tables in fresh green cloth, fit each one with brand-new pockets, and re-leveled the slate so every table played fast and true. The result is a room full of tables that look and roll like new.",
     ],
-    cover: "/images/hero-red.jpg",
+    cover: "/images/work/break-away-1.jpg",
     gallery: [
-      { src: "/images/hero-modern.jpg", alt: "Custom room build at Breakaway Billiards" },
-      { src: "/images/hero.png", alt: "Showpiece table with custom cloth" },
+      { src: "/images/work/break-away-3.jpg", alt: "Room full of recovered Olhausen tables at Break-Away Billiards" },
+      { src: "/images/work/break-away-2.jpg", alt: "Freshly recovered Olhausen tables near the bar at Break-Away Billiards" },
     ],
     venue: {
       description:
-        "A polished room in Clinton anchored by a custom showpiece table, Breakaway Billiards blends striking design with a welcoming spot for league nights and walk-in play.",
-      address: "85 High Street",
+        "A spacious billiards hall in Clinton with a room full of classic Olhausen tables, Break-Away Billiards is a welcoming spot for league nights and walk-in play.",
+      address: "104 Sterling St",
       cityStateZip: "Clinton, MA 01510",
-      website: "https://www.breakawaybilliardsma.com",
-      websiteLabel: "breakawaybilliardsma.com",
     },
   },
   {
@@ -219,7 +231,7 @@ export const projects: Project[] = [
   {
     slug: "red-dragon-billiards",
     title: "Red Dragon Billiards Club & Training Center",
-    logo: "/placeholder.svg",
+    bannerTitle: "Red Dragon Billiards",
     location: "Harvard, MA",
     summary:
       "Full setup of a dedicated training facility, with tournament tables tuned for instruction and serious practice.",
@@ -233,11 +245,17 @@ export const projects: Project[] = [
       "Red Dragon set out to build more than a pool hall — they wanted a true training center where players could sharpen their game on tables that perform identically every time. Consistency across the room was the top priority.",
       "We installed and assembled eight 9-foot tournament tables, dressed them in fast Simonis 860 cloth, and precision-leveled every slate so coaches and students could trust a true, repeatable roll on any table in the room.",
     ],
-    cover: "/images/hero-modern.jpg",
+    cover: "/images/work/red-dragon-1.png",
     gallery: [
-      { src: "/images/hero-measure.jpg", alt: "Precision leveling a table at Red Dragon" },
-      { src: "/images/our-work.jpg", alt: "Tournament tables ready for training at Red Dragon" },
+      { src: "/images/work/red-dragon-3.png", alt: "Room full of blue-felt tournament tables at Red Dragon Billiards" },
+      { src: "/images/work/red-dragon-2.png", alt: "Freshly recovered Brunswick tables beneath the Red Dragon logo wall" },
     ],
+    testimonial: {
+      name: "Roy Pastor",
+      role: "Owner, Red Dragon Billiards Club & Training Center",
+      videoUrl: "https://www.youtube.com/watch?v=gWRK95chX7w",
+      youtubeId: "gWRK95chX7w",
+    },
     venue: {
       description:
         "A dedicated billiards club and training center in Harvard, Red Dragon pairs tournament-grade tables with a coaching-focused environment for players looking to level up their game.",
@@ -252,3 +270,42 @@ export const projects: Project[] = [
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug)
 }
+
+/**
+ * Returns a title suitable for the space-constrained banner.
+ *
+ * Order of preference:
+ * 1. An explicit `bannerTitle` override on the project.
+ * 2. The full `title` if it's within `maxLength`.
+ * 3. The portion of the title before a connector ("&", "-", "|", "—") if that
+ *    shortened version fits — e.g. "Red Dragon Billiards Club & Training Center"
+ *    becomes "Red Dragon Billiards Club". If still too long, it keeps dropping
+ *    trailing words until it fits.
+ * 4. A truncated version with an ellipsis as a last resort.
+ */
+export function getBannerTitle(
+  project: Pick<Project, "title" | "bannerTitle">,
+  maxLength = 22,
+): string {
+  if (project.bannerTitle) return project.bannerTitle
+
+  const title = project.title.trim()
+  if (title.length <= maxLength) return title
+
+  // Cut at the first connector (handles "Club & Training Center" tails).
+  const beforeConnector = title.split(/\s+[&|–—-]\s+/)[0].trim()
+
+  // Drop trailing words until the result fits within maxLength.
+  const words = beforeConnector.split(/\s+/)
+  while (words.length > 1 && words.join(" ").length > maxLength) {
+    words.pop()
+  }
+  const candidate = words.join(" ")
+
+  if (candidate.length <= maxLength) return candidate
+
+  // Last resort: hard truncate on a word boundary with an ellipsis.
+  const truncated = candidate.slice(0, maxLength - 1)
+  return `${truncated.slice(0, truncated.lastIndexOf(" ") || truncated.length).trim()}…`
+}
+

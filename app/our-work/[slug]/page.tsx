@@ -6,7 +6,7 @@ import { ArrowLeft, Check, MapPin } from "lucide-react"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
-import { projects, getProject } from "@/lib/projects"
+import { projects, getProject, getBannerTitle } from "@/lib/projects"
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }))
@@ -42,7 +42,7 @@ export default async function ProjectPage({
 
   return (
     <div className="min-h-dvh flex flex-col">
-      <MobileNavbar title={project.title} backHref="/our-work" />
+      <MobileNavbar title={getBannerTitle(project)} backHref="/our-work" />
       <main className="flex-1 w-full">
         {/* Cover image */}
         <div className="relative h-60 w-full lg:h-[420px]">
@@ -126,18 +126,45 @@ export default async function ProjectPage({
             </div>
           )}
 
+          {/* Video testimonial */}
+          {project.testimonial && (
+            <div className="mt-8 lg:mt-12">
+              <h2 className="text-lg font-semibold text-foreground lg:text-2xl">Hear from the owner</h2>
+              <div className="mt-3 lg:mt-5">
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-muted">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${project.testimonial.youtubeId}`}
+                    title={`${project.testimonial.name} testimonial for Master Billiards`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full"
+                  />
+                </div>
+                <p className="mt-3 text-sm text-foreground/90 lg:text-base">
+                  <span className="font-semibold text-foreground">{project.testimonial.name}</span>
+                  {" — "}
+                  {project.testimonial.role}
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* About the venue */}
           <div className="mt-8 lg:mt-12">
             <h2 className="text-lg font-semibold text-foreground lg:text-2xl">About the venue</h2>
             <div className="mt-3 lg:mt-5">
-              <div className="relative h-16 w-40">
-                <ZoomableImage
-                  src={project.logo || "/placeholder.svg"}
-                  alt={`${project.title} logo`}
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
+              {project.logo ? (
+                <div className="relative h-16 w-40">
+                  <ZoomableImage
+                    src={project.logo}
+                    alt={`${project.title} logo`}
+                    fill
+                    className="object-contain object-left"
+                  />
+                </div>
+              ) : (
+                <h3 className="text-xl font-semibold text-foreground lg:text-2xl">{project.title}</h3>
+              )}
               <p className="mt-4 text-base text-foreground/90 leading-relaxed lg:text-lg">
                 {project.venue.description}
               </p>
@@ -146,16 +173,18 @@ export default async function ProjectPage({
                 <br />
                 {project.venue.cityStateZip}
               </p>
-              <p className="mt-3 text-sm lg:text-base">
-                <a
-                  href={project.venue.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
-                >
-                  {project.venue.websiteLabel}
-                </a>
-              </p>
+              {project.venue.website && (
+                <p className="mt-3 text-sm lg:text-base">
+                  <a
+                    href={project.venue.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
+                  >
+                    {project.venue.websiteLabel}
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         </div>
