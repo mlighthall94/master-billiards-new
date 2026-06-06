@@ -29,6 +29,38 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "the-nest",
+    title: "The Nest",
+    logo: "/images/work/the-nest-logo.png",
+    location: "Plaistow, NH",
+    summary:
+      "Install and setup of twelve 8-foot Diamond tables for a pool hall hosting APA Tri Cup tournaments and various leagues.",
+    scope: [
+      "Delivered and assembled twelve 8-foot Diamond tables",
+      "Installed Simonis cloth across the floor",
+      "Calibrated rail speed and pocket cut to tournament spec",
+      "Set up the room for APA Tri Cup and league play",
+    ],
+    story: [
+      "The Nest opened its doors with a clean slate — quite literally. We delivered and assembled twelve brand-new 8-foot Diamond tables, dialing in rail speed and pocket geometry so every table played consistently across the room.",
+      "Because The Nest hosts APA Tri Cup tournaments and various leagues, the tables had to perform to tournament spec night after night. We tuned each one accordingly and walked the staff through day-to-day upkeep so they could keep the tables sharp between our scheduled visits.",
+      "The Nest has been one of our most loyal customers, dating back over 10 years of work together — a relationship we're proud to have built and continue to maintain.",
+    ],
+    cover: "/images/work/the-nest-1.jpg",
+    gallery: [
+      { src: "/images/work/the-nest-2.jpg", alt: "Rows of Diamond tables with blue Simonis cloth at The Nest" },
+      { src: "/images/work/the-nest-3.jpg", alt: "Close-up of a freshly clothed Diamond table at The Nest" },
+    ],
+    venue: {
+      description:
+        "The Nest Pub & Grill in Plaistow offers a clean, modern room for casual players and serious shooters alike, alongside dining, spirits, and entertainment.",
+      address: "4 Plaistow Road",
+      cityStateZip: "Plaistow, NH 03865",
+      website: "https://thenestpubandgrill.com/",
+      websiteLabel: "thenestpubandgrill.com",
+    },
+  },
+  {
     slug: "legends-billiards",
     title: "Legends Bar & Billiards",
     logo: "/images/work/legends-logo.webp",
@@ -89,38 +121,6 @@ export const projects: Project[] = [
       cityStateZip: "Hudson, NH 03051",
       website: "https://www.backstreetcueclub.com",
       websiteLabel: "backstreetcueclub.com",
-    },
-  },
-  {
-    slug: "the-nest",
-    title: "The Nest",
-    logo: "/images/work/the-nest-logo.png",
-    location: "Plaistow, NH",
-    summary:
-      "Install and setup of twelve 8-foot Diamond tables for a pool hall hosting APA Tri Cup tournaments and various leagues.",
-    scope: [
-      "Delivered and assembled twelve 8-foot Diamond tables",
-      "Installed Simonis cloth across the floor",
-      "Calibrated rail speed and pocket cut to tournament spec",
-      "Set up the room for APA Tri Cup and league play",
-    ],
-    story: [
-      "The Nest opened its doors with a clean slate — quite literally. We delivered and assembled twelve brand-new 8-foot Diamond tables, dialing in rail speed and pocket geometry so every table played consistently across the room.",
-      "Because The Nest hosts APA Tri Cup tournaments and various leagues, the tables had to perform to tournament spec night after night. We tuned each one accordingly and walked the staff through day-to-day upkeep so they could keep the tables sharp between our scheduled visits.",
-      "The Nest has been one of our most loyal customers, dating back over 10 years of work together — a relationship we're proud to have built and continue to maintain.",
-    ],
-    cover: "/images/work/the-nest-1.jpg",
-    gallery: [
-      { src: "/images/work/the-nest-2.jpg", alt: "Rows of Diamond tables with blue Simonis cloth at The Nest" },
-      { src: "/images/work/the-nest-3.jpg", alt: "Close-up of a freshly clothed Diamond table at The Nest" },
-    ],
-    venue: {
-      description:
-        "The Nest Pub & Grill in Plaistow offers a clean, modern room for casual players and serious shooters alike, alongside dining, spirits, and entertainment.",
-      address: "4 Plaistow Road",
-      cityStateZip: "Plaistow, NH 03865",
-      website: "https://thenestpubandgrill.com/",
-      websiteLabel: "thenestpubandgrill.com",
     },
   },
   {
