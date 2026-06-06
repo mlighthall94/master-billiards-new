@@ -232,7 +232,6 @@ export const projects: Project[] = [
     slug: "red-dragon-billiards",
     title: "Red Dragon Billiards Club & Training Center",
     bannerTitle: "Red Dragon Billiards",
-    logo: "/placeholder.svg",
     location: "Harvard, MA",
     summary:
       "Full setup of a dedicated training facility, with tournament tables tuned for instruction and serious practice.",
