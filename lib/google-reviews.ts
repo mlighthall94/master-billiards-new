@@ -80,16 +80,23 @@ interface PlacesApiResponse {
 }
 
 /**
+ * Google Place ID for "Master Billiards LLC" (130 Main St #11, Plaistow, NH).
+ * Resolved via the Places Text Search API. Hardcoded because it's a stable,
+ * non-secret identifier for the business.
+ */
+const PLACE_ID = "ChIJD3P6SXz-4okRo2lMZIwn3SQ"
+
+/**
  * Fetches live Google reviews via the Places API (New).
  *
  * Google only returns up to 5 reviews per place and chooses which ones, so this
  * is the maximum coverage available without a paid third-party service. Falls
- * back to a curated list of reviews if the API key/place id are missing or the
+ * back to a curated list of reviews if the API key is missing or the
  * request fails.
  */
 export async function getGoogleReviews(): Promise<GoogleReviewsData> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY
-  const placeId = process.env.GOOGLE_PLACE_ID
+  const apiKey = process.env.GCP_API_KEY ?? process.env.GOOGLE_PLACES_API_KEY
+  const placeId = process.env.GOOGLE_PLACE_ID || PLACE_ID
 
   if (!apiKey || !placeId) {
     return FALLBACK_DATA
