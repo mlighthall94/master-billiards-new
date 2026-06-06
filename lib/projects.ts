@@ -1,6 +1,11 @@
 export interface Project {
   slug: string
   title: string
+  /**
+   * Optional shorter title used in space-constrained spots like the banner.
+   * If omitted, getBannerTitle() will derive one from `title` when it's too long.
+   */
+  bannerTitle?: string
   logo?: string
   location: string
   summary: string
@@ -215,6 +220,7 @@ export const projects: Project[] = [
   {
     slug: "red-dragon-billiards",
     title: "Red Dragon Billiards Club & Training Center",
+    bannerTitle: "Red Dragon Billiards",
     logo: "/placeholder.svg",
     location: "Harvard, MA",
     summary:
@@ -248,3 +254,42 @@ export const projects: Project[] = [
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug)
 }
+
+/**
+ * Returns a title suitable for the space-constrained banner.
+ *
+ * Order of preference:
+ * 1. An explicit `bannerTitle` override on the project.
+ * 2. The full `title` if it's within `maxLength`.
+ * 3. The portion of the title before a connector ("&", "-", "|", "—") if that
+ *    shortened version fits — e.g. "Red Dragon Billiards Club & Training Center"
+ *    becomes "Red Dragon Billiards Club". If still too long, it keeps dropping
+ *    trailing words until it fits.
+ * 4. A truncated version with an ellipsis as a last resort.
+ */
+export function getBannerTitle(
+  project: Pick<Project, "title" | "bannerTitle">,
+  maxLength = 22,
+): string {
+  if (project.bannerTitle) return project.bannerTitle
+
+  const title = project.title.trim()
+  if (title.length <= maxLength) return title
+
+  // Cut at the first connector (handles "Club & Training Center" tails).
+  const beforeConnector = title.split(/\s+[&|–—-]\s+/)[0].trim()
+
+  // Drop trailing words until the result fits within maxLength.
+  const words = beforeConnector.split(/\s+/)
+  while (words.length > 1 && words.join(" ").length > maxLength) {
+    words.pop()
+  }
+  const candidate = words.join(" ")
+
+  if (candidate.length <= maxLength) return candidate
+
+  // Last resort: hard truncate on a word boundary with an ellipsis.
+  const truncated = candidate.slice(0, maxLength - 1)
+  return `${truncated.slice(0, truncated.lastIndexOf(" ") || truncated.length).trim()}…`
+}
+

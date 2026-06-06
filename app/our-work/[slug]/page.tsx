@@ -6,7 +6,7 @@ import { ArrowLeft, Check, MapPin } from "lucide-react"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
-import { projects, getProject } from "@/lib/projects"
+import { projects, getProject, getBannerTitle } from "@/lib/projects"
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }))
@@ -60,7 +60,7 @@ export default async function ProjectPage({
           <div className="max-w-lg mx-auto lg:max-w-4xl lg:px-8">
             <div className="min-w-0">
               <h1 className="text-xl font-bold leading-tight text-balance lg:text-4xl">
-                {project.title}
+                {getBannerTitle(project)}
               </h1>
               <p className="mt-1 flex items-center gap-1 text-sm text-primary-foreground/80 lg:text-base lg:mt-2">
                 <MapPin className="h-4 w-4" />
