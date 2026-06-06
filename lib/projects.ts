@@ -45,6 +45,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "sharkys-billiards",
+    title: "Sharky's Billiards",
+    location: "Somersworth, NH",
+    summary:
+      "A full room of brand-new Olhausen tables installed and dressed in bright blue cloth, with ongoing service to keep every table playing true.",
+    scope: [
+      "Delivered and assembled brand-new Olhausen tables",
+      "Dressed every table in bright blue cloth",
+      "Precision-leveled slate for true, consistent play",
+      "Ongoing service and maintenance for the room",
+    ],
+    story: [
+      "Sharky's Billiards wanted a room that played as good as it looked, so we outfitted the entire floor with brand-new Olhausen tables — the best in billiards. Each one was delivered, assembled, and precision-leveled so the whole room rolls fast and true.",
+      "We dressed every table in bright blue cloth for a sharp, consistent look across the floor, and we continue to service the room so the tables stay in tournament-ready shape night after night.",
+    ],
+    cover: "/images/work/sharkys-1.png",
+    gallery: [
+      { src: "/images/work/sharkys-2.png", alt: "Two new Olhausen tables with blue cloth at Sharky's Billiards" },
+      { src: "/images/work/sharkys-3.png", alt: "Olhausen rails being installed during the table setup at Sharky's Billiards" },
+      { src: "/images/work/sharkys-4.png", alt: "The room at Sharky's Billiards before the new Olhausen tables were set up" },
+    ],
+    venue: {
+      description:
+        "A billiards room in Somersworth outfitted with a full set of brand-new Olhausen tables, Sharky's Billiards is a sharp, welcoming spot for casual players and league nights alike.",
+      address: "369 NH-108",
+      cityStateZip: "Somersworth, NH 03878",
+    },
+  },
+  {
     slug: "the-nest",
     title: "The Nest",
     logo: "/images/work/the-nest-logo.png",
