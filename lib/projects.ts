@@ -17,6 +17,17 @@ export interface Project {
   cover: string
   /** Additional images featured on the detail page */
   gallery: { src: string; alt: string }[]
+  /** Optional video testimonial from the venue owner/operator */
+  testimonial?: {
+    /** Name of the person giving the testimonial */
+    name: string
+    /** Their role/title, e.g. "Owner, Red Dragon Billiards" */
+    role: string
+    /** Full URL to the testimonial video */
+    videoUrl: string
+    /** YouTube video ID used to embed the player */
+    youtubeId: string
+  }
   /** Information about the venue itself, shown in an "About the venue" card */
   venue: {
     /** Short blurb describing the place */
@@ -235,11 +246,17 @@ export const projects: Project[] = [
       "Red Dragon set out to build more than a pool hall — they wanted a true training center where players could sharpen their game on tables that perform identically every time. Consistency across the room was the top priority.",
       "We installed and assembled eight 9-foot tournament tables, dressed them in fast Simonis 860 cloth, and precision-leveled every slate so coaches and students could trust a true, repeatable roll on any table in the room.",
     ],
-    cover: "/images/hero-modern.jpg",
+    cover: "/images/work/red-dragon-1.png",
     gallery: [
-      { src: "/images/hero-measure.jpg", alt: "Precision leveling a table at Red Dragon" },
-      { src: "/images/our-work.jpg", alt: "Tournament tables ready for training at Red Dragon" },
+      { src: "/images/work/red-dragon-3.png", alt: "Room full of blue-felt tournament tables at Red Dragon Billiards" },
+      { src: "/images/work/red-dragon-2.png", alt: "Freshly recovered Brunswick tables beneath the Red Dragon logo wall" },
     ],
+    testimonial: {
+      name: "Roy Pastor",
+      role: "Owner, Red Dragon Billiards Club & Training Center",
+      videoUrl: "https://www.youtube.com/watch?v=gWRK95chX7w",
+      youtubeId: "gWRK95chX7w",
+    },
     venue: {
       description:
         "A dedicated billiards club and training center in Harvard, Red Dragon pairs tournament-grade tables with a coaching-focused environment for players looking to level up their game.",

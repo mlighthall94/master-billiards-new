@@ -126,6 +126,29 @@ export default async function ProjectPage({
             </div>
           )}
 
+          {/* Video testimonial */}
+          {project.testimonial && (
+            <div className="mt-8 lg:mt-12">
+              <h2 className="text-lg font-semibold text-foreground lg:text-2xl">Hear from the owner</h2>
+              <div className="mt-3 lg:mt-5">
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-muted">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${project.testimonial.youtubeId}`}
+                    title={`${project.testimonial.name} testimonial for Master Billiards`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full"
+                  />
+                </div>
+                <p className="mt-3 text-sm text-foreground/90 lg:text-base">
+                  <span className="font-semibold text-foreground">{project.testimonial.name}</span>
+                  {" — "}
+                  {project.testimonial.role}
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* About the venue */}
           <div className="mt-8 lg:mt-12">
             <h2 className="text-lg font-semibold text-foreground lg:text-2xl">About the venue</h2>
