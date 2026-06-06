@@ -108,10 +108,10 @@ export const projects: Project[] = [
       "The Nest opened its doors with a clean slate — quite literally. We delivered and assembled eight brand-new 9-foot tables, dialing in rail speed and pocket geometry so every table played consistently across the room.",
       "Before opening night, we walked the staff through day-to-day upkeep so they could keep the tables looking sharp between our scheduled visits.",
     ],
-    cover: "/images/hero.png",
+    cover: "/images/work/the-nest-1.jpg",
     gallery: [
-      { src: "/images/hero-modern.jpg", alt: "New table install at The Nest" },
-      { src: "/images/hero-2.jpg", alt: "Finished room at The Nest" },
+      { src: "/images/work/the-nest-2.jpg", alt: "Rows of Diamond tables with blue Simonis cloth at The Nest" },
+      { src: "/images/work/the-nest-3.jpg", alt: "Close-up of a freshly clothed Diamond table at The Nest" },
     ],
     venue: {
       description:
