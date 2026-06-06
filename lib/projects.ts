@@ -1,7 +1,7 @@
 export interface Project {
   slug: string
   title: string
-  logo: string
+  logo?: string
   location: string
   summary: string
   /** Short list of the work performed, shown on the detail page */
@@ -126,30 +126,29 @@ export const projects: Project[] = [
   {
     slug: "east-side-club",
     title: "East Side Club",
-    logo: "/images/work/east-side-club.png",
     location: "Manchester, NH",
     summary:
       "Re-felting and cushion replacement to bring a beloved neighborhood club back to life.",
     scope: [
-      "Recovered 10 tables with new cloth",
+      "Recovered tables with new blue cloth",
       "Replaced worn cushions throughout",
       "Repaired damaged pockets and leather",
       "Deep-cleaned and polished rails",
     ],
     story: [
       "This neighborhood club had been a Manchester staple for decades, but years of steady play had taken their toll. The owners wanted to honor the room's character while bringing the tables back to playable condition.",
-      "We recovered ten tables, replaced the tired cushions, and repaired the leather pockets — preserving the club's classic feel while restoring a true, fast roll on every table.",
+      "We recovered the club's Diamond tables in bright blue cloth, replaced the tired cushions, and repaired the leather pockets — preserving the club's classic feel while restoring a true, fast roll on every table.",
     ],
-    cover: "/images/our-work.jpg",
+    cover: "/images/work/east-side-1.jpg",
     gallery: [
-      { src: "/images/hero-red.jpg", alt: "Recovered table at East Side Club" },
-      { src: "/images/hero-bar.jpg", alt: "Restored bar-area tables" },
+      { src: "/images/work/east-side-2.jpg", alt: "Two freshly recovered Diamond tables at East Side Club" },
+      { src: "/images/work/east-side-3.jpg", alt: "Close-up of a Diamond table with new blue cloth at East Side Club" },
     ],
     venue: {
       description:
-        "A beloved neighborhood club that's been a Manchester staple for decades, East Side Club pairs classic character with ten freshly restored tables.",
-      address: "350 Hanover Street",
-      cityStateZip: "Manchester, NH 03104",
+        "A beloved neighborhood club that's been a Manchester staple for decades, East Side Club pairs classic character with freshly restored Diamond tables.",
+      address: "750 Massabesic St",
+      cityStateZip: "Manchester, NH 03103",
       website: "https://www.eastsideclubnh.com",
       websiteLabel: "eastsideclubnh.com",
     },

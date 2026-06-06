@@ -130,14 +130,18 @@ export default async function ProjectPage({
           <div className="mt-8 lg:mt-12">
             <h2 className="text-lg font-semibold text-foreground lg:text-2xl">About the venue</h2>
             <div className="mt-3 lg:mt-5">
-              <div className="relative h-16 w-40">
-                <ZoomableImage
-                  src={project.logo || "/placeholder.svg"}
-                  alt={`${project.title} logo`}
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
+              {project.logo ? (
+                <div className="relative h-16 w-40">
+                  <ZoomableImage
+                    src={project.logo}
+                    alt={`${project.title} logo`}
+                    fill
+                    className="object-contain object-left"
+                  />
+                </div>
+              ) : (
+                <h3 className="text-xl font-semibold text-foreground lg:text-2xl">{project.title}</h3>
+              )}
               <p className="mt-4 text-base text-foreground/90 leading-relaxed lg:text-lg">
                 {project.venue.description}
               </p>
