@@ -95,7 +95,7 @@ export const projects: Project[] = [
   {
     slug: "backstreet-billiards",
     title: "Backstreet Bar & Grill",
-    logo: "/images/work/backstreet-billiards.png",
+    logo: "/images/work/backstreet-logo.png",
     location: "Hudson, NH",
     summary:
       "Full table setup with custom brand decals — a new service that's quickly becoming popular.",
