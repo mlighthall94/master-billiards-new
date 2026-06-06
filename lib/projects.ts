@@ -119,8 +119,8 @@ export const projects: Project[] = [
         "The Nest Pub & Grill in Plaistow offers a clean, modern room for casual players and serious shooters alike, alongside dining, spirits, and entertainment.",
       address: "4 Plaistow Road",
       cityStateZip: "Plaistow, NH 03865",
-      website: "https://www.thenestpoolhall.com",
-      websiteLabel: "thenestpoolhall.com",
+      website: "https://thenestpubandgrill.com/",
+      websiteLabel: "thenestpubandgrill.com",
     },
   },
   {
