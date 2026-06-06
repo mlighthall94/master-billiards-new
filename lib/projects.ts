@@ -215,6 +215,37 @@ export const projects: Project[] = [
       websiteLabel: "billiardscafema.com",
     },
   },
+  {
+    slug: "red-dragon-billiards",
+    title: "Red Dragon Billiards Club & Training Center",
+    logo: "/placeholder.svg",
+    location: "Worcester, MA",
+    summary:
+      "Full setup of a dedicated training facility, with tournament tables tuned for instruction and serious practice.",
+    scope: [
+      "Installed eight 9-foot tournament tables",
+      "Dressed every table in Simonis 860 cloth",
+      "Precision-leveled slate to coaching spec",
+      "Tuned cushions for consistent practice play",
+    ],
+    story: [
+      "Red Dragon set out to build more than a pool hall — they wanted a true training center where players could sharpen their game on tables that perform identically every time. Consistency across the room was the top priority.",
+      "We installed and assembled eight 9-foot tournament tables, dressed them in fast Simonis 860 cloth, and precision-leveled every slate so coaches and students could trust a true, repeatable roll on any table in the room.",
+    ],
+    cover: "/images/hero-modern.jpg",
+    gallery: [
+      { src: "/images/hero-measure.jpg", alt: "Precision leveling a table at Red Dragon" },
+      { src: "/images/our-work.jpg", alt: "Tournament tables ready for training at Red Dragon" },
+    ],
+    venue: {
+      description:
+        "A dedicated billiards club and training center in Worcester, Red Dragon pairs tournament-grade tables with a coaching-focused environment for players looking to level up their game.",
+      address: "45 Park Avenue",
+      cityStateZip: "Worcester, MA 01605",
+      website: "https://www.reddragonbilliards.com",
+      websiteLabel: "reddragonbilliards.com",
+    },
+  },
 ]
 
 export function getProject(slug: string): Project | undefined {
