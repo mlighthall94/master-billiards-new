@@ -246,11 +246,11 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
               "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-all touch-manipulation active:scale-90 active:bg-secondary/60",
               moreActive || moreOpen ? "text-primary" : "text-muted-foreground hover:text-foreground"
             )}
-            aria-label="More pages"
+            aria-label="Open menu"
             aria-expanded={moreOpen}
           >
             <Menu className={cn("h-5 w-5", (moreActive || moreOpen) && "stroke-[2.5]")} />
-            <span className="text-[11px] font-medium leading-none">More</span>
+            <span className="text-[11px] font-medium leading-none">Menu</span>
           </button>
         </div>
       </nav>
