@@ -12,6 +12,18 @@ export const metadata: Metadata = {
 }
 
 const gallery = [
+  { src: "/images/gallery/gallery-22.png", alt: "Master Billiards technician giving a thumbs up next to a freshly recovered green-felt table in a home library" },
+  { src: "/images/gallery/gallery-21.png", alt: "Diamond table with red rails and blue cloth in a bar" },
+  { src: "/images/gallery/gallery-25.png", alt: "Row of chrome-railed tables with bright blue cloth in a pool hall" },
+  { src: "/images/gallery/gallery-27.png", alt: "Blue-felt table with wooden bar stools against a red wall" },
+  { src: "/images/gallery/gallery-31.png", alt: "Master Billiards technician smiling while installing a table rail" },
+  { src: "/images/gallery/gallery-30.png", alt: "Technician stapling blue cloth to a rail in the workshop" },
+  { src: "/images/gallery/gallery-24.png", alt: "Recovered rails laid out with blue cloth during a table install" },
+  { src: "/images/gallery/gallery-23.png", alt: "Close-up of a corner pocket with new blue cloth" },
+  { src: "/images/gallery/gallery-26.png", alt: "Close-up of a pocket with the panther logo on the rail cap" },
+  { src: "/images/gallery/gallery-28.png", alt: "Stapling new blue cloth tight to a rail with a pneumatic stapler" },
+  { src: "/images/gallery/gallery-29.png", alt: "Fresh blue cloth wrapped over a corner pocket" },
+  { src: "/images/gallery/gallery-20.png", alt: "Cart loaded with Master Billiards tools and DeWalt cases ready for a job" },
   { src: "/images/gallery/gallery-1.png", alt: "Master Billiards team with a freshly recovered table under an LED light fixture" },
   { src: "/images/gallery/gallery-2.png", alt: "Two Diamond tables with blue cloth in a sports bar" },
   { src: "/images/gallery/gallery-4.png", alt: "Black Diamond table with light blue cloth in a sunlit clubhouse" },
