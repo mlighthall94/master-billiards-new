@@ -7,9 +7,10 @@ import { Star } from "lucide-react"
 import { getGoogleReviews } from "@/lib/google-reviews"
 
 export const metadata: Metadata = {
-  title: "Reviews | Master Billiards",
+  title: "Reviews",
   description:
     "Read what our customers across NH and MA say about Master Billiards' pool table moving, recovery, and repair services.",
+  alternates: { canonical: "/reviews" },
 }
 
 export default async function ReviewsPage() {

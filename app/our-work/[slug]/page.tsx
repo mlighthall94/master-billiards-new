@@ -19,11 +19,12 @@ export async function generateMetadata({
   const { slug } = await params
   const project = getProject(slug)
   if (!project) {
-    return { title: "Project Not Found | Master Billiards" }
+    return { title: "Project Not Found" }
   }
   return {
-    title: `${project.title} | Our Work | Master Billiards`,
+    title: `${project.title} | Our Work`,
     description: project.summary,
+    alternates: { canonical: `/our-work/${slug}` },
   }
 }
 
