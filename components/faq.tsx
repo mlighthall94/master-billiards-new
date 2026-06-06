@@ -12,7 +12,8 @@ const faqs = [
   },
   {
     question: "How long does it take?",
-    answer: "Most jobs are completed same-day. Moves typically take 2-4 hours including setup and leveling.",
+    answer:
+      "It depends on the scope of the job. A full pool room can take up to two weeks, while a coin-op table can be done in a matter of hours. We'll give you a clear timeline when we provide your quote.",
   },
   {
     question: "What areas do you serve?",
