@@ -10,7 +10,6 @@ import {
   Home,
   Wrench,
   Images,
-  FileText,
   Star,
   Hammer,
   Info,
@@ -31,15 +30,11 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ]
 
-// Primary tabs shown in the bottom bar (Quote sits in the center)
-const primaryTabs = [
+// All destinations surfaced through the Menu sheet
+const moreLinks = [
   { href: "/", label: "Home", icon: Home },
   { href: "/services", label: "Services", icon: Wrench },
   { href: "/gallery", label: "Gallery", icon: Images },
-]
-
-// Secondary destinations surfaced through the "More" sheet
-const moreLinks = [
   { href: "/reviews", label: "Reviews", icon: Star },
   { href: "/our-work", label: "Our Work", icon: Hammer },
   { href: "/about", label: "About Us", icon: Info },
@@ -64,7 +59,6 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
   const currentTitle = title ?? pageTitles[pathname]
 
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href))
-  const moreActive = moreLinks.some((link) => isActive(link.href))
 
   // Prevent body scroll when the More sheet is open
   React.useEffect(() => {
@@ -95,7 +89,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    "px-4 py-2 text-sm font-medium rounded-md transition-colors",
+                    "px-4 py-2 text-sm font-medium rounded-md transition-all active:scale-95",
                     active
                       ? "text-foreground bg-secondary"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
@@ -110,7 +104,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href="tel:+16032315345"
-              className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-foreground/80 transition-colors"
+              className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-foreground/80 transition-all active:scale-95"
             >
               <Phone className="h-4 w-4 fill-current" />
               603-231-5345
@@ -143,7 +137,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
             {isHome ? (
               <a
                 href="tel:+16032315345"
-                className="flex items-center justify-center gap-2 text-lg font-semibold tracking-wide"
+                className="flex items-center justify-center gap-2 text-lg font-semibold tracking-wide transition-transform touch-manipulation active:scale-95"
               >
                 <Phone className="h-5 w-5 fill-current" />
                 603-231-5345
@@ -153,7 +147,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                 <button
                   type="button"
                   onClick={() => router.back()}
-                  className="absolute left-2.5 text-primary-foreground transition-opacity hover:opacity-80"
+                  className="absolute left-2.5 p-1 -ml-1 text-primary-foreground transition-transform touch-manipulation active:scale-90 hover:opacity-80"
                   aria-label="Go back to previous page"
                 >
                   <ArrowLeft className="h-6 w-6" />
@@ -167,90 +161,25 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
         </div>
       </div>
 
-      {/* Mobile bottom tab bar */}
+      {/* Mobile bottom bar: single Menu button */}
       <nav
         className="lg:hidden fixed bottom-0 inset-x-0 z-[70] border-t border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         aria-label="Primary"
       >
-        <div className="max-w-lg mx-auto grid grid-cols-5 items-end px-1 pt-1.5 pb-1">
-          {/* Home + Services */}
-          {primaryTabs.slice(0, 2).map((tab) => {
-            const Icon = tab.icon
-            const active = isActive(tab.href)
-            return (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                className={cn(
-                  "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-colors",
-                  active ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <Icon className={cn("h-5 w-5", active && "stroke-[2.5]")} />
-                <span className="text-[11px] font-medium leading-none">{tab.label}</span>
-              </Link>
-            )
-          })}
-
-          {/* Center Quote CTA */}
-          <div className="flex flex-col items-center">
-            <Link
-              href="/quote"
-              aria-label="Get a Quote"
-              className="flex flex-col items-center -mt-6"
-            >
-              <span
-                className={cn(
-                  "flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg ring-4 ring-card transition-transform active:scale-95",
-                  isActive("/quote") && "ring-primary/30"
-                )}
-              >
-                <FileText className="h-6 w-6" />
-              </span>
-              <span
-                className={cn(
-                  "mt-1 text-[11px] font-semibold leading-none",
-                  isActive("/quote") ? "text-primary" : "text-foreground"
-                )}
-              >
-                Quote
-              </span>
-            </Link>
-          </div>
-
-          {/* Gallery */}
-          {primaryTabs.slice(2).map((tab) => {
-            const Icon = tab.icon
-            const active = isActive(tab.href)
-            return (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                className={cn(
-                  "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-colors",
-                  active ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <Icon className={cn("h-5 w-5", active && "stroke-[2.5]")} />
-                <span className="text-[11px] font-medium leading-none">{tab.label}</span>
-              </Link>
-            )
-          })}
-
-          {/* More */}
+        <div className="max-w-lg mx-auto px-4 py-2">
           <button
             type="button"
             onClick={() => setMoreOpen(true)}
             className={cn(
-              "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-colors",
-              moreActive || moreOpen ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              "flex w-full items-center justify-center gap-2 rounded-xl py-3 font-semibold transition-all touch-manipulation active:scale-[0.98]",
+              moreOpen ? "bg-secondary text-foreground" : "text-foreground hover:bg-secondary/60"
             )}
-            aria-label="More pages"
+            aria-label="Open menu"
             aria-expanded={moreOpen}
           >
-            <Menu className={cn("h-5 w-5", (moreActive || moreOpen) && "stroke-[2.5]")} />
-            <span className="text-[11px] font-medium leading-none">More</span>
+            <Menu className="h-5 w-5" />
+            <span className="text-base leading-none">Menu</span>
           </button>
         </div>
       </nav>
@@ -281,7 +210,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
               <button
                 type="button"
                 onClick={() => setMoreOpen(false)}
-                className="p-1 -mr-1 text-muted-foreground hover:text-foreground"
+                className="p-1 -mr-1 text-muted-foreground transition-transform touch-manipulation active:scale-90 hover:text-foreground"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
@@ -298,10 +227,10 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                     href={link.href}
                     onClick={() => setMoreOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 rounded-xl border px-4 py-3 transition-colors",
+                      "flex items-center gap-3 rounded-xl border px-4 py-3 transition-all touch-manipulation active:scale-95",
                       active
                         ? "border-primary bg-secondary text-foreground"
-                        : "border-border text-foreground hover:bg-secondary/60"
+                        : "border-border text-foreground hover:bg-secondary/60 active:bg-secondary/60"
                     )}
                   >
                     <Icon className="h-5 w-5 text-muted-foreground" />
