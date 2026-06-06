@@ -71,7 +71,7 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
   // --- 1. Store in Airtable ---
   const airtableToken = process.env.AIRTABLE_API_KEY
   const airtableBaseId = process.env.AIRTABLE_BASE_ID
-  const airtableTable = process.env.AIRTABLE_TABLE_NAME || "Quotes"
+  const airtableTable = process.env.AIRTABLE_TABLE_NAME || "Leads"
 
   if (airtableToken && airtableBaseId) {
     try {
