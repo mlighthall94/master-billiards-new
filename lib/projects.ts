@@ -94,7 +94,7 @@ export const projects: Project[] = [
   {
     slug: "the-nest",
     title: "The Nest",
-    logo: "/images/work/the-nest.png",
+    logo: "/images/work/the-nest-logo.png",
     location: "Plaistow, NH",
     summary:
       "New install of eight 9-foot tables for a brand-new pool hall in Plaistow.",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     ],
     venue: {
       description:
-        "A brand-new pool hall in Plaistow featuring eight 9-foot tables, The Nest offers a clean, modern room for casual players and serious shooters alike.",
+        "The Nest Pub & Grill in Plaistow is home to twelve 8-foot Diamond tables used for APA Tri Cup tournaments and various leagues, offering a clean, modern room for casual players and serious shooters alike.",
       address: "4 Plaistow Road",
       cityStateZip: "Plaistow, NH 03865",
       website: "https://www.thenestpoolhall.com",
