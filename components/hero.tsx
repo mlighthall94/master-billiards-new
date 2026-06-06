@@ -9,6 +9,10 @@ import Autoplay from "embla-carousel-autoplay"
 
 const slides = [
   {
+    image: "/images/hero-recover.png",
+    alt: "Technician recovering a pool table with new green felt",
+  },
+  {
     image: "/images/hero-2.jpg",
     alt: "Game room with pool tables",
   },
