@@ -21,7 +21,7 @@ export function Footer() {
             <div className="col-span-1 flex flex-col items-start gap-4">
               <Logo className="h-12 w-auto text-primary-foreground" />
               <p className="text-sm text-primary-foreground/60 leading-relaxed">
-                Professional pool table moving, recovery, and repair across Southern NH and Northern MA.
+                Professional pool table moving, recovery, and repair anywhere in New England.
               </p>
               <div className="flex items-center gap-3">
                 <a
@@ -103,7 +103,7 @@ export function Footer() {
 
           <div className="mt-12 pt-6 border-t border-primary-foreground/15">
             <p className="text-xs text-primary-foreground/50">
-              &copy; {new Date().getFullYear()} Master Billiards, LLC. | Serving Southern NH &amp; Northern MA
+              &copy; {new Date().getFullYear()} Master Billiards, LLC. | Serving all of New England
             </p>
           </div>
         </div>
@@ -146,7 +146,7 @@ export function Footer() {
         </div>
 
         <p className="text-xs text-primary-foreground/50">
-          &copy; {new Date().getFullYear()} Master Billiards, LLC. | Southern NH
+            &copy; {new Date().getFullYear()} Master Billiards, LLC. | New England
         </p>
       </div>
     </footer>

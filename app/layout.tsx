@@ -10,7 +10,7 @@ const inter = Inter({
 
 const SITE_URL = 'https://masterbilliards.co'
 const SITE_DESCRIPTION =
-  'Professional pool table moving, recovery, re-felting, repairs, leveling, and assembly serving Southern NH & Northern MA. Family-run, fully insured. Call 603-231-5345.'
+  'Professional pool table moving, recovery, re-felting, repairs, leveling, and assembly serving all of New England. Family-run, fully insured. Call 603-231-5345.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
