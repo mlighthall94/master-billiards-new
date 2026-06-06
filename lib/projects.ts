@@ -219,7 +219,7 @@ export const projects: Project[] = [
     slug: "red-dragon-billiards",
     title: "Red Dragon Billiards Club & Training Center",
     logo: "/placeholder.svg",
-    location: "Worcester, MA",
+    location: "Harvard, MA",
     summary:
       "Full setup of a dedicated training facility, with tournament tables tuned for instruction and serious practice.",
     scope: [
@@ -239,9 +239,9 @@ export const projects: Project[] = [
     ],
     venue: {
       description:
-        "A dedicated billiards club and training center in Worcester, Red Dragon pairs tournament-grade tables with a coaching-focused environment for players looking to level up their game.",
-      address: "45 Park Avenue",
-      cityStateZip: "Worcester, MA 01605",
+        "A dedicated billiards club and training center in Harvard, Red Dragon pairs tournament-grade tables with a coaching-focused environment for players looking to level up their game.",
+      address: "285 Ayer Rd",
+      cityStateZip: "Harvard, MA 01451",
       website: "https://www.reddragonbilliards.com",
       websiteLabel: "reddragonbilliards.com",
     },
