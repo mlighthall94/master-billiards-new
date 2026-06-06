@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import { ZoomableImage } from "@/components/zoomable-image"
-import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Check, MapPin } from "lucide-react"
+import { Check, MapPin } from "lucide-react"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
@@ -71,16 +70,8 @@ export default async function ProjectPage({
         </section>
 
         <div className="max-w-lg mx-auto w-full px-4 py-6 lg:max-w-4xl lg:px-8 lg:py-12">
-          <Link
-            href="/our-work"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Our Work
-          </Link>
-
           {/* Story */}
-          <div className="mt-5 flex flex-col gap-4 lg:mt-8 lg:gap-5">
+          <div className="flex flex-col gap-4 lg:gap-5">
             {project.story.map((paragraph, index) => (
               <p key={index} className="text-base text-foreground/90 leading-relaxed lg:text-lg">
                 {paragraph}
