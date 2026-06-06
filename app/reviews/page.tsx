@@ -59,7 +59,7 @@ export default function ReviewsPage() {
         />
 
         <section className="px-4 py-8 max-w-lg mx-auto w-full lg:max-w-6xl lg:px-8 lg:py-16">
-          <div className="flex items-center gap-3 mb-6 rounded-lg bg-secondary p-4 lg:max-w-md lg:mx-auto lg:mb-12 lg:p-6 lg:justify-center">
+          <div className="flex items-center gap-3 mb-6 p-4 lg:max-w-md lg:mx-auto lg:mb-12 lg:p-6 lg:justify-center">
             <span className="text-3xl font-bold text-foreground lg:text-4xl">5.0</span>
             <div>
               <div className="flex gap-0.5">
