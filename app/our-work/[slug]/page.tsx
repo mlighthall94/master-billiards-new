@@ -150,16 +150,18 @@ export default async function ProjectPage({
                 <br />
                 {project.venue.cityStateZip}
               </p>
-              <p className="mt-3 text-sm lg:text-base">
-                <a
-                  href={project.venue.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
-                >
-                  {project.venue.websiteLabel}
-                </a>
-              </p>
+              {project.venue.website && (
+                <p className="mt-3 text-sm lg:text-base">
+                  <a
+                    href={project.venue.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
+                  >
+                    {project.venue.websiteLabel}
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         </div>

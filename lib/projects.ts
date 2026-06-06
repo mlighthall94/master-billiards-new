@@ -21,9 +21,9 @@ export interface Project {
     /** City, state ZIP line */
     cityStateZip: string
     /** Public website URL */
-    website: string
+    website?: string
     /** Display label for the website link, e.g. "legendsbilliards.com" */
-    websiteLabel: string
+    websiteLabel?: string
   }
 }
 
@@ -155,33 +155,30 @@ export const projects: Project[] = [
   },
   {
     slug: "breakaway-billiards",
-    title: "Breakaway Billiards",
-    logo: "/images/work/breakaway-billiards.png",
+    title: "Break-Away Billiards",
     location: "Clinton, MA",
     summary:
-      "A custom build featuring a showpiece table with custom cloth and full room setup.",
+      "Eight Olhausen tables recovered and re-leveled with brand-new pockets throughout.",
     scope: [
-      "Assembled a custom 8-foot table",
-      "Installed custom-color cloth",
-      "Mounted overhead billiard lighting",
-      "Added wall-mounted cue storage",
+      "Recovered 8 Olhausen tables with new green cloth",
+      "Installed brand-new leather pockets on every table",
+      "Re-leveled each table for true, consistent play",
+      "Cleaned and detailed rails and oak woodwork",
     ],
     story: [
-      "Breakaway Billiards wanted a flagship table that felt like a true centerpiece. We helped them select a showpiece 8-foot table and dressed it in a custom cloth color to match the room's palette.",
-      "Beyond the table, we handled the overhead lighting and built-in cue storage, delivering a finished space ready for league nights and walk-in play.",
+      "Break-Away Billiards came to us with a full room of eight classic Olhausen tables that had seen years of heavy league and walk-in play. The cloth was worn, the pockets were tired, and several tables had drifted out of level.",
+      "We recovered all eight tables in fresh green cloth, fit each one with brand-new pockets, and re-leveled the slate so every table played fast and true. The result is a room full of tables that look and roll like new.",
     ],
-    cover: "/images/hero-red.jpg",
+    cover: "/images/work/break-away-1.jpg",
     gallery: [
-      { src: "/images/hero-modern.jpg", alt: "Custom room build at Breakaway Billiards" },
-      { src: "/images/hero.png", alt: "Showpiece table with custom cloth" },
+      { src: "/images/work/break-away-3.jpg", alt: "Room full of recovered Olhausen tables at Break-Away Billiards" },
+      { src: "/images/work/break-away-2.jpg", alt: "Freshly recovered Olhausen tables near the bar at Break-Away Billiards" },
     ],
     venue: {
       description:
-        "A polished room in Clinton anchored by a custom showpiece table, Breakaway Billiards blends striking design with a welcoming spot for league nights and walk-in play.",
-      address: "85 High Street",
+        "A spacious billiards hall in Clinton with a room full of classic Olhausen tables, Break-Away Billiards is a welcoming spot for league nights and walk-in play.",
+      address: "104 Sterling St",
       cityStateZip: "Clinton, MA 01510",
-      website: "https://www.breakawaybilliardsma.com",
-      websiteLabel: "breakawaybilliardsma.com",
     },
   },
   {
