@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Phone, Mail, Check, ArrowRight, ArrowLeft } from "lucide-react"
+import { Phone, Mail, Check, ArrowRight, ArrowLeft, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { submitQuote } from "@/app/actions/submit-quote"
 
 // Service options for Step 1
 const services = [
@@ -79,6 +80,8 @@ interface FormData {
 export function QuoteForm() {
   const [step, setStep] = React.useState(1)
   const [submitted, setSubmitted] = React.useState(false)
+  const [submitting, setSubmitting] = React.useState(false)
+  const [error, setError] = React.useState("")
   const [formData, setFormData] = React.useState<FormData>({
     services: [],
     tableSize: "",
@@ -142,10 +145,24 @@ export function QuoteForm() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (canProceed()) {
-      setSubmitted(true)
+    if (!canProceed() || submitting) return
+
+    setSubmitting(true)
+    setError("")
+
+    try {
+      const result = await submitQuote(formData)
+      if (result.ok) {
+        setSubmitted(true)
+      } else {
+        setError(result.error)
+      }
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.")
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -508,11 +525,24 @@ export function QuoteForm() {
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             ) : (
-              <Button type="submit" disabled={!canProceed()} className="text-base">
-                Submit Quote Request
+              <Button type="submit" disabled={!canProceed() || submitting} className="text-base">
+                {submitting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Submit Quote Request"
+                )}
               </Button>
             )}
           </div>
+
+          {error && (
+            <p className="mt-4 text-center text-sm text-destructive" role="alert">
+              {error}
+            </p>
+          )}
         </form>
 
         {/* Contact fallback */}
