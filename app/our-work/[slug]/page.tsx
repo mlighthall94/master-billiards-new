@@ -42,7 +42,7 @@ export default async function ProjectPage({
 
   return (
     <div className="min-h-dvh flex flex-col">
-      <MobileNavbar title={project.title} />
+      <MobileNavbar title={project.title} backHref="/our-work" />
       <main className="flex-1 w-full">
         {/* Cover image */}
         <div className="relative h-60 w-full lg:h-[420px]">
@@ -125,6 +125,39 @@ export default async function ProjectPage({
               </div>
             </div>
           )}
+
+          {/* About the venue */}
+          <div className="mt-8 lg:mt-12">
+            <h2 className="text-lg font-semibold text-foreground lg:text-2xl">About the venue</h2>
+            <div className="mt-3 lg:mt-5">
+              <div className="relative h-16 w-40">
+                <ZoomableImage
+                  src={project.logo || "/placeholder.svg"}
+                  alt={`${project.title} logo`}
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
+              <p className="mt-4 text-base text-foreground/90 leading-relaxed lg:text-lg">
+                {project.venue.description}
+              </p>
+              <p className="mt-4 text-sm text-muted-foreground lg:text-base">
+                {project.venue.address}
+                <br />
+                {project.venue.cityStateZip}
+              </p>
+              <p className="mt-3 text-sm lg:text-base">
+                <a
+                  href={project.venue.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
+                >
+                  {project.venue.websiteLabel}
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
 
         <CtaBanner
