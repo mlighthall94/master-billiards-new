@@ -7,9 +7,10 @@ import { ComparisonSlider } from "@/components/comparison-slider"
 import { Truck, Scissors, Wrench, Ruler, Sparkles, PackageCheck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Services | Master Billiards",
+  title: "Services",
   description:
     "Professional pool table moving, recovery, re-felting, repairs, leveling, and assembly serving NH and MA.",
+  alternates: { canonical: "/services" },
 }
 
 const services = [

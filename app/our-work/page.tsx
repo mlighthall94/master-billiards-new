@@ -9,9 +9,10 @@ import { CtaBanner } from "@/components/cta-banner"
 import { projects } from "@/lib/projects"
 
 export const metadata: Metadata = {
-  title: "Our Work | Master Billiards",
+  title: "Our Work",
   description:
     "Explore pool rooms and billiards halls across New Hampshire and Massachusetts that Master Billiards has installed, recovered, and maintained.",
+  alternates: { canonical: "/our-work" },
 }
 
 const stateGroups = [

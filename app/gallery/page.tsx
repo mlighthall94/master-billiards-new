@@ -6,9 +6,10 @@ import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 
 export const metadata: Metadata = {
-  title: "Gallery | Master Billiards",
+  title: "Gallery",
   description:
     "See our work — pool table moves, re-felting, repairs, and finished game rooms across NH and MA.",
+  alternates: { canonical: "/gallery" },
 }
 
 const gallery = [

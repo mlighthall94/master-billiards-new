@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Logo } from "@/components/logo"
-import { Check, Camera, X, Lock, ArrowLeft } from "lucide-react"
+import { Check, Camera, X, Lock, ArrowLeft, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { ZoomableImage } from "@/components/zoomable-image"
 import { cn } from "@/lib/utils"
+import { submitQuote } from "@/app/actions/submit-quote"
 
 const services = [
   { id: "recovering", label: "Recovering", description: "New cloth installation" },
@@ -74,6 +75,8 @@ const stepLabels = ["Services", "Table Info", "Details", "Contact"]
 export default function QuotePage() {
   const [step, setStep] = useState(1)
   const [images, setImages] = useState<string[]>([])
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState("")
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     services: [] as string[],
@@ -162,10 +165,23 @@ export default function QuotePage() {
     window.scrollTo({ top: 0, behavior: "instant" })
   }
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", formData, images)
-    setStep(5)
-    window.scrollTo({ top: 0, behavior: "instant" })
+  const handleSubmit = async () => {
+    if (!canProceed() || submitting) return
+    setSubmitting(true)
+    setError("")
+    try {
+      const result = await submitQuote(formData)
+      if (result.ok) {
+        setStep(5)
+        window.scrollTo({ top: 0, behavior: "instant" })
+      } else {
+        setError(result.error)
+      }
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -589,14 +605,26 @@ export default function QuotePage() {
               ) : (
                 <Button
                   onClick={handleSubmit}
-                  disabled={!canProceed()}
+                  disabled={!canProceed() || submitting}
                   size="lg"
                   className="flex-1 h-14 text-base font-semibold rounded-xl"
                 >
-                  Submit Request
+                  {submitting ? (
+                    <>
+                      <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    "Submit Request"
+                  )}
                 </Button>
               )}
             </div>
+            {error && (
+              <p className="mt-2 text-center text-xs text-destructive" role="alert">
+                {error}
+              </p>
+            )}
             <div className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground">
               <Lock className="h-3 w-3" />
               <span>Your information is secure and never shared</span>

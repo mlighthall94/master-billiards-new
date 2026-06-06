@@ -6,9 +6,10 @@ import { SimpleContactForm } from "@/components/simple-contact-form"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Contact | Master Billiards",
+  title: "Contact",
   description:
     "Get in touch with Master Billiards for pool table moving, recovery, and repairs in NH and MA. Call 603-231-5345 or send us a message.",
+  alternates: { canonical: "/contact" },
 }
 
 const contactInfo = [

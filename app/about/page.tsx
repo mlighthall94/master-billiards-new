@@ -7,9 +7,10 @@ import { CtaBanner } from "@/components/cta-banner"
 import { ShieldCheck, Clock, Award, Heart } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About | Master Billiards",
+  title: "About",
   description:
     "Master Billiards is a family-run pool table service company serving NH and MA with craftsmanship, care, and decades of combined experience.",
+  alternates: { canonical: "/about" },
 }
 
 const values = [
