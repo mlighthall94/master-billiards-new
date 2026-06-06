@@ -34,7 +34,7 @@ export function FAQ() {
             <div key={index} className="border-b border-border">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-3 flex items-center justify-between text-left lg:py-5"
+                className="w-full py-3 flex items-center justify-between text-left rounded-md px-1 transition-colors touch-manipulation active:bg-secondary/50 lg:py-5"
               >
                 <span className="text-base font-semibold text-foreground pr-4 lg:text-lg">
                   {faq.question}

@@ -95,7 +95,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    "px-4 py-2 text-sm font-medium rounded-md transition-colors",
+                    "px-4 py-2 text-sm font-medium rounded-md transition-all active:scale-95",
                     active
                       ? "text-foreground bg-secondary"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
@@ -110,7 +110,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href="tel:+16032315345"
-              className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-foreground/80 transition-colors"
+              className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-foreground/80 transition-all active:scale-95"
             >
               <Phone className="h-4 w-4 fill-current" />
               603-231-5345
@@ -143,7 +143,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
             {isHome ? (
               <a
                 href="tel:+16032315345"
-                className="flex items-center justify-center gap-2 text-lg font-semibold tracking-wide"
+                className="flex items-center justify-center gap-2 text-lg font-semibold tracking-wide transition-transform touch-manipulation active:scale-95"
               >
                 <Phone className="h-5 w-5 fill-current" />
                 603-231-5345
@@ -153,7 +153,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                 <button
                   type="button"
                   onClick={() => router.back()}
-                  className="absolute left-2.5 text-primary-foreground transition-opacity hover:opacity-80"
+                  className="absolute left-2.5 p-1 -ml-1 text-primary-foreground transition-transform touch-manipulation active:scale-90 hover:opacity-80"
                   aria-label="Go back to previous page"
                 >
                   <ArrowLeft className="h-6 w-6" />
@@ -183,7 +183,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                 key={tab.href}
                 href={tab.href}
                 className={cn(
-                  "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-colors",
+                  "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-all touch-manipulation active:scale-90 active:bg-secondary/60",
                   active ? "text-primary" : "text-muted-foreground hover:text-foreground"
                 )}
               >
@@ -228,7 +228,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                 key={tab.href}
                 href={tab.href}
                 className={cn(
-                  "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-colors",
+                  "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-all touch-manipulation active:scale-90 active:bg-secondary/60",
                   active ? "text-primary" : "text-muted-foreground hover:text-foreground"
                 )}
               >
@@ -243,7 +243,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
             type="button"
             onClick={() => setMoreOpen(true)}
             className={cn(
-              "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-colors",
+              "flex flex-col items-center gap-0.5 py-1.5 rounded-md transition-all touch-manipulation active:scale-90 active:bg-secondary/60",
               moreActive || moreOpen ? "text-primary" : "text-muted-foreground hover:text-foreground"
             )}
             aria-label="More pages"
@@ -281,7 +281,7 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
               <button
                 type="button"
                 onClick={() => setMoreOpen(false)}
-                className="p-1 -mr-1 text-muted-foreground hover:text-foreground"
+                className="p-1 -mr-1 text-muted-foreground transition-transform touch-manipulation active:scale-90 hover:text-foreground"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
@@ -298,10 +298,10 @@ export function MobileNavbar({ title }: { title?: string } = {}) {
                     href={link.href}
                     onClick={() => setMoreOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 rounded-xl border px-4 py-3 transition-colors",
+                      "flex items-center gap-3 rounded-xl border px-4 py-3 transition-all touch-manipulation active:scale-95",
                       active
                         ? "border-primary bg-secondary text-foreground"
-                        : "border-border text-foreground hover:bg-secondary/60"
+                        : "border-border text-foreground hover:bg-secondary/60 active:bg-secondary/60"
                     )}
                   >
                     <Icon className="h-5 w-5 text-muted-foreground" />
