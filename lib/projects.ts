@@ -94,29 +94,29 @@ export const projects: Project[] = [
   },
   {
     slug: "backstreet-billiards",
-    title: "Backstreet",
+    title: "Backstreet Bar & Grill",
     logo: "/images/work/backstreet-billiards.png",
     location: "Hudson, NH",
     summary:
-      "Relocation and setup of a private cue club, including a careful move of two antique tables.",
+      "Full table setup with custom brand decals — a new service that's quickly becoming popular.",
     scope: [
-      "Disassembled and moved two antique tables",
-      "Refinished original rails and trim",
-      "Installed new tournament blue cloth",
-      "Set up break lighting over each table",
+      "Recovered tables with green Simonis cloth",
+      "Designed and applied custom Backstreet Bar & Grill rail decals",
+      "Added Aramith and Simonis Cloth brand decals",
+      "Re-leveled and tuned each table for league play",
     ],
     story: [
-      "When Backstreet moved to a new location, they needed their two antique tables relocated without a scratch. These were one-of-a-kind pieces with original woodwork, so every step required extra care.",
-      "We fully disassembled both tables, transported the slate and frames separately, and reassembled everything on-site. After re-leveling and dressing the tables in tournament blue, the room reopened with its prized tables looking better than ever.",
+      "Backstreet Bar & Grill wanted their room to feel unmistakably their own, so we dressed every table in fresh green Simonis cloth and re-leveled the slate for true, consistent play across the floor.",
+      "To finish the room, we designed and applied custom Backstreet Bar & Grill brand decals to each table rail — a new service we offer that's quickly becoming popular. The branded rails turn ordinary tables into a signature part of the venue, and the result gives the whole space a polished, professional look.",
     ],
-    cover: "/images/hero-bar.jpg",
+    cover: "/images/work/backstreet-1.jpg",
     gallery: [
-      { src: "/images/hero-red.jpg", alt: "Antique table restored at Backstreet" },
-      { src: "/images/their-work.jpg", alt: "Detail of refinished rails" },
+      { src: "/images/work/backstreet-2.jpg", alt: "Backstreet Bar & Grill tables with custom brand decals" },
+      { src: "/images/work/backstreet-3.jpg", alt: "Close-up of a custom Backstreet Bar & Grill rail decal" },
     ],
     venue: {
       description:
-        "A private cue club in Hudson known for its pair of lovingly restored antique tables and an intimate, members-first atmosphere built around the game.",
+        "A lively sports bar and billiards room in Hudson, Backstreet Bar & Grill pairs custom-branded tables with a full bar, league play, and a wall of New England sports memorabilia.",
       address: "12 Central Street",
       cityStateZip: "Hudson, NH 03051",
       website: "https://www.backstreetcueclub.com",
