@@ -31,7 +31,7 @@ export const projects: Project[] = [
   {
     slug: "legends-billiards",
     title: "Legends Bar & Billiards",
-    logo: "/images/work/legends-billiards.png",
+    logo: "/images/work/legends-logo.webp",
     location: "Portsmouth, NH",
     summary:
       "A full 12-table room outfitted with new Simonis cloth and precision-leveled slate for league play.",
