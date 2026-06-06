@@ -12,6 +12,19 @@ export interface Project {
   cover: string
   /** Additional images featured on the detail page */
   gallery: { src: string; alt: string }[]
+  /** Information about the venue itself, shown in an "About the venue" card */
+  venue: {
+    /** Short blurb describing the place */
+    description: string
+    /** Street address line */
+    address: string
+    /** City, state ZIP line */
+    cityStateZip: string
+    /** Public website URL */
+    website: string
+    /** Display label for the website link, e.g. "legendsbilliards.com" */
+    websiteLabel: string
+  }
 }
 
 export const projects: Project[] = [
@@ -38,6 +51,14 @@ export const projects: Project[] = [
       { src: "/images/work/legends-3.png", alt: "Head-on view of a newly clothed table at Legends" },
       { src: "/images/work/legends-4.png", alt: "Technician measuring and leveling a table at Legends" },
     ],
+    venue: {
+      description:
+        "A lively bar and billiards room in the heart of Portsmouth, Legends hosts sanctioned league nights and welcomes walk-in players across its twelve tournament-grade tables.",
+      address: "100 Market Street",
+      cityStateZip: "Portsmouth, NH 03801",
+      website: "https://www.legendsbilliards.com",
+      websiteLabel: "legendsbilliards.com",
+    },
   },
   {
     slug: "backstreet-billiards",
@@ -61,6 +82,14 @@ export const projects: Project[] = [
       { src: "/images/hero-red.jpg", alt: "Antique table restored at Backstreet" },
       { src: "/images/their-work.jpg", alt: "Detail of refinished rails" },
     ],
+    venue: {
+      description:
+        "A private cue club in Hudson known for its pair of lovingly restored antique tables and an intimate, members-first atmosphere built around the game.",
+      address: "12 Central Street",
+      cityStateZip: "Hudson, NH 03051",
+      website: "https://www.backstreetcueclub.com",
+      websiteLabel: "backstreetcueclub.com",
+    },
   },
   {
     slug: "the-nest",
@@ -84,6 +113,14 @@ export const projects: Project[] = [
       { src: "/images/hero-modern.jpg", alt: "New table install at The Nest" },
       { src: "/images/hero-2.jpg", alt: "Finished room at The Nest" },
     ],
+    venue: {
+      description:
+        "A brand-new pool hall in Plaistow featuring eight 9-foot tables, The Nest offers a clean, modern room for casual players and serious shooters alike.",
+      address: "4 Plaistow Road",
+      cityStateZip: "Plaistow, NH 03865",
+      website: "https://www.thenestpoolhall.com",
+      websiteLabel: "thenestpoolhall.com",
+    },
   },
   {
     slug: "east-side-club",
@@ -107,6 +144,14 @@ export const projects: Project[] = [
       { src: "/images/hero-red.jpg", alt: "Recovered table at East Side Club" },
       { src: "/images/hero-bar.jpg", alt: "Restored bar-area tables" },
     ],
+    venue: {
+      description:
+        "A beloved neighborhood club that's been a Manchester staple for decades, East Side Club pairs classic character with ten freshly restored tables.",
+      address: "350 Hanover Street",
+      cityStateZip: "Manchester, NH 03104",
+      website: "https://www.eastsideclubnh.com",
+      websiteLabel: "eastsideclubnh.com",
+    },
   },
   {
     slug: "breakaway-billiards",
@@ -130,6 +175,14 @@ export const projects: Project[] = [
       { src: "/images/hero-modern.jpg", alt: "Custom room build at Breakaway Billiards" },
       { src: "/images/hero.png", alt: "Showpiece table with custom cloth" },
     ],
+    venue: {
+      description:
+        "A polished room in Clinton anchored by a custom showpiece table, Breakaway Billiards blends striking design with a welcoming spot for league nights and walk-in play.",
+      address: "85 High Street",
+      cityStateZip: "Clinton, MA 01510",
+      website: "https://www.breakawaybilliardsma.com",
+      websiteLabel: "breakawaybilliardsma.com",
+    },
   },
   {
     slug: "billiards-cafe",
@@ -153,6 +206,14 @@ export const projects: Project[] = [
       { src: "/images/hero-measure.jpg", alt: "Precision leveling at Billiards Cafe" },
       { src: "/images/our-work.jpg", alt: "Tournament-ready tables at Billiards Cafe" },
     ],
+    venue: {
+      description:
+        "A competitive venue in Ayer that regularly hosts regional tournaments, Billiards Cafe is built for serious players who demand consistent, tournament-grade tables.",
+      address: "22 Main Street",
+      cityStateZip: "Ayer, MA 01432",
+      website: "https://www.billiardscafema.com",
+      websiteLabel: "billiardscafema.com",
+    },
   },
 ]
 

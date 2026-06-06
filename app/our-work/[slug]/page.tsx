@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { ZoomableImage } from "@/components/zoomable-image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Check, MapPin } from "lucide-react"
+import { ArrowLeft, Check, MapPin, Globe, ExternalLink } from "lucide-react"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
@@ -86,6 +86,64 @@ export default async function ProjectPage({
                 {paragraph}
               </p>
             ))}
+          </div>
+
+          {/* About the venue */}
+          <div className="mt-8 lg:mt-12">
+            <h2 className="text-lg font-semibold text-foreground lg:text-2xl">About the venue</h2>
+            <div className="mt-3 rounded-xl border border-border bg-card p-5 lg:mt-5 lg:p-7">
+              <div className="flex items-center gap-4">
+                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-background p-2 lg:h-20 lg:w-20">
+                  <ZoomableImage
+                    src={project.logo || "/placeholder.svg"}
+                    alt={`${project.title} logo`}
+                    width={80}
+                    height={80}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-base font-bold text-foreground lg:text-xl">{project.title}</h3>
+                  <p className="mt-0.5 flex items-center gap-1 text-sm text-muted-foreground">
+                    <MapPin className="h-4 w-4 flex-shrink-0" />
+                    {project.location}
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm text-foreground/90 leading-relaxed lg:text-base">
+                {project.venue.description}
+              </p>
+
+              <div className="mt-5 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    `${project.title} ${project.venue.address} ${project.venue.cityStateZip}`,
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-2 text-sm text-foreground transition-colors hover:text-primary"
+                >
+                  <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                  <span className="not-italic">
+                    {project.venue.address}
+                    <br />
+                    {project.venue.cityStateZip}
+                  </span>
+                </a>
+
+                <a
+                  href={project.venue.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 self-start rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-all touch-manipulation active:scale-95 hover:bg-secondary/60 sm:self-auto"
+                >
+                  <Globe className="h-4 w-4 text-primary" />
+                  Visit website
+                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Scope of work */}
