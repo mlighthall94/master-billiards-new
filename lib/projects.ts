@@ -243,10 +243,10 @@ export const projects: Project[] = [
       "Billiards Cafe was ready for a complete refresh. The room had run on the same 10 Medalist tables for years, so we carefully broke those down and re-homed every one of them before bringing in the new lineup.",
       "We sold and relocated 10 Brunswick Gold Crown IV tables into the space, then recovered the entire room in Simonis 860HR Tournament Blue. The upgrade gave the room a brand-new look and feel — and with every table precision-leveled, it plays as sharp as it looks.",
     ],
-    cover: "/images/hero-2.jpg",
+    cover: "/images/work/billiards-cafe-1.png",
     gallery: [
-      { src: "/images/hero-measure.jpg", alt: "Precision leveling at Billiards Cafe" },
-      { src: "/images/our-work.jpg", alt: "Tournament-ready tables at Billiards Cafe" },
+      { src: "/images/work/billiards-cafe-2.png", alt: "Brunswick Gold Crown table recovered in Tournament Blue at The Billiards Café" },
+      { src: "/images/work/billiards-cafe-3.png", alt: "Row of Brunswick Gold Crown tables in Tournament Blue at The Billiards Café" },
     ],
     venue: {
       description:
