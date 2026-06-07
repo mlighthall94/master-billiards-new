@@ -1,5 +1,5 @@
 import { Logo } from "@/components/logo"
-import { Facebook, Instagram, Phone, MapPin } from "lucide-react"
+import { Facebook, Instagram, Youtube, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
 
 const footerLinks = [
@@ -52,6 +52,15 @@ export function Footer() {
                   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M16.5 0h-3.2v16.2a3 3 0 1 1-2.4-2.94V9.9a6.3 6.3 0 1 0 5.6 6.26V7.1a7.6 7.6 0 0 0 4.4 1.4V5.3a4.4 4.4 0 0 1-4.4-4.4V0Z" />
                   </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@MasterBilliardsLLC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Subscribe to Master Billiards on YouTube"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
+                >
+                  <Youtube className="h-5 w-5" />
                 </a>
               </div>
             </div>
@@ -145,6 +154,15 @@ export function Footer() {
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M16.5 0h-3.2v16.2a3 3 0 1 1-2.4-2.94V9.9a6.3 6.3 0 1 0 5.6 6.26V7.1a7.6 7.6 0 0 0 4.4 1.4V5.3a4.4 4.4 0 0 1-4.4-4.4V0Z" />
             </svg>
+          </a>
+          <a
+            href="https://www.youtube.com/@MasterBilliardsLLC"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Subscribe to Master Billiards on YouTube"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
+          >
+            <Youtube className="h-5 w-5" />
           </a>
         </div>
 
