@@ -13,6 +13,10 @@ const slides = [
     alt: "Technician recovering a pool table with new green felt",
   },
   {
+    image: "/images/hero-slate-work.png",
+    alt: "Master Billiards technician drilling into a pool table slate during installation",
+  },
+  {
     image: "/images/hero-2.jpg",
     alt: "Game room with pool tables",
   },
