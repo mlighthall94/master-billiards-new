@@ -25,10 +25,6 @@ const slides = [
     alt: "Craftsman upholstering furniture",
   },
   {
-    image: "/images/hero-measure.jpg",
-    alt: "Technician measuring pool table",
-  },
-  {
     image: "/images/hero-modern.jpg",
     alt: "Modern game room with pool table",
   },
