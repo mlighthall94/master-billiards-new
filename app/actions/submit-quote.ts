@@ -145,11 +145,15 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
   // --- 2. Email the business ---
   const resendKey = process.env.RESEND_API_KEY
   const notifyEmail = process.env.QUOTE_NOTIFY_EMAIL
-  // Resend cannot send "from" gmail/yahoo/etc. Only use a configured value if it
-  // contains a verified domain; otherwise fall back to the always-valid resend.dev sender.
+  // Resend can only send "from" a verified domain. masterbilliards.co is verified,
+  // so use it as the default sender. Ignore any free-mail (gmail/outlook/etc.) value
+  // in QUOTE_FROM_EMAIL since Resend rejects those domains.
+  const VERIFIED_FROM = "Master Billiards <quotes@masterbilliards.co>"
   const configuredFrom = process.env.QUOTE_FROM_EMAIL?.trim()
-  const isFreeMailFrom = /@(gmail|yahoo|hotmail|outlook|icloud|aol)\.com>?\s*$/i.test(configuredFrom || "")
-  const fromEmail = configuredFrom && !isFreeMailFrom ? configuredFrom : "Master Billiards <onboarding@resend.dev>"
+  const isFreeMailFrom = /@(gmail|yahoo|hotmail|outlook|live|msn|icloud|me|aol)\.[a-z.]+>?\s*$/i.test(
+    configuredFrom || "",
+  )
+  const fromEmail = configuredFrom && !isFreeMailFrom ? configuredFrom : VERIFIED_FROM
 
   if (resendKey && notifyEmail) {
     try {
