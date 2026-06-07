@@ -7,16 +7,16 @@ import { cn } from "@/lib/utils"
 
 const slides = [
   {
-    image: "/images/their-work.jpg",
-    alt: "Poor quality pool table work with torn felt",
+    image: "/images/comparison-them.png",
+    alt: "Pool table slate with crumbling, uneven seam filler and exposed particleboard from poor workmanship",
     label: "Them",
-    description: "Sloppy cuts, exposed staples, torn fabric",
+    description: "Crumbling filler, exposed slate, sloppy seams",
   },
   {
-    image: "/images/our-work.jpg",
-    alt: "Professional pool table work with clean finish",
+    image: "/images/comparison-us.png",
+    alt: "Pool table slate with clean, smooth, evenly packed seams done by Master Billiards",
     label: "Us",
-    description: "Clean lines, professional finish, built to last",
+    description: "Clean, smooth seams packed tight and built to last",
   },
 ]
 
