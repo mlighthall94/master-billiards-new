@@ -18,6 +18,18 @@ const slides = [
     label: "Us",
     description: "Clean lines, professional finish, built to last",
   },
+  {
+    image: "/images/comparison-them.png",
+    alt: "Pool table slate with crumbling, uneven seam filler and exposed particleboard from poor workmanship",
+    label: "Them",
+    description: "Crumbling filler, exposed slate, sloppy seams",
+  },
+  {
+    image: "/images/comparison-us.png",
+    alt: "Pool table slate with clean, smooth, evenly packed seams done by Master Billiards",
+    label: "Us",
+    description: "Clean, smooth seams packed tight and built to last",
+  },
 ]
 
 export function ComparisonSlider() {

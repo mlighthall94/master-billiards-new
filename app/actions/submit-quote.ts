@@ -1,6 +1,7 @@
 "use server"
 
 import { Resend } from "resend"
+import { put } from "@vercel/blob"
 
 export interface QuoteSubmission {
   services: string[]
@@ -14,6 +15,26 @@ export interface QuoteSubmission {
   email: string
   address: string
   notes: string
+  images?: string[]
+}
+
+// Convert a base64 data URL into an uploaded Blob and return its public URL.
+async function uploadDataUrl(dataUrl: string, prefix: string, index: number): Promise<string | null> {
+  try {
+    const match = dataUrl.match(/^data:(.+?);base64,(.*)$/)
+    if (!match) return null
+    const contentType = match[1]
+    const buffer = Buffer.from(match[2], "base64")
+    const ext = contentType.split("/")[1]?.split("+")[0] || "jpg"
+    const blob = await put(`quote-photos/${prefix}-${Date.now()}-${index}.${ext}`, buffer, {
+      access: "public",
+      contentType,
+    })
+    return blob.url
+  } catch (err) {
+    console.error("[v0] Blob upload failed:", err)
+    return null
+  }
 }
 
 type SubmitResult = { ok: true } | { ok: false; error: string }
@@ -53,6 +74,16 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
 
   const servicesReadable = data.services.map((s) => serviceLabels[s] ?? pretty(s)).join(", ")
 
+  // Upload any submitted photos to Blob storage and collect their public URLs.
+  let photoUrls: string[] = []
+  if (data.images && data.images.length > 0) {
+    const safeName = (data.name || "lead").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")
+    const results = await Promise.all(
+      data.images.map((img, i) => uploadDataUrl(img, safeName || "lead", i)),
+    )
+    photoUrls = results.filter((u): u is string => Boolean(u))
+  }
+
   const fields = {
     Name: data.name.trim(),
     Phone: data.phone.trim(),
@@ -66,6 +97,7 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
     "Service Address": data.address?.trim() || "",
     Notes: data.notes?.trim() || "",
     "Submitted At": submittedAt,
+    ...(photoUrls.length > 0 ? { Photos: photoUrls.map((url) => ({ url })) } : {}),
   }
 
   // --- 1. Store in Airtable ---
@@ -74,18 +106,30 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
   const airtableTable = process.env.AIRTABLE_TABLE_NAME || "Leads"
 
   if (airtableToken && airtableBaseId) {
-    try {
-      const res = await fetch(
-        `https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(airtableTable)}`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${airtableToken}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ records: [{ fields }], typecast: true }),
+    const postRecord = (recordFields: Record<string, unknown>) =>
+      fetch(`https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(airtableTable)}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${airtableToken}`,
+          "Content-Type": "application/json",
         },
-      )
+        body: JSON.stringify({ records: [{ fields: recordFields }], typecast: true }),
+      })
+
+    try {
+      let res = await postRecord(fields)
+
+      // If the Photos field doesn't exist yet, retry without it so data is never lost.
+      if (!res.ok && photoUrls.length > 0) {
+        const body = await res.text()
+        if (body.includes("Photos") || body.includes("UNKNOWN_FIELD_NAME")) {
+          console.error("[v0] Airtable 'Photos' field missing — retrying without photos:", body)
+          const { Photos, ...withoutPhotos } = fields as Record<string, unknown>
+          res = await postRecord(withoutPhotos)
+        } else {
+          console.error("[v0] Airtable error:", res.status, body)
+        }
+      }
 
       if (!res.ok) {
         const body = await res.text()
@@ -101,7 +145,15 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
   // --- 2. Email the business ---
   const resendKey = process.env.RESEND_API_KEY
   const notifyEmail = process.env.QUOTE_NOTIFY_EMAIL
-  const fromEmail = process.env.QUOTE_FROM_EMAIL || "Master Billiards <onboarding@resend.dev>"
+  // Resend can only send "from" a verified domain. masterbilliards.co is verified,
+  // so use it as the default sender. Ignore any free-mail (gmail/outlook/etc.) value
+  // in QUOTE_FROM_EMAIL since Resend rejects those domains.
+  const VERIFIED_FROM = "Master Billiards <quotes@masterbilliards.co>"
+  const configuredFrom = process.env.QUOTE_FROM_EMAIL?.trim()
+  const isFreeMailFrom = /@(gmail|yahoo|hotmail|outlook|live|msn|icloud|me|aol)\.[a-z.]+>?\s*$/i.test(
+    configuredFrom || "",
+  )
+  const fromEmail = configuredFrom && !isFreeMailFrom ? configuredFrom : VERIFIED_FROM
 
   if (resendKey && notifyEmail) {
     try {
@@ -122,6 +174,22 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
         ["Submitted At", fields["Submitted At"]],
       ]
 
+      const photosHtml =
+        photoUrls.length > 0
+          ? `
+          <h3 style="color: #111; margin-top: 24px;">Photos (${photoUrls.length})</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            ${photoUrls
+              .map(
+                (url) => `
+              <a href="${url}" style="display:inline-block;">
+                <img src="${url}" alt="Quote photo" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; border: 1px solid #eee;" />
+              </a>`,
+              )
+              .join("")}
+          </div>`
+          : ""
+
       const html = `
         <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto;">
           <h2 style="color: #111;">New Quote Request</h2>
@@ -137,6 +205,7 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
               )
               .join("")}
           </table>
+          ${photosHtml}
         </div>
       `
 

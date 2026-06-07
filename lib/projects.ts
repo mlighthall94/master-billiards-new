@@ -49,16 +49,16 @@ export const projects: Project[] = [
     title: "Sharky's Billiards",
     location: "Somersworth, NH",
     summary:
-      "A full room of brand-new Olhausen tables installed and dressed in bright blue cloth, with ongoing service to keep every table playing true.",
+      "A full room of brand-new Olhausen tables installed and recovered in Simonis 860HR Tournament Blue, with ongoing service to keep every table playing true.",
     scope: [
       "Delivered and assembled brand-new Olhausen tables",
-      "Dressed every table in bright blue cloth",
+      "Recovered every table in Simonis 860HR Tournament Blue",
       "Precision-leveled slate for true, consistent play",
       "Ongoing service and maintenance for the room",
     ],
     story: [
       "Sharky's Billiards wanted a room that played as good as it looked, so we outfitted the entire floor with brand-new Olhausen tables — the best in billiards. Each one was delivered, assembled, and precision-leveled so the whole room rolls fast and true.",
-      "We dressed every table in bright blue cloth for a sharp, consistent look across the floor, and we continue to service the room so the tables stay in tournament-ready shape night after night.",
+      "We recovered every table in Simonis 860HR Tournament Blue for a sharp, consistent look across the floor, and we continue to service the room so the tables stay in tournament-ready shape night after night.",
     ],
     cover: "/images/work/sharkys-1.png",
     gallery: [
@@ -111,16 +111,16 @@ export const projects: Project[] = [
     logo: "/images/work/legends-logo.webp",
     location: "Portsmouth, NH",
     summary:
-      "A full 12-table room outfitted with new Simonis cloth and precision-leveled slate for league play.",
+      "A full 12-table room recovered in Simonis 860HR Tournament Green, with new pockets and all-new rubber cushions back in 2018.",
     scope: [
-      "Recovered 12 tables with Simonis 860 cloth",
+      "Recovered 12 tables with Simonis 860HR in Tournament Green",
+      "Installed brand-new pockets throughout",
+      "Replaced all the rubber cushions back in 2018",
       "Re-leveled three-piece slate to tournament spec",
-      "Replaced cushions on six tables",
-      "Ongoing seasonal maintenance contract",
     ],
     story: [
-      "Legends came to us ahead of their fall league season with a room full of tables that hadn't been touched in years. The cloth was worn through in the break areas and several tables had developed a noticeable roll.",
-      "Over the course of a week, our team recovered all twelve tables with tournament-grade Simonis 860, re-leveled every slate seam, and rebuilt the cushions on the tables that saw the heaviest play. The result is a room that now hosts sanctioned league nights with confidence.",
+      "Back in 2018, Legends brought us in to give their room a complete refresh. Every table got brand-new pockets and a full set of new rubber cushions — the foundation of a true, fast roll.",
+      "We recovered all twelve tables in Simonis 860HR Tournament Green and re-leveled every slate seam so the room could host sanctioned league nights with confidence. Years later, those tables still play sharp.",
     ],
     cover: "/images/work/legends-1.png",
     gallery: [
@@ -145,13 +145,13 @@ export const projects: Project[] = [
     summary:
       "Full table setup with custom brand decals — a new service that's quickly becoming popular.",
     scope: [
-      "Recovered tables with green Simonis cloth",
+      "Recovered tables with Simonis 860HR in Tournament Green",
       "Designed and applied custom Backstreet Bar & Grill rail decals",
       "Added Aramith and Simonis Cloth brand decals",
       "Re-leveled and tuned each table for league play",
     ],
     story: [
-      "Backstreet Bar & Grill wanted their room to feel unmistakably their own, so we dressed every table in fresh green Simonis cloth and re-leveled the slate for true, consistent play across the floor.",
+      "Backstreet Bar & Grill wanted their room to feel unmistakably their own, so we recovered every table in fresh Simonis 860HR Tournament Green and re-leveled the slate for true, consistent play across the floor.",
       "To finish the room, we designed and applied custom Backstreet Bar & Grill brand decals to each table rail — a new service we offer that's quickly becoming popular. The branded rails turn ordinary tables into a signature part of the venue, and the result gives the whole space a polished, professional look.",
     ],
     cover: "/images/work/backstreet-1.jpg",
@@ -173,16 +173,16 @@ export const projects: Project[] = [
     title: "East Side Club",
     location: "Manchester, NH",
     summary:
-      "Re-felting and cushion replacement to bring a beloved neighborhood club back to life.",
+      "Relocated the club from across the street to their new building and installed brand-new 9' Diamond Pro Am tables in Simonis 860HR Tournament Blue.",
     scope: [
-      "Recovered tables with new blue cloth",
-      "Replaced worn cushions throughout",
-      "Repaired damaged pockets and leather",
-      "Deep-cleaned and polished rails",
+      "Moved the club from across the street to their new building",
+      "Installed brand-new 9' Diamond Pro Am tables",
+      "Recovered tables in Simonis 860HR Tournament Blue",
+      "Precision-leveled every table for true, consistent play",
     ],
     story: [
-      "This neighborhood club had been a Manchester staple for decades, but years of steady play had taken their toll. The owners wanted to honor the room's character while bringing the tables back to playable condition.",
-      "We recovered the club's Diamond tables in bright blue cloth, replaced the tired cushions, and repaired the leather pockets — preserving the club's classic feel while restoring a true, fast roll on every table.",
+      "When East Side Club moved into their new building just across the street, we handled the entire relocation — carefully moving them out of the old space and into their new home.",
+      "Once they were settled in, we installed brand-new 9' Diamond Pro Am tables and recovered them in Simonis 860HR Tournament Blue, then precision-leveled each one for a true, fast roll throughout the room.",
     ],
     cover: "/images/work/east-side-1.jpg",
     gallery: [
@@ -229,32 +229,32 @@ export const projects: Project[] = [
   {
     slug: "billiards-cafe",
     title: "Billiards Cafe",
-    logo: "/images/work/billiards-cafe.png",
+    logo: "/images/work/billiards-cafe-logo.png",
     location: "Ayer, MA",
     summary:
-      "Tournament prep for a competitive venue, including precision leveling and fresh cloth.",
+      "A full room transformation — sold and relocated 10 Brunswick Gold Crown IV tables, re-homed the original 10 Medalist tables, and upgraded the whole room to Tournament Blue.",
     scope: [
-      "Recovered tournament tables with Simonis 760",
-      "Precision-leveled every table to spec",
-      "Tuned cushions for consistent rebound",
-      "Same-week turnaround for event deadline",
+      "Sold and relocated 10 Brunswick Gold Crown IV tables",
+      "Broke down and re-homed the original 10 Medalist tables",
+      "Recovered the room in Simonis 860HR Tournament Blue",
+      "Precision-leveled every table for consistent play",
     ],
     story: [
-      "Billiards Cafe was hosting a regional tournament and needed every table playing identically under a tight deadline. Consistency was everything — players would notice even the smallest variation.",
-      "We recovered the tournament tables with fast Simonis 760, precision-leveled each one, and tuned the cushions for uniform rebound across the floor. The venue was event-ready with days to spare.",
+      "Billiards Cafe was ready for a complete refresh. The room had run on the same 10 Medalist tables for years, so we carefully broke those down and re-homed every one of them before bringing in the new lineup.",
+      "We sold and relocated 10 Brunswick Gold Crown IV tables into the space, then recovered the entire room in Simonis 860HR Tournament Blue. The upgrade gave the room a brand-new look and feel — and with every table precision-leveled, it plays as sharp as it looks.",
     ],
-    cover: "/images/hero-2.jpg",
+    cover: "/images/work/billiards-cafe-1.png",
     gallery: [
-      { src: "/images/hero-measure.jpg", alt: "Precision leveling at Billiards Cafe" },
-      { src: "/images/our-work.jpg", alt: "Tournament-ready tables at Billiards Cafe" },
+      { src: "/images/work/billiards-cafe-2.png", alt: "Brunswick Gold Crown table recovered in Tournament Blue at The Billiards Café" },
+      { src: "/images/work/billiards-cafe-3.png", alt: "Row of Brunswick Gold Crown tables in Tournament Blue at The Billiards Café" },
     ],
     venue: {
       description:
-        "A competitive venue in Ayer that regularly hosts regional tournaments, Billiards Cafe is built for serious players who demand consistent, tournament-grade tables.",
+        "A welcoming billiards hall in Ayer where all ages and families are welcome. The Billiards Café offers special rates for families and active military and hosts hundreds of events each year, from birthday parties to fundraisers and company socials.",
       address: "22 Main Street",
       cityStateZip: "Ayer, MA 01432",
-      website: "https://www.billiardscafema.com",
-      websiteLabel: "billiardscafema.com",
+      website: "https://thebilliardscafe.com",
+      websiteLabel: "thebilliardscafe.com",
     },
   },
   {
@@ -263,16 +263,16 @@ export const projects: Project[] = [
     bannerTitle: "Red Dragon Billiards",
     location: "Harvard, MA",
     summary:
-      "Full setup of a dedicated training facility, with tournament tables tuned for instruction and serious practice.",
+      "Full setup of a dedicated training facility outfitted with a mix of coin-op, Diamond, and 9' Brunswick tables tuned for instruction and serious practice.",
     scope: [
-      "Installed eight 9-foot tournament tables",
-      "Dressed every table in Simonis 860 cloth",
+      "Set up two coin-op tables, three Diamond tables, and two 9' Brunswick tables",
+      "Recovered every table in Simonis 860 cloth",
       "Precision-leveled slate to coaching spec",
       "Tuned cushions for consistent practice play",
     ],
     story: [
       "Red Dragon set out to build more than a pool hall — they wanted a true training center where players could sharpen their game on tables that perform identically every time. Consistency across the room was the top priority.",
-      "We installed and assembled eight 9-foot tournament tables, dressed them in fast Simonis 860 cloth, and precision-leveled every slate so coaches and students could trust a true, repeatable roll on any table in the room.",
+      "We outfitted the room with two coin-op tables, three Diamond tables, and two 9' Brunswick tables, recovered them in fast Simonis 860 cloth, and precision-leveled every slate so coaches and students could trust a true, repeatable roll on any table in the room.",
     ],
     cover: "/images/work/red-dragon-1.png",
     gallery: [

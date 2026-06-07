@@ -7,15 +7,17 @@ import { cn } from "@/lib/utils"
 const faqs = [
   {
     question: "How much does it cost?",
-    answer: "Recovery starts around $300-500 depending on table size. Moves vary by distance. We provide free quotes.",
+    answer:
+      "It depends on the services required. We always do our best to be flexible with scheduling and pricing, and we're happy to provide a free quote.",
   },
   {
     question: "How long does it take?",
-    answer: "Most jobs are completed same-day. Moves typically take 2-4 hours including setup and leveling.",
+    answer:
+      "It depends on the scope of the job. A full pool room can take up to two weeks, while a coin-op table can be done in a matter of hours. We'll give you a clear timeline when we provide your quote.",
   },
   {
     question: "What areas do you serve?",
-    answer: "We service all of Southern New Hampshire including Manchester, Nashua, Concord, and surrounding towns.",
+    answer: "We serve all of New England.",
   },
 ]
 

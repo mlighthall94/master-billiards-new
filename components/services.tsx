@@ -48,7 +48,7 @@ export function Services() {
             </a>
           </Button>
           <p className="text-sm text-muted-foreground text-center lg:text-left">
-            Mon-Fri 8am-5pm | Serving Southern NH
+            Mon-Fri 8am-5pm | Serving all of New England
           </p>
         </div>
       </div>

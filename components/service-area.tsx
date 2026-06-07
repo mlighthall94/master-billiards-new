@@ -29,7 +29,7 @@ export function ServiceArea() {
           <div>
             <h2 className="text-xl font-semibold text-foreground lg:text-3xl">Areas We Serve</h2>
             <p className="text-sm text-muted-foreground mt-1 lg:text-base">
-              Based in Plaistow, NH — serving Southern NH &amp; Northern MA
+              Based in Plaistow, NH — serving anywhere in New England
             </p>
           </div>
         </div>
@@ -73,7 +73,7 @@ export function ServiceArea() {
             </p>
 
             <p className="text-xs text-muted-foreground mt-4 leading-relaxed lg:text-sm lg:mt-6">
-              Don&apos;t see your town? We likely service your area. Give us a call to confirm availability.
+              We serve anywhere in New England, and we&apos;re open to longer distances depending on the job. Don&apos;t see your area? Give us a call to confirm availability.
             </p>
           </div>
         </div>

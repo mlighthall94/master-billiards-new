@@ -1,5 +1,5 @@
 import { Logo } from "@/components/logo"
-import { Facebook, Instagram, Phone, MapPin } from "lucide-react"
+import { Facebook, Instagram, Youtube, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
 
 const footerLinks = [
@@ -21,7 +21,7 @@ export function Footer() {
             <div className="col-span-1 flex flex-col items-start gap-4">
               <Logo className="h-12 w-auto text-primary-foreground" />
               <p className="text-sm text-primary-foreground/60 leading-relaxed">
-                Professional pool table moving, recovery, and repair across Southern NH and Northern MA.
+                Professional pool table moving, recovery, and repair anywhere in New England.
               </p>
               <div className="flex items-center gap-3">
                 <a
@@ -52,6 +52,15 @@ export function Footer() {
                   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M16.5 0h-3.2v16.2a3 3 0 1 1-2.4-2.94V9.9a6.3 6.3 0 1 0 5.6 6.26V7.1a7.6 7.6 0 0 0 4.4 1.4V5.3a4.4 4.4 0 0 1-4.4-4.4V0Z" />
                   </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@MasterBilliardsLLC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Subscribe to Master Billiards on YouTube"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
+                >
+                  <Youtube className="h-5 w-5" />
                 </a>
               </div>
             </div>
@@ -103,14 +112,17 @@ export function Footer() {
 
           <div className="mt-12 pt-6 border-t border-primary-foreground/15">
             <p className="text-xs text-primary-foreground/50">
-              &copy; {new Date().getFullYear()} Master Billiards, LLC. | Serving Southern NH &amp; Northern MA
+              &copy; {new Date().getFullYear()} Master Billiards, LLC. | Serving all of New England
             </p>
           </div>
         </div>
       </div>
 
       {/* Mobile footer */}
-      <div className="lg:hidden px-4 py-6 flex flex-col items-center text-center gap-3">
+      <div
+        className="lg:hidden px-4 py-6 flex flex-col items-center text-center gap-3"
+        style={{ paddingBottom: "calc(5rem + env(safe-area-inset-bottom))" }}
+      >
         <Logo className="h-12 w-auto text-primary-foreground" />
 
         <div className="flex items-center gap-3">
@@ -143,10 +155,19 @@ export function Footer() {
               <path d="M16.5 0h-3.2v16.2a3 3 0 1 1-2.4-2.94V9.9a6.3 6.3 0 1 0 5.6 6.26V7.1a7.6 7.6 0 0 0 4.4 1.4V5.3a4.4 4.4 0 0 1-4.4-4.4V0Z" />
             </svg>
           </a>
+          <a
+            href="https://www.youtube.com/@MasterBilliardsLLC"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Subscribe to Master Billiards on YouTube"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
+          >
+            <Youtube className="h-5 w-5" />
+          </a>
         </div>
 
         <p className="text-xs text-primary-foreground/50">
-          &copy; {new Date().getFullYear()} Master Billiards, LLC. | Southern NH
+            &copy; {new Date().getFullYear()} Master Billiards, LLC. | New England
         </p>
       </div>
     </footer>
