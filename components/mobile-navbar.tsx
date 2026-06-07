@@ -227,7 +227,7 @@ export function MobileNavbar({ title, backHref }: { title?: string; backHref?: s
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-3">
               {moreLinks.map((link) => {
                 const Icon = link.icon
                 const active = isActive(link.href)
@@ -237,14 +237,14 @@ export function MobileNavbar({ title, backHref }: { title?: string; backHref?: s
                     href={link.href}
                     onClick={() => setMoreOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 rounded-xl border px-4 py-3 transition-all touch-manipulation active:scale-95",
+                      "flex items-center gap-3 rounded-xl border px-4 py-5 transition-all touch-manipulation active:scale-95",
                       active
                         ? "border-primary bg-secondary text-foreground"
                         : "border-border text-foreground hover:bg-secondary/60 active:bg-secondary/60"
                     )}
                   >
-                    <Icon className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-sm font-medium">{link.label}</span>
+                    <Icon className="h-6 w-6 text-muted-foreground" />
+                    <span className="text-base font-medium">{link.label}</span>
                   </Link>
                 )
               })}
