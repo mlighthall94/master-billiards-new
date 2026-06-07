@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "What areas do you serve?",
-    answer: "We service all of Southern New Hampshire including Manchester, Nashua, Concord, and surrounding towns.",
+    answer: "We serve all of New England.",
   },
 ]
 

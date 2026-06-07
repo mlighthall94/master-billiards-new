@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Hero } from "@/components/hero"
+import { ComparisonSlider } from "@/components/comparison-slider"
 import { Services } from "@/components/services"
 import { Brands } from "@/components/brands"
 import { Testimonials } from "@/components/testimonials"
@@ -18,6 +19,7 @@ export default function Page() {
       <MobileNavbar />
       <main className="flex-1 w-full">
         <Hero />
+        <ComparisonSlider />
         <Services />
         <Brands />
         <Testimonials />

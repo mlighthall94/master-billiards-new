@@ -110,7 +110,10 @@ export function Footer() {
       </div>
 
       {/* Mobile footer */}
-      <div className="lg:hidden px-4 py-6 flex flex-col items-center text-center gap-3">
+      <div
+        className="lg:hidden px-4 py-6 flex flex-col items-center text-center gap-3"
+        style={{ paddingBottom: "calc(5rem + env(safe-area-inset-bottom))" }}
+      >
         <Logo className="h-12 w-auto text-primary-foreground" />
 
         <div className="flex items-center gap-3">
