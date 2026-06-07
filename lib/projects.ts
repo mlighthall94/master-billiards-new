@@ -229,19 +229,19 @@ export const projects: Project[] = [
   {
     slug: "billiards-cafe",
     title: "Billiards Cafe",
-    logo: "/images/work/billiards-cafe.png",
+    logo: "/images/work/billiards-cafe-logo.png",
     location: "Ayer, MA",
     summary:
-      "Tournament prep for a competitive venue, including precision leveling and fresh cloth.",
+      "A full room transformation — sold and relocated 10 Brunswick Gold Crown IV tables, re-homed the original 10 Medalist tables, and upgraded the whole room to Tournament Blue.",
     scope: [
-      "Recovered tournament tables with Simonis 860HR in Tournament Blue",
-      "Precision-leveled every table to spec",
-      "Tuned cushions for consistent rebound",
-      "Same-week turnaround for event deadline",
+      "Sold and relocated 10 Brunswick Gold Crown IV tables",
+      "Broke down and re-homed the original 10 Medalist tables",
+      "Recovered the room in Simonis 860HR Tournament Blue",
+      "Precision-leveled every table for consistent play",
     ],
     story: [
-      "Billiards Cafe was hosting a regional tournament and needed every table playing identically under a tight deadline. Consistency was everything — players would notice even the smallest variation.",
-      "We recovered the tournament tables with Simonis 860HR in Tournament Blue, precision-leveled each one, and tuned the cushions for uniform rebound across the floor. The venue was event-ready with days to spare.",
+      "Billiards Cafe was ready for a complete refresh. The room had run on the same 10 Medalist tables for years, so we carefully broke those down and re-homed every one of them before bringing in the new lineup.",
+      "We sold and relocated 10 Brunswick Gold Crown IV tables into the space, then recovered the entire room in Simonis 860HR Tournament Blue. The upgrade gave the room a brand-new look and feel — and with every table precision-leveled, it plays as sharp as it looks.",
     ],
     cover: "/images/hero-2.jpg",
     gallery: [
