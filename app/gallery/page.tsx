@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 }
 
 const gallery = [
+  { src: "/images/gallery/gallery-32.png", alt: "Finished basement game room with two blue-cloth pool tables under modern LED ring lights" },
   { src: "/images/gallery/gallery-21.png", alt: "Diamond table with red rails and blue cloth in a bar" },
   { src: "/images/gallery/gallery-25.png", alt: "Row of chrome-railed tables with bright blue cloth in a pool hall" },
   { src: "/images/gallery/gallery-27.png", alt: "Blue-felt table with wooden bar stools against a red wall" },
