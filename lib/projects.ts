@@ -250,11 +250,11 @@ export const projects: Project[] = [
     ],
     venue: {
       description:
-        "A competitive venue in Ayer that regularly hosts regional tournaments, Billiards Cafe is built for serious players who demand consistent, tournament-grade tables.",
+        "A welcoming billiards hall in Ayer where all ages and families are welcome. The Billiards Café offers special rates for families and active military and hosts hundreds of events each year, from birthday parties to fundraisers and company socials.",
       address: "22 Main Street",
       cityStateZip: "Ayer, MA 01432",
-      website: "https://www.billiardscafema.com",
-      websiteLabel: "billiardscafema.com",
+      website: "https://thebilliardscafe.com",
+      websiteLabel: "thebilliardscafe.com",
     },
   },
   {
