@@ -5,18 +5,29 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Loader2 } from "lucide-react"
+import { submitContact } from "@/app/actions/submit-contact"
 
 export function SimpleContactForm() {
   const [submitted, setSubmitted] = React.useState(false)
+  const [submitting, setSubmitting] = React.useState(false)
+  const [error, setError] = React.useState<string | null>(null)
   const [form, setForm] = React.useState({ name: "", email: "", phone: "", message: "" })
 
-  const canSubmit = form.name !== "" && form.email !== "" && form.message !== ""
+  const canSubmit = form.name !== "" && form.email !== "" && form.message !== "" && !submitting
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("[v0] Contact form submitted:", form)
-    setSubmitted(true)
+    if (!canSubmit) return
+    setSubmitting(true)
+    setError(null)
+    const result = await submitContact(form)
+    setSubmitting(false)
+    if (result.ok) {
+      setSubmitted(true)
+    } else {
+      setError(result.error)
+    }
   }
 
   if (submitted) {
@@ -36,6 +47,7 @@ export function SimpleContactForm() {
           onClick={() => {
             setForm({ name: "", email: "", phone: "", message: "" })
             setSubmitted(false)
+            setError(null)
           }}
         >
           Send another message
@@ -45,7 +57,10 @@ export function SimpleContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 lg:gap-3 lg:max-h-[60vh] lg:overflow-y-auto lg:pr-2"
+    >
       <div>
         <Label htmlFor="name" className="text-sm font-medium mb-1 block">
           Name *
@@ -56,7 +71,7 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
           placeholder="Your name"
           autoComplete="name"
-          className="h-12"
+          className="h-12 lg:h-10"
         />
       </div>
 
@@ -72,7 +87,7 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
           placeholder="you@example.com"
           autoComplete="email"
-          className="h-12"
+          className="h-12 lg:h-10"
         />
       </div>
 
@@ -88,7 +103,7 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
           placeholder="(603) 555-0123"
           autoComplete="tel"
-          className="h-12"
+          className="h-12 lg:h-10"
         />
       </div>
 
@@ -102,16 +117,30 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
           placeholder="How can we help with your pool table?"
           rows={4}
+          className="lg:min-h-[80px]"
         />
       </div>
+
+      {error && (
+        <p className="text-sm text-destructive" role="alert">
+          {error}
+        </p>
+      )}
 
       <Button
         type="submit"
         size="lg"
         disabled={!canSubmit}
-        className="w-full py-6 text-base font-semibold"
+        className="w-full py-6 lg:py-5 text-base font-semibold"
       >
-        Send Message
+        {submitting ? (
+          <>
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+            Sending...
+          </>
+        ) : (
+          "Send Message"
+        )}
       </Button>
     </form>
   )

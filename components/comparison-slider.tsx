@@ -118,9 +118,6 @@ export function ComparisonSlider() {
                 {slide.label}
               </span>
             </div>
-            <div className="absolute bottom-4 right-4 left-24">
-              <p className="text-right text-sm text-white font-medium drop-shadow-lg">{slide.description}</p>
-            </div>
           </div>
         ))}
       </div>
