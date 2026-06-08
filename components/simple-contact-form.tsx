@@ -45,7 +45,10 @@ export function SimpleContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 lg:gap-3 lg:max-h-[60vh] lg:overflow-y-auto lg:pr-2"
+    >
       <div>
         <Label htmlFor="name" className="text-sm font-medium mb-1 block">
           Name *
@@ -56,7 +59,7 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
           placeholder="Your name"
           autoComplete="name"
-          className="h-12"
+          className="h-12 lg:h-10"
         />
       </div>
 
@@ -72,7 +75,7 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
           placeholder="you@example.com"
           autoComplete="email"
-          className="h-12"
+          className="h-12 lg:h-10"
         />
       </div>
 
@@ -88,7 +91,7 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
           placeholder="(603) 555-0123"
           autoComplete="tel"
-          className="h-12"
+          className="h-12 lg:h-10"
         />
       </div>
 
@@ -102,6 +105,7 @@ export function SimpleContactForm() {
           onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
           placeholder="How can we help with your pool table?"
           rows={4}
+          className="lg:min-h-[80px]"
         />
       </div>
 
@@ -109,7 +113,7 @@ export function SimpleContactForm() {
         type="submit"
         size="lg"
         disabled={!canSubmit}
-        className="w-full py-6 text-base font-semibold"
+        className="w-full py-6 lg:py-5 text-base font-semibold"
       >
         Send Message
       </Button>
