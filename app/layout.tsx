@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.png',
-        width: 1456,
-        height: 1088,
+        url: '/images/hero-recover.png',
+        width: 1626,
+        height: 967,
         alt: 'Master Billiards — professional pool table services',
       },
     ],
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Master Billiards | Pool Table Moving, Recovery & Repair in NH & MA',
     description: SITE_DESCRIPTION,
-    images: ['/og-image.png'],
+    images: ['/images/hero-recover.png'],
   },
   robots: {
     index: true,
@@ -104,7 +104,7 @@ export default function RootLayout({
     url: SITE_URL,
     telephone: '+1-603-231-5345',
     email: 'kendra@masterbilliards.co',
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/images/hero-recover.png`,
     logo: `${SITE_URL}/icon.png`,
     priceRange: '$$',
     address: {
