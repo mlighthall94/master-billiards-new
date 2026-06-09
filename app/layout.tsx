@@ -111,8 +111,15 @@ export default function RootLayout({
       '@type': 'PostalAddress',
       addressLocality: 'Plaistow',
       addressRegion: 'NH',
+      postalCode: '03865',
       addressCountry: 'US',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 42.8362,
+      longitude: -71.0939,
+    },
+    sameAs: ['https://www.youtube.com/@MasterBilliardsLLC'],
     areaServed: [
       { '@type': 'AdministrativeArea', name: 'Rockingham County, NH' },
       { '@type': 'AdministrativeArea', name: 'Strafford County, NH' },

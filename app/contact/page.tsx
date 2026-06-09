@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { PageBanner } from "@/components/page-banner"
 import { SimpleContactForm } from "@/components/simple-contact-form"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
@@ -40,6 +41,7 @@ const contactInfo = [
 export default function ContactPage() {
   return (
     <div className="min-h-dvh flex flex-col">
+      <BreadcrumbJsonLd trail={[{ name: "Contact", path: "/contact" }]} />
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner

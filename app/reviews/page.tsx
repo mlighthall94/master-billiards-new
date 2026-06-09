@@ -5,6 +5,7 @@ import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { Star } from "lucide-react"
 import { getGoogleReviews } from "@/lib/google-reviews"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 
 export const metadata: Metadata = {
   title: "Reviews",
@@ -55,6 +56,7 @@ export default async function ReviewsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
       />
+      <BreadcrumbJsonLd trail={[{ name: "Reviews", path: "/reviews" }]} />
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner
