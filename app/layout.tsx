@@ -119,7 +119,11 @@ export default function RootLayout({
       latitude: 42.8362,
       longitude: -71.0939,
     },
-    sameAs: ['https://www.youtube.com/@MasterBilliardsLLC'],
+    sameAs: [
+      'https://www.youtube.com/@MasterBilliardsLLC',
+      'https://www.instagram.com/masterbilliardsllc/',
+      'https://www.tiktok.com/@masterbilliardsllc',
+    ],
     areaServed: [
       { '@type': 'AdministrativeArea', name: 'Rockingham County, NH' },
       { '@type': 'AdministrativeArea', name: 'Strafford County, NH' },
