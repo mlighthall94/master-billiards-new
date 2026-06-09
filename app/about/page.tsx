@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { ZoomableImage } from "@/components/zoomable-image"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { ShieldCheck, Clock, Award, Heart } from "lucide-react"
@@ -37,8 +38,35 @@ const values = [
 ]
 
 export default function AboutPage() {
+  const SITE_URL = "https://masterbilliards.co"
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Kendra Morasse",
+    jobTitle: "Certified Pool Table Mechanic",
+    worksFor: { "@id": `${SITE_URL}/#business` },
+    image: `${SITE_URL}/images/hero-team.png`,
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "certification",
+        name: "Diamond Certified Table Mechanic",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "certification",
+        name: "Predator Certified Table Mechanic",
+      },
+    ],
+  }
+
   return (
     <div className="min-h-dvh flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <BreadcrumbJsonLd trail={[{ name: "About", path: "/about" }]} />
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner

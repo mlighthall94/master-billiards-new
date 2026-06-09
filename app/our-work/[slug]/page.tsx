@@ -5,6 +5,7 @@ import { Check, MapPin } from "lucide-react"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { projects, getProject, getBannerTitle } from "@/lib/projects"
 
 export function generateStaticParams() {
@@ -42,6 +43,12 @@ export default async function ProjectPage({
 
   return (
     <div className="min-h-dvh flex flex-col">
+      <BreadcrumbJsonLd
+        trail={[
+          { name: "Our Work", path: "/our-work" },
+          { name: project.title, path: `/our-work/${project.slug}` },
+        ]}
+      />
       <MobileNavbar title={getBannerTitle(project)} backHref="/our-work" />
       <main className="flex-1 w-full">
         {/* Cover image */}

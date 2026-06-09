@@ -5,6 +5,7 @@ import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { Star } from "lucide-react"
 import { getGoogleReviews } from "@/lib/google-reviews"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 
 export const metadata: Metadata = {
   title: "Reviews",
@@ -18,8 +19,44 @@ export default async function ReviewsPage() {
   const ratingLabel = rating.toFixed(1)
   const roundedRating = Math.round(rating)
 
+  const SITE_URL = "https://masterbilliards.co"
+  const reviewJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#business`,
+    name: "Master Billiards, LLC",
+    url: `${SITE_URL}/reviews`,
+    ...(totalRatings > 0
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: rating.toFixed(1),
+            reviewCount: totalRatings,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }
+      : {}),
+    review: reviews.map((review) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: review.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      author: { "@type": "Person", name: review.name },
+      reviewBody: review.text,
+    })),
+  }
+
   return (
     <div className="min-h-dvh flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+      />
+      <BreadcrumbJsonLd trail={[{ name: "Reviews", path: "/reviews" }]} />
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner

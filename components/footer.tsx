@@ -1,5 +1,5 @@
 import { Logo } from "@/components/logo"
-import { Facebook, Instagram, Youtube, Phone, MapPin } from "lucide-react"
+import { Instagram, Youtube, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
 
 const footerLinks = [
@@ -25,16 +25,7 @@ export function Footer() {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow Master Billiards on Facebook"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/masterbilliardsllc/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow Master Billiards on Instagram"
@@ -43,7 +34,7 @@ export function Footer() {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://tiktok.com"
+                  href="https://www.tiktok.com/@masterbilliardsllc"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow Master Billiards on TikTok"
@@ -127,16 +118,7 @@ export function Footer() {
 
         <div className="flex items-center gap-3">
           <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Follow Master Billiards on Facebook"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary"
-          >
-            <Facebook className="h-5 w-5" />
-          </a>
-          <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/masterbilliardsllc/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow Master Billiards on Instagram"
@@ -145,7 +127,7 @@ export function Footer() {
             <Instagram className="h-5 w-5" />
           </a>
           <a
-            href="https://tiktok.com"
+            href="https://www.tiktok.com/@masterbilliardsllc"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow Master Billiards on TikTok"

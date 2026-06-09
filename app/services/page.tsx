@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer"
 import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { ComparisonSlider } from "@/components/comparison-slider"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { Truck, Scissors, Wrench, Ruler, Sparkles, PackageCheck } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -53,8 +54,29 @@ const services = [
 ]
 
 export default function ServicesPage() {
+  const SITE_URL = "https://masterbilliards.co"
+  const servicesJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": services.map((service) => ({
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      serviceType: service.title,
+      provider: { "@id": `${SITE_URL}/#business` },
+      areaServed: [
+        { "@type": "State", name: "New Hampshire" },
+        { "@type": "State", name: "Massachusetts" },
+      ],
+    })),
+  }
+
   return (
     <div className="min-h-dvh flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
+      <BreadcrumbJsonLd trail={[{ name: "Services", path: "/services" }]} />
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner

@@ -4,6 +4,7 @@ import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -48,6 +49,7 @@ const gallery = [
 export default function GalleryPage() {
   return (
     <div className="min-h-dvh flex flex-col">
+      <BreadcrumbJsonLd trail={[{ name: "Gallery", path: "/gallery" }]} />
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner
