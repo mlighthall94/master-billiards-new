@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer"
 import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { ComparisonSlider } from "@/components/comparison-slider"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { Truck, Scissors, Wrench, Ruler, Sparkles, PackageCheck } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="min-h-dvh flex flex-col">
+      <BreadcrumbJsonLd trail={[{ name: "Services", path: "/services" }]} />
       <MobileNavbar />
       <main className="flex-1 w-full">
         <PageBanner

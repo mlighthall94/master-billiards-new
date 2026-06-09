@@ -5,6 +5,7 @@ import { Check, MapPin } from "lucide-react"
 import { MobileNavbar } from "@/components/mobile-navbar"
 import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { projects, getProject, getBannerTitle } from "@/lib/projects"
 
 export function generateStaticParams() {
@@ -40,37 +41,13 @@ export default async function ProjectPage({
     notFound()
   }
 
-  const SITE_URL = "https://www.masterbilliards.co"
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Our Work",
-        item: `${SITE_URL}/our-work`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: project.title,
-        item: `${SITE_URL}/our-work/${project.slug}`,
-      },
-    ],
-  }
-
   return (
     <div className="min-h-dvh flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      <BreadcrumbJsonLd
+        trail={[
+          { name: "Our Work", path: "/our-work" },
+          { name: project.title, path: `/our-work/${project.slug}` },
+        ]}
       />
       <MobileNavbar title={getBannerTitle(project)} backHref="/our-work" />
       <main className="flex-1 w-full">
