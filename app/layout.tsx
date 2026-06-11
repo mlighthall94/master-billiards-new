@@ -9,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = 'https://masterbilliards.co'
+const SITE_URL = 'https://www.masterbilliards.co'
 const SITE_DESCRIPTION =
   'Professional pool table moving, recovery, re-felting, repairs, leveling, and assembly serving all of New England. Family-run, fully insured. Call 603-231-5345.'
 
@@ -109,6 +109,7 @@ export default function RootLayout({
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '130 Main St #11',
       addressLocality: 'Plaistow',
       addressRegion: 'NH',
       postalCode: '03865',
@@ -116,8 +117,8 @@ export default function RootLayout({
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 42.8362,
-      longitude: -71.0939,
+      latitude: 42.8371341,
+      longitude: -71.0953158,
     },
     sameAs: [
       'https://www.youtube.com/@MasterBilliardsLLC',

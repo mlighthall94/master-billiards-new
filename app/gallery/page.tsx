@@ -5,13 +5,14 @@ import { Footer } from "@/components/footer"
 import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Gallery",
   description:
     "See our work — pool table moves, re-felting, repairs, and finished game rooms across NH and MA.",
-  alternates: { canonical: "/gallery" },
-}
+  path: "/gallery",
+})
 
 const gallery = [
   { src: "/images/gallery/gallery-32.png", alt: "Finished basement game room with two blue-cloth pool tables under modern LED ring lights" },

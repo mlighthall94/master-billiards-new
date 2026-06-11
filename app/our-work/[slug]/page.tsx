@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer"
 import { CtaBanner } from "@/components/cta-banner"
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { projects, getProject, getBannerTitle } from "@/lib/projects"
+import { pageMetadata } from "@/lib/seo"
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }))
@@ -22,11 +23,12 @@ export async function generateMetadata({
   if (!project) {
     return { title: "Project Not Found" }
   }
-  return {
+  return pageMetadata({
     title: `${project.title} | Our Work`,
     description: project.summary,
-    alternates: { canonical: `/our-work/${slug}` },
-  }
+    path: `/our-work/${slug}`,
+    type: "article",
+  })
 }
 
 export default async function ProjectPage({

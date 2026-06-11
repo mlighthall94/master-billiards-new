@@ -5,14 +5,15 @@ import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { ComparisonSlider } from "@/components/comparison-slider"
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
+import { pageMetadata } from "@/lib/seo"
 import { Truck, Scissors, Wrench, Ruler, Sparkles, PackageCheck } from "lucide-react"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Services",
   description:
     "Professional pool table moving, recovery, re-felting, repairs, leveling, and assembly serving NH and MA.",
-  alternates: { canonical: "/services" },
-}
+  path: "/services",
+})
 
 const services = [
   {
@@ -54,7 +55,7 @@ const services = [
 ]
 
 export default function ServicesPage() {
-  const SITE_URL = "https://masterbilliards.co"
+  const SITE_URL = "https://www.masterbilliards.co"
   const servicesJsonLd = {
     "@context": "https://schema.org",
     "@graph": services.map((service) => ({

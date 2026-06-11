@@ -4,14 +4,15 @@ import { Footer } from "@/components/footer"
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { PageBanner } from "@/components/page-banner"
 import { SimpleContactForm } from "@/components/simple-contact-form"
+import { pageMetadata } from "@/lib/seo"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description:
     "Get in touch with Master Billiards for pool table moving, recovery, and repairs in NH and MA. Call 603-231-5345 or send us a message.",
-  alternates: { canonical: "/contact" },
-}
+  path: "/contact",
+})
 
 const contactInfo = [
   {
