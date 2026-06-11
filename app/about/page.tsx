@@ -106,6 +106,7 @@ export default function AboutPage() {
                     alt="Kendra Morasse today, working in the Master Billiards shop"
                     fill
                     className="object-cover"
+                    sizes="(min-width: 1024px) 40vw, 300px"
                   />
                   <span className="absolute top-3 right-3 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
                     Today
@@ -118,6 +119,7 @@ export default function AboutPage() {
                       alt="Kendra Morasse at age 12, learning the trade in the family shop"
                       fill
                       className="object-cover"
+                      sizes="(min-width: 1024px) 20vw, 150px"
                     />
                   </div>
                   <span className="block py-1.5 text-center text-xs font-semibold text-muted-foreground">

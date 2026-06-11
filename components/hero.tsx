@@ -61,6 +61,7 @@ export function Hero() {
                 alt={slide.alt}
                 fill
                 className="object-cover"
+                sizes="(min-width: 1024px) 60vw, 100vw"
                 priority={index === 0}
               />
             </div>
