@@ -109,6 +109,7 @@ export default function RootLayout({
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '130 Main St #11',
       addressLocality: 'Plaistow',
       addressRegion: 'NH',
       postalCode: '03865',
@@ -116,8 +117,8 @@ export default function RootLayout({
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 42.8362,
-      longitude: -71.0939,
+      latitude: 42.8371341,
+      longitude: -71.0953158,
     },
     sameAs: [
       'https://www.youtube.com/@MasterBilliardsLLC',
