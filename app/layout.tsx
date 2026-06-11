@@ -9,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = 'https://masterbilliards.co'
+const SITE_URL = 'https://www.masterbilliards.co'
 const SITE_DESCRIPTION =
   'Professional pool table moving, recovery, re-felting, repairs, leveling, and assembly serving all of New England. Family-run, fully insured. Call 603-231-5345.'
 

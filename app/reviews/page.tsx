@@ -19,7 +19,7 @@ export default async function ReviewsPage() {
   const ratingLabel = rating.toFixed(1)
   const roundedRating = Math.round(rating)
 
-  const SITE_URL = "https://masterbilliards.co"
+  const SITE_URL = "https://www.masterbilliards.co"
   const reviewJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",

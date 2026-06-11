@@ -54,7 +54,7 @@ const services = [
 ]
 
 export default function ServicesPage() {
-  const SITE_URL = "https://masterbilliards.co"
+  const SITE_URL = "https://www.masterbilliards.co"
   const servicesJsonLd = {
     "@context": "https://schema.org",
     "@graph": services.map((service) => ({

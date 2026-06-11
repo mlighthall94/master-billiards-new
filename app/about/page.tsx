@@ -38,7 +38,7 @@ const values = [
 ]
 
 export default function AboutPage() {
-  const SITE_URL = "https://masterbilliards.co"
+  const SITE_URL = "https://www.masterbilliards.co"
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
