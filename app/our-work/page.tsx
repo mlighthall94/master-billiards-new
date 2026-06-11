@@ -8,13 +8,14 @@ import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { projects } from "@/lib/projects"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Work",
   description:
     "Explore pool rooms and billiards halls across New Hampshire and Massachusetts that Master Billiards has installed, recovered, and maintained.",
-  alternates: { canonical: "/our-work" },
-}
+  path: "/our-work",
+})
 
 const stateGroups = [
   { code: "NH", label: "New Hampshire" },

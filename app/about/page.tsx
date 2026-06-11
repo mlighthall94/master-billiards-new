@@ -6,13 +6,14 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
 import { PageBanner } from "@/components/page-banner"
 import { CtaBanner } from "@/components/cta-banner"
 import { ShieldCheck, Clock, Award, Heart } from "lucide-react"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
     "Master Billiards is a family-run pool table service company serving NH and MA with craftsmanship, care, and decades of combined experience.",
-  alternates: { canonical: "/about" },
-}
+  path: "/about",
+})
 
 const values = [
   {

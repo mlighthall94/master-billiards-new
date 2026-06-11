@@ -6,13 +6,14 @@ import { CtaBanner } from "@/components/cta-banner"
 import { Star } from "lucide-react"
 import { getGoogleReviews } from "@/lib/google-reviews"
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Reviews",
   description:
     "Read what our customers across NH and MA say about Master Billiards' pool table moving, recovery, and repair services.",
-  alternates: { canonical: "/reviews" },
-}
+  path: "/reviews",
+})
 
 export default async function ReviewsPage() {
   const { rating, totalRatings, reviews } = await getGoogleReviews()
