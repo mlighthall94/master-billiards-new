@@ -47,18 +47,6 @@ export default function AboutPage() {
     jobTitle: "Certified Pool Table Mechanic",
     worksFor: { "@id": `${SITE_URL}/#business` },
     image: `${SITE_URL}/images/hero-team.png`,
-    hasCredential: [
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "certification",
-        name: "Diamond Certified Table Mechanic",
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "certification",
-        name: "Predator Certified Table Mechanic",
-      },
-    ],
   }
 
   return (
@@ -145,25 +133,8 @@ export default function AboutPage() {
                   <p>
                     More than a decade later, that hands-on apprenticeship has made her one of the most
                     skilled people in the shop. The same passion that had her stretching cloth as a kid still
-                    drives the care she brings to every table today — backed by industry-leading certifications.
+                    drives the care she brings to every table today.
                   </p>
-                </div>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
-                    <Award className="h-5 w-5 flex-shrink-0 text-primary" />
-                    <span className="text-sm font-semibold text-foreground leading-tight">
-                      Diamond&trade; Certified
-                      <span className="block text-xs font-normal text-muted-foreground">Table Mechanic</span>
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
-                    <Award className="h-5 w-5 flex-shrink-0 text-primary" />
-                    <span className="text-sm font-semibold text-foreground leading-tight">
-                      Predator&reg; Certified
-                      <span className="block text-xs font-normal text-muted-foreground">Table Mechanic</span>
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
