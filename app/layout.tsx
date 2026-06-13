@@ -126,6 +126,7 @@ export default function RootLayout({
       'https://www.tiktok.com/@masterbilliardsllc',
     ],
     areaServed: [
+      { '@type': 'AdministrativeArea', name: 'New England' },
       { '@type': 'AdministrativeArea', name: 'Rockingham County, NH' },
       { '@type': 'AdministrativeArea', name: 'Strafford County, NH' },
       { '@type': 'AdministrativeArea', name: 'Essex County, MA' },
