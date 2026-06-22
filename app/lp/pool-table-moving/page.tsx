@@ -16,6 +16,7 @@ import {
   Sofa,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/logo"
 import { MovingQuoteForm } from "@/components/moving-quote-form"
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/landing-content"
 
@@ -91,7 +92,10 @@ export default function PoolTableMovingLanding() {
       {/* Top bar — logo + click-to-call, no site navigation */}
       <header className="sticky top-0 z-30 bg-background/90 backdrop-blur border-b border-border">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <span className="font-bold text-foreground tracking-tight">Master Billiards</span>
+          <span className="inline-flex items-center">
+            <Logo className="h-7 w-auto text-foreground" aria-label="Master Billiards" />
+            <span className="sr-only">Master Billiards</span>
+          </span>
           <a href={PHONE_HREF} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
             <Phone className="h-4 w-4 text-accent" />
             <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
