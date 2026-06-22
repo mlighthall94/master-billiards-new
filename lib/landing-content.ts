@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react"
-import { Truck, Layers, Wrench, Ruler, PackageCheck, Sparkles } from "lucide-react"
+import { Layers, Wrench, Ruler, PackageCheck, Sparkles } from "lucide-react"
 
 export interface LandingContent {
   slug: string
@@ -27,40 +27,6 @@ export const PHONE_DISPLAY = "(603) 231-5345"
 export const PHONE_HREF = "tel:+16032315345"
 
 export const landingPages: LandingContent[] = [
-  {
-    slug: "pool-table-moving",
-    service: "Pool Table Moving",
-    icon: Truck,
-    image: "/images/hero-team.png",
-    imageAlt: "Master Billiards team moving a pool table",
-    eyebrow: "Professional Pool Table Movers",
-    headline: "Move Your Pool Table Without the Damage Risk",
-    subhead:
-      "Full disassembly, careful transport, and precision reassembly by an insured team that moves tables every single day.",
-    benefits: [
-      "Complete disassembly and professional reassembly",
-      "Slate handled and re-leveled the right way",
-      "Fully insured — your home and table are protected",
-      "Local crew serving all of New England",
-    ],
-    highlights: [
-      { stat: "1,000+", label: "Tables moved" },
-      { stat: "Fully", label: "Insured & licensed" },
-      { stat: "5.0", label: "Star-rated service" },
-    ],
-    reassurance: [
-      {
-        title: "Will my table be level after the move?",
-        body: "Yes. Every move includes precision slate leveling at the destination so your table plays perfectly from day one.",
-      },
-      {
-        title: "Do you move tables between floors or homes?",
-        body: "Absolutely — across town or up and down stairs. We assess access ahead of time so there are no surprises on move day.",
-      },
-    ],
-    formTitle: "Get Your Free Moving Quote",
-    formSubtitle: "Tell us about your table and we'll send a fast, no-obligation quote.",
-  },
   {
     slug: "recovery-refelting",
     service: "Re-felting & Recovery",
