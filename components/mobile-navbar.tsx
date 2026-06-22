@@ -51,7 +51,11 @@ const pageTitles: Record<string, string> = {
   "/quote": "Get a Quote",
 }
 
-export function MobileNavbar({ title, backHref }: { title?: string; backHref?: string } = {}) {
+export function MobileNavbar({
+  title,
+  backHref,
+  mobileSticky = true,
+}: { title?: string; backHref?: string; mobileSticky?: boolean } = {}) {
   const [moreOpen, setMoreOpen] = React.useState(false)
   const pathname = usePathname()
   const router = useRouter()
@@ -120,7 +124,7 @@ export function MobileNavbar({ title, backHref }: { title?: string; backHref?: s
       </header>
 
       {/* Mobile top bar: logo + page-context banner */}
-      <div className="lg:hidden sticky top-0 z-[70]">
+      <div className={cn("lg:hidden z-[70]", mobileSticky ? "sticky top-0" : "relative")}>
         <header className="border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
           <nav className="max-w-lg mx-auto px-4 sm:px-6">
             <div className="flex py-3 items-center justify-center relative">

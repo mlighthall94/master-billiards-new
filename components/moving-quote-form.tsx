@@ -134,7 +134,7 @@ export function MovingQuoteForm() {
 
       <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-3">
         <div>
-          <Label htmlFor="mv-name" className="text-sm font-medium mb-1 block">
+          <Label htmlFor="mv-name" className="text-sm font-medium mb-1.5 block">
             Name *
           </Label>
           <Input
@@ -147,14 +147,14 @@ export function MovingQuoteForm() {
             placeholder="Your name"
             autoComplete="name"
             aria-invalid={!!errors.name}
-            className="h-12 text-foreground"
+            className="h-12 rounded-xl text-foreground"
           />
           {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <Label htmlFor="mv-phone" className="text-sm font-medium mb-1 block">
+            <Label htmlFor="mv-phone" className="text-sm font-medium mb-1.5 block">
               Phone *
             </Label>
             <Input
@@ -169,12 +169,12 @@ export function MovingQuoteForm() {
               placeholder="(603) 555-0123"
               autoComplete="tel"
               aria-invalid={!!errors.phone}
-              className="h-12 text-foreground"
+              className="h-12 rounded-xl text-foreground"
             />
             {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
           </div>
           <div>
-            <Label htmlFor="mv-email" className="text-sm font-medium mb-1 block">
+            <Label htmlFor="mv-email" className="text-sm font-medium mb-1.5 block">
               Email *
             </Label>
             <Input
@@ -189,7 +189,7 @@ export function MovingQuoteForm() {
               placeholder="you@example.com"
               autoComplete="email"
               aria-invalid={!!errors.email}
-              className="h-12 text-foreground"
+              className="h-12 rounded-xl text-foreground"
             />
             {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
           </div>
@@ -197,7 +197,7 @@ export function MovingQuoteForm() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <Label htmlFor="mv-from" className="text-sm font-medium mb-1 block">
+            <Label htmlFor="mv-from" className="text-sm font-medium mb-1.5 block">
               Moving from *
             </Label>
             <Input
@@ -209,12 +209,12 @@ export function MovingQuoteForm() {
               }}
               placeholder="City or town"
               aria-invalid={!!errors.movingFrom}
-              className="h-12 text-foreground"
+              className="h-12 rounded-xl text-foreground"
             />
             {errors.movingFrom && <p className="text-xs text-destructive mt-1">{errors.movingFrom}</p>}
           </div>
           <div>
-            <Label htmlFor="mv-to" className="text-sm font-medium mb-1 block">
+            <Label htmlFor="mv-to" className="text-sm font-medium mb-1.5 block">
               Moving to
             </Label>
             <Input
@@ -222,7 +222,7 @@ export function MovingQuoteForm() {
               value={form.movingTo}
               onChange={(e) => setForm((p) => ({ ...p, movingTo: e.target.value }))}
               placeholder="City or town"
-              className="h-12 text-foreground"
+              className="h-12 rounded-xl text-foreground"
             />
           </div>
         </div>
@@ -235,10 +235,10 @@ export function MovingQuoteForm() {
                 key={count}
                 type="button"
                 onClick={() => setForm((p) => ({ ...p, tables: count }))}
-                className={`h-11 min-w-12 px-4 rounded-lg border text-sm font-semibold transition-colors ${
+                className={`h-11 min-w-12 px-4 rounded-xl border text-sm font-semibold text-foreground transition-all active:scale-[0.98] ${
                   form.tables === count
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-background text-foreground hover:border-primary/50"
+                    ? "border-primary bg-primary/[0.04] shadow-sm"
+                    : "border-border hover:border-foreground/30"
                 }`}
                 aria-pressed={form.tables === count}
               >
@@ -258,10 +258,10 @@ export function MovingQuoteForm() {
                   key={item}
                   type="button"
                   onClick={() => toggleItem(item)}
-                  className={`h-11 px-4 rounded-lg border text-sm font-medium transition-colors ${
+                  className={`h-11 px-4 rounded-xl border text-sm font-medium text-foreground transition-all active:scale-[0.98] ${
                     active
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-background text-foreground hover:border-primary/50"
+                      ? "border-primary bg-primary/[0.04] shadow-sm"
+                      : "border-border hover:border-foreground/30"
                   }`}
                   aria-pressed={active}
                 >
@@ -273,7 +273,7 @@ export function MovingQuoteForm() {
         </div>
 
         <div>
-          <Label htmlFor="mv-timeframe" className="text-sm font-medium mb-1 block">
+          <Label htmlFor="mv-timeframe" className="text-sm font-medium mb-1.5 block">
             Preferred timeframe
           </Label>
           <Input
@@ -281,12 +281,12 @@ export function MovingQuoteForm() {
             value={form.timeframe}
             onChange={(e) => setForm((p) => ({ ...p, timeframe: e.target.value }))}
             placeholder="e.g. ASAP, next week, flexible"
-            className="h-12 text-foreground"
+            className="h-12 rounded-xl text-foreground"
           />
         </div>
 
         <div>
-          <Label htmlFor="mv-message" className="text-sm font-medium mb-1 block">
+          <Label htmlFor="mv-message" className="text-sm font-medium mb-1.5 block">
             Anything else we should know?
           </Label>
           <Textarea
@@ -295,7 +295,7 @@ export function MovingQuoteForm() {
             onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
             placeholder="Table size, stairs, access, slate type, etc."
             rows={3}
-            className="text-foreground"
+            className="rounded-xl text-foreground"
           />
         </div>
 
@@ -305,7 +305,7 @@ export function MovingQuoteForm() {
           </p>
         )}
 
-        <Button type="submit" size="lg" disabled={submitting} className="w-full py-6 text-base font-semibold">
+        <Button type="submit" size="lg" disabled={submitting} className="w-full h-14 text-base font-semibold rounded-xl">
           {submitting ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />

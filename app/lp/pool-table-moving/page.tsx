@@ -89,7 +89,7 @@ const alsoMove = [
 export default function PoolTableMovingLanding() {
   return (
     <main className="min-h-dvh bg-background">
-      <MobileNavbar title="Pool Table Moving" backHref="/" />
+      <MobileNavbar title="Pool Table Moving" backHref="/" mobileSticky={false} />
 
       {/* Hero — solid dark band to match the site */}
       <section className="bg-primary text-primary-foreground">
