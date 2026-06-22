@@ -59,7 +59,7 @@ export default function ContactPage() {
                   <div className="border border-border rounded-lg p-4 h-full lg:p-6">
                     <Icon className="h-5 w-5 text-primary mb-2 lg:h-6 lg:w-6 lg:mb-3" />
                     <p className="text-xs text-muted-foreground">{item.label}</p>
-                    <p className="text-sm font-semibold text-foreground mt-0.5 lg:text-base">{item.value}</p>
+                    <p className="text-sm font-semibold text-foreground mt-0.5 lg:text-base break-words">{item.value}</p>
                   </div>
                 )
                 return item.href ? (
