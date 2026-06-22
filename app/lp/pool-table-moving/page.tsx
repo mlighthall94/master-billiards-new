@@ -16,7 +16,7 @@ import {
   Sofa,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Logo } from "@/components/logo"
+import { MobileNavbar } from "@/components/mobile-navbar"
 import { MovingQuoteForm } from "@/components/moving-quote-form"
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/landing-content"
 
@@ -89,20 +89,7 @@ const alsoMove = [
 export default function PoolTableMovingLanding() {
   return (
     <main className="min-h-dvh bg-background">
-      {/* Top bar — logo + click-to-call, no site navigation */}
-      <header className="sticky top-0 z-30 bg-background/90 backdrop-blur border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <span className="inline-flex items-center">
-            <Logo className="h-7 w-auto text-foreground" aria-label="Master Billiards" />
-            <span className="sr-only">Master Billiards</span>
-          </span>
-          <a href={PHONE_HREF} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-            <Phone className="h-4 w-4 text-accent" />
-            <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
-            <span className="sm:hidden">Call</span>
-          </a>
-        </div>
-      </header>
+      <MobileNavbar title="Pool Table Moving" backHref="/" />
 
       {/* Hero — solid dark band to match the site */}
       <section className="bg-primary text-primary-foreground">
@@ -243,17 +230,6 @@ export default function PoolTableMovingLanding() {
           <p className="mt-4 text-sm text-primary-foreground/70">Mon–Fri 8am–5pm · Family-run · Fully insured</p>
         </div>
       </section>
-
-      {/* Sticky mobile call bar */}
-      <a
-        href={PHONE_HREF}
-        className="fixed bottom-0 inset-x-0 z-40 flex items-center justify-center gap-2 bg-accent py-4 text-accent-foreground font-semibold lg:hidden"
-      >
-        <Phone className="h-5 w-5" />
-        Call {PHONE_DISPLAY}
-      </a>
-      {/* Spacer so content isn't hidden behind the sticky bar on mobile */}
-      <div className="h-16 lg:hidden" aria-hidden="true" />
     </main>
   )
 }
