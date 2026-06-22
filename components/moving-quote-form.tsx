@@ -134,7 +134,7 @@ export function MovingQuoteForm() {
 
       <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-3">
         <div>
-          <Label htmlFor="mv-name" className="text-sm font-medium mb-1.5 block">
+          <Label htmlFor="mv-name" className="text-sm font-medium text-foreground mb-1.5 block">
             Name *
           </Label>
           <Input
@@ -154,7 +154,7 @@ export function MovingQuoteForm() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <Label htmlFor="mv-phone" className="text-sm font-medium mb-1.5 block">
+            <Label htmlFor="mv-phone" className="text-sm font-medium text-foreground mb-1.5 block">
               Phone *
             </Label>
             <Input
@@ -174,7 +174,7 @@ export function MovingQuoteForm() {
             {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
           </div>
           <div>
-            <Label htmlFor="mv-email" className="text-sm font-medium mb-1.5 block">
+            <Label htmlFor="mv-email" className="text-sm font-medium text-foreground mb-1.5 block">
               Email *
             </Label>
             <Input
@@ -197,7 +197,7 @@ export function MovingQuoteForm() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <Label htmlFor="mv-from" className="text-sm font-medium mb-1.5 block">
+            <Label htmlFor="mv-from" className="text-sm font-medium text-foreground mb-1.5 block">
               Moving from *
             </Label>
             <Input
@@ -214,7 +214,7 @@ export function MovingQuoteForm() {
             {errors.movingFrom && <p className="text-xs text-destructive mt-1">{errors.movingFrom}</p>}
           </div>
           <div>
-            <Label htmlFor="mv-to" className="text-sm font-medium mb-1.5 block">
+            <Label htmlFor="mv-to" className="text-sm font-medium text-foreground mb-1.5 block">
               Moving to
             </Label>
             <Input
@@ -228,7 +228,7 @@ export function MovingQuoteForm() {
         </div>
 
         <div>
-          <Label className="text-sm font-medium mb-1.5 block">How many tables?</Label>
+          <Label className="text-sm font-medium text-foreground mb-1.5 block">How many tables?</Label>
           <div className="flex flex-wrap gap-2">
             {TABLE_COUNTS.map((count) => (
               <button
@@ -249,7 +249,7 @@ export function MovingQuoteForm() {
         </div>
 
         <div>
-          <Label className="text-sm font-medium mb-1.5 block">What are we moving?</Label>
+          <Label className="text-sm font-medium text-foreground mb-1.5 block">What are we moving?</Label>
           <div className="flex flex-wrap gap-2">
             {ITEM_OPTIONS.map((item) => {
               const active = items.includes(item)
@@ -273,7 +273,7 @@ export function MovingQuoteForm() {
         </div>
 
         <div>
-          <Label htmlFor="mv-timeframe" className="text-sm font-medium mb-1.5 block">
+          <Label htmlFor="mv-timeframe" className="text-sm font-medium text-foreground mb-1.5 block">
             Preferred timeframe
           </Label>
           <Input
@@ -286,7 +286,7 @@ export function MovingQuoteForm() {
         </div>
 
         <div>
-          <Label htmlFor="mv-message" className="text-sm font-medium mb-1.5 block">
+          <Label htmlFor="mv-message" className="text-sm font-medium text-foreground mb-1.5 block">
             Anything else we should know?
           </Label>
           <Textarea
