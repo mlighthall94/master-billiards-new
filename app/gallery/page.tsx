@@ -15,6 +15,10 @@ export const metadata: Metadata = pageMetadata({
 })
 
 const gallery = [
+  { src: "/images/gallery/gallery-gc7-room.png", alt: "Brunswick Gold Crown VII pool table with light blue cloth in a bright coastal game room" },
+  { src: "/images/gallery/gallery-gc7-front.png", alt: "Front view of a white Brunswick pool table with blue cloth in a modern kitchen game room" },
+  { src: "/images/gallery/gallery-gc7-angle.png", alt: "Angled view of a Brunswick Gold Crown VII table with blue cloth beside a white kitchen" },
+  { src: "/images/gallery/gallery-gc7-felt.png", alt: "Close-up of the blue cloth and pocket on a freshly recovered Brunswick Gold Crown VII" },
   { src: "/images/gallery/gallery-32.png", alt: "Finished basement game room with two blue-cloth pool tables under modern LED ring lights" },
   { src: "/images/gallery/gallery-21.png", alt: "Diamond table with red rails and blue cloth in a bar" },
   { src: "/images/gallery/gallery-25.png", alt: "Row of chrome-railed tables with bright blue cloth in a pool hall" },
