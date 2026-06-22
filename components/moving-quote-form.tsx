@@ -33,9 +33,31 @@ export function MovingQuoteForm() {
     message: "",
   })
   const [items, setItems] = React.useState<string[]>(["Pool table"])
+  const [errors, setErrors] = React.useState<Record<string, string>>({})
 
-  const canSubmit =
-    form.name !== "" && form.phone !== "" && form.email !== "" && form.movingFrom !== "" && !submitting
+  const validate = () => {
+    const next: Record<string, string> = {}
+    if (form.name.trim() === "") next.name = "Please enter your name."
+    if (form.phone.trim() === "") {
+      next.phone = "Please enter your phone number."
+    } else if (form.phone.replace(/[^0-9]/g, "").length < 10) {
+      next.phone = "Please enter a valid phone number."
+    }
+    if (form.email.trim() === "") {
+      next.email = "Please enter your email."
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      next.email = "Please enter a valid email address."
+    }
+    if (form.movingFrom.trim() === "") next.movingFrom = "Let us know where the move starts."
+    return next
+  }
+
+  const clearError = (field: string) =>
+    setErrors((prev) => {
+      if (!prev[field]) return prev
+      const { [field]: _omit, ...rest } = prev
+      return rest
+    })
 
   const toggleItem = (item: string) => {
     setItems((prev) => (prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]))
@@ -43,7 +65,13 @@ export function MovingQuoteForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!canSubmit) return
+    if (submitting) return
+    const validationErrors = validate()
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      return
+    }
+    setErrors({})
     setSubmitting(true)
     setError(null)
 
@@ -104,7 +132,7 @@ export function MovingQuoteForm() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-3">
         <div>
           <Label htmlFor="mv-name" className="text-sm font-medium mb-1 block">
             Name *
@@ -112,11 +140,16 @@ export function MovingQuoteForm() {
           <Input
             id="mv-name"
             value={form.name}
-            onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
+            onChange={(e) => {
+              setForm((p) => ({ ...p, name: e.target.value }))
+              clearError("name")
+            }}
             placeholder="Your name"
             autoComplete="name"
-            className="h-12"
+            aria-invalid={!!errors.name}
+            className="h-12 text-foreground"
           />
+          {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -129,11 +162,16 @@ export function MovingQuoteForm() {
               type="tel"
               inputMode="tel"
               value={form.phone}
-              onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
+              onChange={(e) => {
+                setForm((p) => ({ ...p, phone: e.target.value }))
+                clearError("phone")
+              }}
               placeholder="(603) 555-0123"
               autoComplete="tel"
-              className="h-12"
+              aria-invalid={!!errors.phone}
+              className="h-12 text-foreground"
             />
+            {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
           </div>
           <div>
             <Label htmlFor="mv-email" className="text-sm font-medium mb-1 block">
@@ -144,11 +182,16 @@ export function MovingQuoteForm() {
               type="email"
               inputMode="email"
               value={form.email}
-              onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
+              onChange={(e) => {
+                setForm((p) => ({ ...p, email: e.target.value }))
+                clearError("email")
+              }}
               placeholder="you@example.com"
               autoComplete="email"
-              className="h-12"
+              aria-invalid={!!errors.email}
+              className="h-12 text-foreground"
             />
+            {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
           </div>
         </div>
 
@@ -160,10 +203,15 @@ export function MovingQuoteForm() {
             <Input
               id="mv-from"
               value={form.movingFrom}
-              onChange={(e) => setForm((p) => ({ ...p, movingFrom: e.target.value }))}
+              onChange={(e) => {
+                setForm((p) => ({ ...p, movingFrom: e.target.value }))
+                clearError("movingFrom")
+              }}
               placeholder="City or town"
-              className="h-12"
+              aria-invalid={!!errors.movingFrom}
+              className="h-12 text-foreground"
             />
+            {errors.movingFrom && <p className="text-xs text-destructive mt-1">{errors.movingFrom}</p>}
           </div>
           <div>
             <Label htmlFor="mv-to" className="text-sm font-medium mb-1 block">
@@ -174,7 +222,7 @@ export function MovingQuoteForm() {
               value={form.movingTo}
               onChange={(e) => setForm((p) => ({ ...p, movingTo: e.target.value }))}
               placeholder="City or town"
-              className="h-12"
+              className="h-12 text-foreground"
             />
           </div>
         </div>
@@ -233,7 +281,7 @@ export function MovingQuoteForm() {
             value={form.timeframe}
             onChange={(e) => setForm((p) => ({ ...p, timeframe: e.target.value }))}
             placeholder="e.g. ASAP, next week, flexible"
-            className="h-12"
+            className="h-12 text-foreground"
           />
         </div>
 
@@ -247,6 +295,7 @@ export function MovingQuoteForm() {
             onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
             placeholder="Table size, stairs, access, slate type, etc."
             rows={3}
+            className="text-foreground"
           />
         </div>
 
@@ -256,7 +305,7 @@ export function MovingQuoteForm() {
           </p>
         )}
 
-        <Button type="submit" size="lg" disabled={!canSubmit} className="w-full py-6 text-base font-semibold">
+        <Button type="submit" size="lg" disabled={submitting} className="w-full py-6 text-base font-semibold">
           {submitting ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
