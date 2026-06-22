@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import {
   Phone,
   Check,
@@ -91,7 +90,7 @@ export default function PoolTableMovingLanding() {
     <main className="min-h-dvh bg-background">
       {/* Top bar — logo + click-to-call, no site navigation */}
       <header className="sticky top-0 z-30 bg-background/90 backdrop-blur border-b border-border">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <span className="font-bold text-foreground tracking-tight">Master Billiards</span>
           <a href={PHONE_HREF} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
             <Phone className="h-4 w-4 text-accent" />
@@ -101,62 +100,41 @@ export default function PoolTableMovingLanding() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="relative">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-team.png"
-            alt="Master Billiards team moving a pool table"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/70" />
-        </div>
-
-        <div className="relative max-w-5xl mx-auto px-4 py-10 lg:py-16 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center">
+      {/* Hero — solid dark band to match the site */}
+      <section className="bg-primary text-primary-foreground">
+        <div className="max-w-6xl mx-auto px-4 py-10 lg:px-8 lg:py-16 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
           {/* Pitch */}
-          <div className="text-background">
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
-              <Truck className="h-3.5 w-3.5" />
-              Professional Pool Table Movers
+          <div>
+            <div className="flex items-center gap-1.5 mb-3">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              ))}
+              <span className="text-sm text-primary-foreground/70 ml-1">5.0 on Google</span>
             </div>
-            <h1 className="mt-4 text-3xl font-bold leading-tight text-balance lg:text-4xl">
+
+            <h1 className="text-3xl font-bold leading-tight text-balance lg:text-5xl lg:leading-[1.05]">
               Move Your Pool Table Without the Damage Risk
             </h1>
-            <p className="mt-3 text-base leading-relaxed text-background/90 text-pretty">
-              Full disassembly, careful enclosed-trailer transport, and precision reassembly by an insured
-              crew that moves tables every single day.
+            <p className="mt-3 text-base leading-relaxed text-primary-foreground/80 text-pretty lg:text-xl lg:mt-4 lg:max-w-md">
+              Full disassembly, careful enclosed-trailer transport, and precision reassembly by an insured crew
+              that moves tables every single day.
             </p>
 
-            <ul className="mt-5 flex flex-col gap-2.5">
+            <ul className="mt-6 flex flex-col gap-3">
               {benefits.map((b) => (
-                <li key={b} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success">
-                    <Check className="h-3.5 w-3.5 text-success-foreground" />
+                <li key={b} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent">
+                    <Check className="h-3.5 w-3.5 text-accent-foreground" />
                   </span>
-                  <span className="text-sm leading-relaxed text-background/95">{b}</span>
+                  <span className="text-sm leading-relaxed text-primary-foreground/90">{b}</span>
                 </li>
               ))}
             </ul>
-
-            <div className="mt-6 hidden lg:flex items-center gap-4 text-sm text-background/90">
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-4 w-4 text-accent" /> Fully insured
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Star className="h-4 w-4 text-accent" /> 5.0 rated
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="h-4 w-4 text-accent" /> All of New England
-              </span>
-            </div>
           </div>
 
           {/* Form card */}
-          <div className="mt-6 lg:mt-0">
-            <div className="rounded-2xl bg-card p-5 shadow-2xl lg:p-6">
+          <div className="mt-8 lg:mt-0">
+            <div className="rounded-xl border border-border bg-card p-5 shadow-xl lg:p-6">
               <MovingQuoteForm />
             </div>
           </div>
@@ -165,7 +143,7 @@ export default function PoolTableMovingLanding() {
 
       {/* Trust stats */}
       <section className="border-b border-border bg-secondary">
-        <div className="max-w-5xl mx-auto px-4 py-6 grid grid-cols-3 gap-3">
+        <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-3 gap-3 lg:px-8">
           <div className="text-center">
             <div className="text-xl font-bold text-foreground lg:text-3xl">1,000+</div>
             <div className="text-xs text-muted-foreground mt-1 leading-tight lg:text-sm">Tables moved</div>
@@ -182,25 +160,25 @@ export default function PoolTableMovingLanding() {
       </section>
 
       {/* Equipment & capabilities */}
-      <section className="max-w-5xl mx-auto px-4 py-10 lg:py-14">
-        <div className="text-center">
-          <h2 className="text-xl font-bold text-foreground text-balance lg:text-2xl">
+      <section className="max-w-6xl mx-auto px-4 py-10 lg:px-8 lg:py-20">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-xl font-bold text-foreground text-balance lg:text-4xl">
             The Right Equipment for a Damage-Free Move
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:text-base">
-            Moving a pool table is heavy, precise work. We show up with purpose-built gear to protect your
-            table, your home, and your investment from start to finish.
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed lg:text-lg lg:mt-4">
+            Moving a pool table is heavy, precise work. We show up with purpose-built gear to protect your table,
+            your home, and your investment from start to finish.
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:mt-12 lg:gap-8">
           {equipment.map((item) => {
             const Icon = item.icon
             return (
-              <div key={item.title} className="rounded-xl border border-border bg-card p-5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                  <Icon className="h-5 w-5 text-primary" />
-                </span>
+              <div key={item.title} className="rounded-xl border border-border bg-card p-5 lg:p-6">
+                <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center lg:h-12 lg:w-12">
+                  <Icon className="h-5 w-5 text-primary lg:h-6 lg:w-6" />
+                </div>
                 <h3 className="mt-3 font-semibold text-foreground leading-snug">{item.title}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{item.body}</p>
               </div>
@@ -211,18 +189,18 @@ export default function PoolTableMovingLanding() {
 
       {/* We also move */}
       <section className="bg-secondary border-y border-border">
-        <div className="max-w-5xl mx-auto px-4 py-10 lg:py-14">
-          <div className="text-center">
-            <h2 className="text-xl font-bold text-foreground text-balance lg:text-2xl">
+        <div className="max-w-6xl mx-auto px-4 py-10 lg:px-8 lg:py-20">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-xl font-bold text-foreground text-balance lg:text-4xl">
               We Move More Than Pool Tables
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:text-base">
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed lg:text-lg lg:mt-4">
               Relocating a whole game room? We handle the big, awkward, and delicate pieces other movers
               won&apos;t touch.
             </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:mt-12 lg:gap-8">
             {alsoMove.map((item) => {
               const Icon = item.icon
               return (
@@ -230,9 +208,9 @@ export default function PoolTableMovingLanding() {
                   key={item.label}
                   className="flex flex-col items-center justify-center gap-3 rounded-xl border border-border bg-card p-6 text-center"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Icon className="h-6 w-6 text-primary" />
-                  </span>
+                  </div>
                   <span className="font-semibold text-foreground">{item.label}</span>
                 </div>
               )
@@ -242,23 +220,23 @@ export default function PoolTableMovingLanding() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-primary">
-        <div className="max-w-3xl mx-auto px-4 py-10 text-center lg:py-14">
-          <h2 className="text-2xl font-bold text-primary-foreground text-balance">
-            Ready to move your table?
-          </h2>
-          <p className="mt-2 text-primary-foreground/80 leading-relaxed">
+      <section className="bg-primary text-primary-foreground">
+        <div className="max-w-3xl mx-auto px-4 py-10 text-center lg:py-20">
+          <h2 className="text-2xl font-bold text-balance lg:text-4xl">Ready to move your table?</h2>
+          <p className="mt-2 text-primary-foreground/80 leading-relaxed lg:text-lg lg:mt-4">
             Call now for a fast, free quote — or scroll up to send your details.
           </p>
-          <Button asChild size="lg" variant="secondary" className="mt-5 py-6 px-8 text-base font-semibold">
+          <Button
+            asChild
+            size="lg"
+            className="mt-6 bg-primary-foreground text-primary hover:bg-primary-foreground/90 py-6 px-8 text-base font-semibold lg:mt-8 lg:px-12"
+          >
             <a href={PHONE_HREF}>
               <Phone className="h-5 w-5 mr-2" />
               {PHONE_DISPLAY}
             </a>
           </Button>
-          <p className="mt-4 text-sm text-primary-foreground/70">
-            Mon–Fri 8am–5pm · Family-run · Fully insured
-          </p>
+          <p className="mt-4 text-sm text-primary-foreground/70">Mon–Fri 8am–5pm · Family-run · Fully insured</p>
         </div>
       </section>
 
