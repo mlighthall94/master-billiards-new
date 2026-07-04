@@ -149,7 +149,7 @@ export function Footer() {
         </div>
 
         <p className="text-xs text-primary-foreground/50">
-            &copy; {new Date().getFullYear()} Master Billiards, LLC. | New England
+            &copy; {new Date().getFullYear()} Master Billiards, LLC. | Plaistow, NH
         </p>
       </div>
     </footer>
