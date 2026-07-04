@@ -243,7 +243,7 @@ export default function QuotePage() {
       )}
 
       {/* Form content */}
-      <main className="flex-1 px-4 py-7 pb-40 w-full lg:max-w-2xl lg:mx-auto lg:py-12">
+      <main className="flex-1 px-4 pt-7 pb-40 w-full lg:max-w-2xl lg:mx-auto lg:pt-12">
         <div key={step} className="animate-in fade-in-0 slide-in-from-bottom-3 duration-300">
           {/* Step 1: Service Selection */}
           {step === 1 && (
