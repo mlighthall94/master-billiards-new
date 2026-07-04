@@ -21,10 +21,10 @@ export function pageMetadata({ title, description, path, type = "website" }: Pag
     description,
     alternates: { canonical: path },
     openGraph: {
-      title: `${title} | Master Billiards`,
+      title: `${title} | Master Billiards LLC`,
       description,
       url: path,
-      siteName: "Master Billiards",
+      siteName: "Master Billiards LLC",
       locale: "en_US",
       type,
       images: [
@@ -38,7 +38,7 @@ export function pageMetadata({ title, description, path, type = "website" }: Pag
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | Master Billiards`,
+      title: `${title} | Master Billiards LLC`,
       description,
       images: ["/images/hero-recover.png"],
     },

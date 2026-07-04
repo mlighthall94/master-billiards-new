@@ -16,12 +16,12 @@ const SITE_DESCRIPTION =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Master Billiards | Pool Table Moving, Recovery & Repair in NH & MA',
-    template: '%s | Master Billiards',
+    default: 'Master Billiards LLC | Pool Table Moving, Recovery & Repair in NH & MA',
+    template: '%s | Master Billiards LLC',
   },
   description: SITE_DESCRIPTION,
   generator: 'v0.app',
-  applicationName: 'Master Billiards',
+  applicationName: 'Master Billiards LLC',
   keywords: [
     'pool table movers',
     'pool table moving NH',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     email: true,
   },
   openGraph: {
-    title: 'Master Billiards | Pool Table Moving, Recovery & Repair in NH & MA',
+    title: 'Master Billiards LLC | Pool Table Moving, Recovery & Repair in NH & MA',
     description: SITE_DESCRIPTION,
-    siteName: 'Master Billiards',
+    siteName: 'Master Billiards LLC',
     url: SITE_URL,
     locale: 'en_US',
     type: 'website',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Master Billiards | Pool Table Moving, Recovery & Repair in NH & MA',
+    title: 'Master Billiards LLC | Pool Table Moving, Recovery & Repair in NH & MA',
     description: SITE_DESCRIPTION,
     images: ['/images/hero-recover.png'],
   },
