@@ -15,6 +15,15 @@ export const metadata: Metadata = pageMetadata({
 })
 
 const gallery = [
+  { src: "/images/gallery/gallery-diamond-gray.png", alt: "Black Diamond pool table with gray cloth in a green-walled game room" },
+  { src: "/images/gallery/gallery-diamond-lightblue.png", alt: "Brown Diamond pool table with light blue cloth in a home game room" },
+  { src: "/images/gallery/gallery-oak-blue-angle.png", alt: "Weathered-oak pool table with royal blue cloth freshly recovered" },
+  { src: "/images/gallery/gallery-oak-blue-room.png", alt: "Weathered-oak table with royal blue cloth set up in a finished basement" },
+  { src: "/images/gallery/gallery-antique-red-full.png", alt: "Antique carved pool table with burgundy cloth and fringed leather pockets on an oriental rug" },
+  { src: "/images/gallery/gallery-antique-red-angle.png", alt: "Angled view of an antique table with burgundy cloth and tasseled drop pockets" },
+  { src: "/images/gallery/gallery-teal-pocket.png", alt: "Close-up of a black leather drop pocket with new teal cloth" },
+  { src: "/images/gallery/gallery-gray-pocket.png", alt: "Close-up of a corner pocket with freshly installed gray cloth" },
+  { src: "/images/gallery/gallery-gray-rail-macro.png", alt: "Macro view of a pool table rail and pocket with new gray cloth" },
   { src: "/images/gallery/gallery-gc7-room.png", alt: "Brunswick Gold Crown VII pool table with light blue cloth in a bright coastal game room" },
   { src: "/images/gallery/gallery-gc7-front.png", alt: "Front view of a white Brunswick pool table with blue cloth in a modern kitchen game room" },
   { src: "/images/gallery/gallery-gc7-angle.png", alt: "Angled view of a Brunswick Gold Crown VII table with blue cloth beside a white kitchen" },
