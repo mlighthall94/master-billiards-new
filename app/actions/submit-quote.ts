@@ -2,6 +2,7 @@
 
 import { Resend } from "resend"
 import { put } from "@vercel/blob"
+import { persistLead } from "@/lib/persist-lead"
 
 export interface QuoteSubmission {
   services: string[]
@@ -100,6 +101,20 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
     ...(photoUrls.length > 0 ? { Photos: photoUrls.map((url) => ({ url })) } : {}),
   }
 
+  // Track whether the lead was captured by *any* channel. As long as one
+  // succeeds, the submission is safe and we report success to the customer.
+  let captured = false
+
+  // --- 0. Durable backup (runs first, most reliable) ---
+  // Save the full lead to Blob storage before attempting email/Airtable so a
+  // lead is NEVER lost, even if every third-party service is down.
+  const backupUrl = await persistLead("quote", { ...fields, PhotoUrls: photoUrls })
+  if (backupUrl) {
+    captured = true
+  } else {
+    console.error("[v0] Quote lead durable backup failed")
+  }
+
   // --- 1. Store in Airtable ---
   const airtableToken = process.env.AIRTABLE_API_KEY
   const airtableBaseId = process.env.AIRTABLE_BASE_ID
@@ -131,7 +146,9 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
         }
       }
 
-      if (!res.ok) {
+      if (res.ok) {
+        captured = true
+      } else {
         const body = await res.text()
         console.error("[v0] Airtable error:", res.status, body)
       }
@@ -145,15 +162,14 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
   // --- 2. Email the business ---
   const resendKey = process.env.RESEND_API_KEY
   const notifyEmail = process.env.QUOTE_NOTIFY_EMAIL
-  // Resend can only send "from" a verified domain. masterbilliards.co is verified,
-  // so use it as the default sender. Ignore any free-mail (gmail/outlook/etc.) value
-  // in QUOTE_FROM_EMAIL since Resend rejects those domains.
+  // Resend can only send "from" a VERIFIED domain (masterbilliards.co). Only honor
+  // a configured QUOTE_FROM_EMAIL if it's on that verified domain; otherwise always
+  // fall back to the known-good address. This makes the sender bulletproof no matter
+  // what QUOTE_FROM_EMAIL is set to (gmail, an unverified domain, etc.).
   const VERIFIED_FROM = "Master Billiards <quotes@masterbilliards.co>"
   const configuredFrom = process.env.QUOTE_FROM_EMAIL?.trim()
-  const isFreeMailFrom = /@(gmail|yahoo|hotmail|outlook|live|msn|icloud|me|aol)\.[a-z.]+>?\s*$/i.test(
-    configuredFrom || "",
-  )
-  const fromEmail = configuredFrom && !isFreeMailFrom ? configuredFrom : VERIFIED_FROM
+  const isVerifiedDomainFrom = /@([a-z0-9-]+\.)*masterbilliards\.co>?\s*$/i.test(configuredFrom || "")
+  const fromEmail = configuredFrom && isVerifiedDomainFrom ? configuredFrom : VERIFIED_FROM
 
   if (resendKey && notifyEmail) {
     try {
@@ -209,18 +225,42 @@ export async function submitQuote(data: QuoteSubmission): Promise<SubmitResult> 
         </div>
       `
 
-      await resend.emails.send({
+      // Resend does NOT throw on API errors — it returns { error }. Check it,
+      // and retry once (covers transient failures / rate limits).
+      const payload = {
         from: fromEmail,
         to: notifyEmail,
         replyTo: fields.Email || undefined,
         subject: `New Quote Request — ${fields.Name} (${fields.Services})`,
         html,
-      })
+      }
+
+      let { error } = await resend.emails.send(payload)
+      if (error) {
+        console.error("[v0] Resend email error (attempt 1):", error)
+        await new Promise((r) => setTimeout(r, 400))
+        ;({ error } = await resend.emails.send(payload))
+        if (error) {
+          console.error("[v0] Resend email error (attempt 2):", error)
+        }
+      }
+      if (!error) {
+        captured = true
+      }
     } catch (err) {
-      console.error("[v0] Resend email failed:", err)
+      console.error("[v0] Resend email threw:", err)
     }
   } else {
     console.error("[v0] Missing RESEND_API_KEY or QUOTE_NOTIFY_EMAIL")
+  }
+
+  // Only surface an error to the customer if EVERY channel failed (durable
+  // backup, Airtable, and email). Otherwise their request is safely captured.
+  if (!captured) {
+    return {
+      ok: false,
+      error: "We couldn't submit your request. Please call us and we'll take care of it right away.",
+    }
   }
 
   return { ok: true }
