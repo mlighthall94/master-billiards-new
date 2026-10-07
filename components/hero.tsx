@@ -4,6 +4,7 @@ import { ZoomableImage } from "@/components/zoomable-image"
 import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 
@@ -19,6 +20,10 @@ const slides = [
   {
     image: "/images/hero-2.jpg",
     alt: "Game room with pool tables",
+    badge: {
+      logo: "/images/brands/perimeter-lights.png",
+      text: "Master Billiards is now an official Perimeter Light dealer!",
+    },
   },
   {
     image: "/images/hero.png",
@@ -64,6 +69,22 @@ export function Hero() {
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 priority={index === 0}
               />
+              {slide.badge && (
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent px-4 pb-4 pt-10 lg:px-8 lg:pb-8 lg:pt-16">
+                  <div className="flex items-center gap-3 lg:gap-4">
+                    <Image
+                      src={slide.badge.logo || "/placeholder.svg"}
+                      alt="Perimeter Lights logo"
+                      width={56}
+                      height={56}
+                      className="h-10 w-10 shrink-0 object-contain lg:h-14 lg:w-14"
+                    />
+                    <p className="text-sm font-semibold text-white leading-snug lg:text-lg">
+                      {slide.badge.text}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

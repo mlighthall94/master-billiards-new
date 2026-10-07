@@ -5,11 +5,12 @@ import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 
 const brands = [
-  { name: "Diamond", logo: "/images/brands/diamond.svg" },
-  { name: "Predator", logo: "/images/brands/predator.svg" },
-  { name: "Aramith", logo: "/images/brands/aramith.svg" },
-  { name: "Simonis", logo: "/images/brands/simonis.svg" },
-  { name: "Brunswick", logo: "/images/brands/brunswick.svg" },
+  { name: "Diamond", logo: "/images/brands/diamond.svg", invert: true },
+  { name: "Predator", logo: "/images/brands/predator.svg", invert: true },
+  { name: "Aramith", logo: "/images/brands/aramith.svg", invert: true },
+  { name: "Simonis", logo: "/images/brands/simonis.svg", invert: true },
+  { name: "Brunswick", logo: "/images/brands/brunswick.svg", invert: true },
+  { name: "Perimeter Lights", logo: "/images/brands/perimeter-lights.png", invert: false },
 ]
 
 export function Brands() {
@@ -45,7 +46,7 @@ export function Brands() {
                 alt={brand.name}
                 width={200}
                 height={80}
-                className="brightness-0 invert"
+                className={brand.invert ? "brightness-0 invert" : ""}
               />
             </div>
           ))}
@@ -61,7 +62,7 @@ export function Brands() {
             alt={brand.name}
             width={160}
             height={64}
-            className="brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"
+            className={`opacity-70 hover:opacity-100 transition-opacity ${brand.invert ? "brightness-0 invert" : ""}`}
           />
         ))}
       </div>
