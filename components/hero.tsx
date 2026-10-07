@@ -22,7 +22,7 @@ const slides = [
     alt: "Game room with pool tables",
     badge: {
       logo: "/images/brands/perimeter-lights.png",
-      text: "Master Billiards is now a certified Perimeter Light dealer!",
+      text: "Master Billiards is now an official Perimeter Light dealer!",
     },
   },
   {
